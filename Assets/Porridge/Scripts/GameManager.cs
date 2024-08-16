@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class PorridgeGameManager : MonoBehaviour
 {
     // Singleton for game manager
-    public static GameManager instance;
+    public static PorridgeGameManager instance;
     public GameObject goal;
     public TextMeshProUGUI winText;
     public GameObject player;
