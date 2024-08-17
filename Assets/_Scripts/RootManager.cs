@@ -23,6 +23,11 @@ public class RootManager : MonoBehaviour
     private void Update()
     {
         Application.targetFrameRate = frameRate;
+
+        if (SceneManager.GetActiveScene().name == "MENU"
+        || SceneManager.GetActiveScene().name == "SETTINGS") {
+            Destroy(GameObject.Find("GAME MANAGER"));
+        }
     }
 
     public void GoMenu()
@@ -32,7 +37,7 @@ public class RootManager : MonoBehaviour
 
     public void GoGame()
     {
-        SceneManager.LoadScene("GAME");
+        SceneManager.LoadScene("LEVEL 1");
     }
 
     public void GoSetting()

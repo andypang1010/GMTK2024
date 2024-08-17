@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("References")]
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
+    private PlayerScale playerScale;
     private Rigidbody2D rb;
 
     [Header("Movement")]
@@ -21,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
+        playerScale = GetComponent<PlayerScale>();
     }
 
     void Update()
@@ -45,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (coyoteTimeCounter > 0f && jumpBufferCounter > 0f) {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            rb.velocity = new Vector2(rb.velocity.x, HeightToVelocity());
         }
     }
 
@@ -60,8 +62,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    bool IsGrounded() {
+    public bool IsGrounded() {
         return Physics2D.OverlapBox(groundCheck.position, new Vector2(0.75f * transform.localScale.x, 0.05f), 0f, groundLayer);
+    }
+
+    float HeightToVelocity() {
+        return Mathf.Sqrt(2 * (1f * transform.localScale.x) / Mathf.Abs(Physics2D.gravity.y)) * Mathf.Abs(Physics2D.gravity.y);
     }
 
     private void OnDrawGizmos() {

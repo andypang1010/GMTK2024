@@ -1,12 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerScale : MonoBehaviour
 {
     [Header("References")]
     public CinemachineVirtualCamera virtualCamera;
+    PlayerMovement playerMovement;
 
     [Header("Player Scale")]
     public float defaultPlayerScale;
@@ -17,37 +20,30 @@ public class PlayerScale : MonoBehaviour
     public float defaultOrthoScale;
     public float orthoScaleSpeed;
     [SerializeField] private float maxOrthoScale, minOrthoScale;
-    
-    void Start()
-    {
-        transform.localScale = Vector3.one * defaultPlayerScale;
-        virtualCamera.m_Lens.OrthographicSize = defaultOrthoScale;
-    }
 
+    void Start() {
+        playerMovement = GetComponent<PlayerMovement>();
+    }
+    
     void Update()
     {
+        if (!playerMovement.IsGrounded()) return;
 
-        // Check if currently within min and max scale
-        if (transform.localScale.x <= maxPlayerScale
-            && transform.localScale.x >= minPlayerScale) {
+        if (transform.localScale.x > maxPlayerScale || transform.localScale.x < minPlayerScale) return;
 
-            // Can scale freely if no collision, can only scale down if has collision
-            if (IsCollisionFree() || (!IsCollisionFree() && Input.mouseScrollDelta.y < 0f)) {
-                transform.localScale += Vector3.one * Input.mouseScrollDelta.y * playerScaleSpeed * Time.deltaTime;
-                virtualCamera.m_Lens.OrthographicSize = Mathf.Clamp(virtualCamera.m_Lens.OrthographicSize + Input.mouseScrollDelta.y * orthoScaleSpeed * Time.deltaTime, minOrthoScale, maxOrthoScale);
-            }
-
-            Mathf.Clamp(virtualCamera.m_Lens.OrthographicSize, minOrthoScale, maxOrthoScale);
-
-            // Clip scale to between min and max scale
-            if (transform.localScale.x > maxPlayerScale) {
-                transform.localScale = Vector3.one * maxPlayerScale;
-            }
-
-            else if (transform.localScale.x < minPlayerScale) {
-                transform.localScale = Vector3.one * minPlayerScale;
-            }
+        // Can scale freely if no collision, can only scale down if has collision
+        if (IsCollisionFree() || (!IsCollisionFree() && Input.mouseScrollDelta.y < 0f)) {
+            
+            transform.localScale += Vector3.one * Input.mouseScrollDelta.y * playerScaleSpeed;
+            virtualCamera.m_Lens.OrthographicSize = 
+                Mathf.Clamp(
+                    virtualCamera.m_Lens.OrthographicSize + Input.mouseScrollDelta.y * orthoScaleSpeed, 
+                    minOrthoScale, 
+                    maxOrthoScale
+                );
         }
+
+        ClampScale();
     }
 
     public bool IsCollisionFree() {
@@ -56,6 +52,25 @@ public class PlayerScale : MonoBehaviour
         bool topFree = !Physics2D.OverlapBox(transform.position + Vector3.up * (transform.localScale.x / 2), new Vector2(0.9f * transform.localScale.x, 0.05f), 0, ~LayerMask.GetMask("Player"));
     
         return leftFree && rightFree && topFree;
+    }
+
+    private void ClampScale() {
+        // Clamp player scale
+        if (transform.localScale.x > maxPlayerScale) {
+            transform.localScale = Vector3.one * maxPlayerScale;
+        }
+
+        else if (transform.localScale.x < minPlayerScale) {
+            transform.localScale = Vector3.one * minPlayerScale;
+        }
+
+        // Clamp camera scale 
+        Mathf.Clamp(
+            virtualCamera.m_Lens.OrthographicSize, 
+            minOrthoScale, 
+            maxOrthoScale
+        );
+
     }
 
     private void OnDrawGizmos() {
