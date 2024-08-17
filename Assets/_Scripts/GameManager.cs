@@ -1,53 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
-    private GameState currentState;
+    public GameObject pausePanel;
+    private GameState currentGameState;
 
-    private void Awake() 
-    {         
-        if (Instance != null && Instance != this) 
-        { 
-            Destroy(this); 
-        } 
-        else 
-        { 
-            Instance = this; 
-            DontDestroyOnLoad(gameObject);
-        } 
+    void Start() {
+        currentGameState = GameState.GAME;
     }
 
-    public GameState GetState() {
-        return currentState;
+    void Update()
+    {
+        if (currentGameState == GameState.GAME) {
+            Time.timeScale = 1f;
+            pausePanel.SetActive(false);
+        }
+
+        else if (currentGameState == GameState.PAUSE) {
+            Time.timeScale = 0f;
+            pausePanel.SetActive(true);
+        }
     }
 
-    public void GoMenu() {
-        SceneManager.LoadScene("MENU");
-        currentState = GameState.MENU;
+    public void ContinueGame() {
+        currentGameState = GameState.GAME;
     }
 
-    public void GoGame() {
-        SceneManager.LoadScene("GAME");
-        currentState = GameState.GAME;
-    }
-
-    public void GoSetting() {
-        SceneManager.LoadScene("SETTINGS");
-        currentState = GameState.SETTINGS;
-    }
-
-    public void GoExit() {
-        Application.Quit();
+    public void PauseGame() {
+        currentGameState = GameState.PAUSE;
     }
 }
 
 public enum GameState {
-    MENU,
     GAME,
-    SETTINGS,
     PAUSE
 }
