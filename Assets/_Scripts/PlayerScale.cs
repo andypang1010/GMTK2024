@@ -26,10 +26,12 @@ public class PlayerScale : MonoBehaviour
     public GameObject activeTaggedObject;
     public GameObject playerEyes;
     public LayerMask canSeeThroughLayer;
+    private Vector3 originalPlayerScale;
 
     void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
+        originalPlayerScale = transform.localScale;
     }
 
     void Update()
