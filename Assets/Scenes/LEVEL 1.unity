@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 60442534}
   - component: {fileID: 60442533}
   - component: {fileID: 60442532}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Turtle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -390,7 +390,7 @@ GameObject:
   m_Component:
   - component: {fileID: 331608619}
   - component: {fileID: 331608618}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -461,7 +461,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 60442535}
@@ -983,7 +983,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1782848580}
   - component: {fileID: 1782848579}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1071,7 +1071,7 @@ GameObject:
   - component: {fileID: 1855442280}
   - component: {fileID: 1855442279}
   - component: {fileID: 1855442277}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Flamingo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1185,7 +1185,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.55, y: 1.35}
   m_EdgeRadius: 0
 --- !u!1 &1875861913
 GameObject:
