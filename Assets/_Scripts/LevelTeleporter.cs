@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class LevelTeleporter : MonoBehaviour
 {
-    public string levelName;
+    public int toLevelIndex;
+    public int fromLevelIndex;
+    public Transform toPosition;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            RootManager.Instance.GoToScene(levelName);
+            RootManager.Instance.GoToScene(toLevelIndex);
+            // GameManager.Instance.PlacePlayerInLevel(toLevelIndex, fromLevelIndex, toPosition);
         }
     }
 }

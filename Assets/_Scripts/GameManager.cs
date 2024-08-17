@@ -7,8 +7,11 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public GameState currentGameState { get; private set; }
+    public int[] defaultLevelScales = { 1, 1 };
 
-    void Awake() {
+
+    void Awake()
+    {
         if (Instance != null && Instance != this)
         {
             Destroy(this);
@@ -16,6 +19,7 @@ public class GameManager : MonoBehaviour
         else
         {
             Instance = this;
+
             DontDestroyOnLoad(gameObject);
         }
     }
@@ -40,6 +44,14 @@ public class GameManager : MonoBehaviour
     {
         Instance.currentGameState = GameState.PAUSE;
         Time.timeScale = 0f;
+    }
+
+    public void PlacePlayerInLevel(int levelIndex, int fromLevelIndex, Transform toPosition)
+    {
+        GameObject player = GameObject.Find("PLAYER");
+        Debug.Log("Placing player in level " + levelIndex + " from level " + fromLevelIndex);
+        player.transform.position = toPosition.position;
+        player.transform.localScale = Vector3.one * defaultLevelScales[levelIndex];
     }
 }
 

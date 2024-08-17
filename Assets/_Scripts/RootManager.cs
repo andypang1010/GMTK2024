@@ -25,7 +25,8 @@ public class RootManager : MonoBehaviour
         Application.targetFrameRate = frameRate;
 
         if (SceneManager.GetActiveScene().name == "MENU"
-        || SceneManager.GetActiveScene().name == "SETTINGS") {
+        || SceneManager.GetActiveScene().name == "SETTINGS")
+        {
             Destroy(GameObject.Find("GAME MANAGER"));
         }
     }
@@ -53,5 +54,10 @@ public class RootManager : MonoBehaviour
     public void GoToScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+    }
+
+    public void GoToScene(int sceneIndex)
+    {
+        SceneManager.LoadScene(sceneIndex);
     }
 }

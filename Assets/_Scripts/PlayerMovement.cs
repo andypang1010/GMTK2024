@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -20,7 +22,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpBuffer;
     private float coyoteTimeCounter, jumpBufferCounter;
 
-    void Start() {
+    void Start()
+    {
         rb = GetComponent<Rigidbody2D>();
         playerScale = GetComponent<PlayerScale>();
     }
@@ -31,46 +34,91 @@ public class PlayerMovement : MonoBehaviour
 
 
         // Coyote Time Check
-        if (IsGrounded()) {
+        if (IsGrounded())
+        {
             coyoteTimeCounter = coyoteTime;
         }
-        else {
+        else
+        {
             coyoteTimeCounter -= Time.deltaTime;
         }
 
         // Jump Buffer Check
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
             jumpBufferCounter = jumpBuffer;
         }
-        else {
+        else
+        {
             jumpBufferCounter -= Time.deltaTime;
         }
 
-        if (coyoteTimeCounter > 0f && jumpBufferCounter > 0f) {
+        if (coyoteTimeCounter > 0f && jumpBufferCounter > 0f)
+        {
             rb.velocity = new Vector2(rb.velocity.x, HeightToVelocity());
+        }
+
+        Flip();
+    }
+
+    void Flip()
+    {
+        if (horizontal > 0)
+        {
+            // detect if player's x scale is already positive
+            if (transform.localScale.x > 0)
+            {
+                return;
+            }
+            else
+            {
+                Vector3 tempScale = transform.localScale;
+                tempScale.x *= -1;
+                transform.localScale = tempScale;
+            }
+        }
+        else if (horizontal < 0)
+        {
+            // detect if player's x scale is already negative
+            if (transform.localScale.x < 0)
+            {
+                return;
+            }
+            else
+            {
+                Vector3 tempScale = transform.localScale;
+                tempScale.x *= -1;
+                transform.localScale = tempScale;
+            }
         }
     }
 
-    void FixedUpdate() {
-        if (IsGrounded()) {
+    void FixedUpdate()
+    {
+        if (IsGrounded())
+        {
             rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);
         }
 
         // Damping in air
-        else {
+        else
+        {
             rb.velocity = new Vector2(horizontal * moveSpeed * 0.7f, rb.velocity.y);
         }
     }
 
-    public bool IsGrounded() {
-        return Physics2D.OverlapBox(groundCheck.position, new Vector2(0.75f * transform.localScale.x, 0.05f), 0f, groundLayer);
+    public bool IsGrounded()
+    {
+        return Physics2D.OverlapBox(groundCheck.position, new Vector2(0.75f * Mathf.Abs(transform.localScale.x), 0.05f), 0f, groundLayer);
     }
 
-    float HeightToVelocity() {
-        return Mathf.Sqrt(2 * (1f * transform.localScale.x) / Mathf.Abs(Physics2D.gravity.y)) * Mathf.Abs(Physics2D.gravity.y);
+    float HeightToVelocity()
+    {
+        return Mathf.Sqrt(2 * (1f * Mathf.Abs(transform.localScale.x)) / Mathf.Abs(Physics2D.gravity.y)) * Mathf.Abs(Physics2D.gravity.y);
     }
 
-    private void OnDrawGizmos() {
-        Gizmos.DrawCube(groundCheck.position, new Vector2(0.75f * transform.localScale.x, 0.05f));
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawCube(groundCheck.position, new Vector2(0.75f * Mathf.Abs(transform.localScale.x), 0.05f));
     }
 }
