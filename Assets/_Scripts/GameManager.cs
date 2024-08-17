@@ -40,17 +40,17 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
     }
 
-    public void QuitToMenu()
-    {
-        Time.timeScale = 1f;
-        // Load Menu Scene
-        SceneManager.LoadScene(0);
-    }
+    // public void QuitToMenu()
+    // {
+    //     Time.timeScale = 1f;
+    //     // Load Menu Scene
+    //     SceneManager.LoadScene(0);
+    // }
 
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
+    // public void QuitGame()
+    // {
+    //     Application.Quit();
+    // }
 }
 
 public enum GameState
