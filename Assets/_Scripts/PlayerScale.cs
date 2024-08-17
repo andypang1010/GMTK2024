@@ -22,7 +22,6 @@ public class PlayerScale : MonoBehaviour
     [SerializeField] private float maxOrthoScale, minOrthoScale;
 
     [Header("Tagging Objects")]
-    public GameObject player;
     public GameObject activeTaggedObject;
     public GameObject playerEyes;
     public LayerMask canSeeThroughLayer;
@@ -42,20 +41,20 @@ public class PlayerScale : MonoBehaviour
     {
         if (activeTaggedObject)
         {
-            if (!checkIfObjectIsAvailable(activeTaggedObject))
+            if (!IsObjectAvailable(activeTaggedObject))
             {
-                deselectObject();
+                DeselectObject();
             }
         }
         // detect if player's mouse is clicking on a game object
         GameObject clickedObject = Input.GetMouseButtonDown(0) ? GetClickedObject() : null;
         if (clickedObject)
         {
-            bool isAvailable = checkIfObjectIsAvailable(clickedObject);
+            bool isAvailable = IsObjectAvailable(clickedObject);
             if (isAvailable)
             {
                 Debug.Log("Object is available");
-                selectObject(clickedObject);
+                SelectObject(clickedObject);
             }
         }
 
@@ -64,7 +63,7 @@ public class PlayerScale : MonoBehaviour
         {
             if (rightClickedObject == activeTaggedObject)
             {
-                deselectObject();
+                DeselectObject();
             }
         }
 
@@ -141,7 +140,7 @@ public class PlayerScale : MonoBehaviour
         return null;
     }
 
-    public bool checkIfObjectIsAvailable(GameObject clickedObject)
+    public bool IsObjectAvailable(GameObject clickedObject)
     {
         // check if object has the "Scalable" script
         if (!clickedObject.GetComponent<Scalable>())
@@ -152,7 +151,7 @@ public class PlayerScale : MonoBehaviour
         // check if object is in front of player
         Vector2 playerFrontNormal = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
         Vector2 playerToClickedObject = clickedObject.transform.position - transform.position;
-        bool isObjectInFront = Vector2.Dot(playerFrontNormal, playerToClickedObject) > 0;
+        bool isObjectInFront = Vector2.Dot(playerFrontNormal, playerToClickedObject) >= 0;
         if (!isObjectInFront) return false;
 
         // Debug.Log("Current Active Object IS in front of player");
@@ -171,20 +170,25 @@ public class PlayerScale : MonoBehaviour
         return false;
     }
 
-    public void deselectObject()
+    public void DeselectObject()
     {
-        activeTaggedObject.GetComponent<Renderer>().material.color = Color.white;
         activeTaggedObject = null;
+
+        Color objectColor = activeTaggedObject.GetComponentInChildren<SpriteRenderer>().color;
+        activeTaggedObject.GetComponentInChildren<SpriteRenderer>().color = new Color(objectColor.r, objectColor.g, objectColor.b, 100);
     }
 
-    public void selectObject(GameObject clickedObject)
+    public void SelectObject(GameObject clickedObject)
     {
         if (activeTaggedObject)
         {
-            deselectObject();
+            DeselectObject();
         }
+
         activeTaggedObject = clickedObject;
-        activeTaggedObject.GetComponent<Renderer>().material.color = Color.red;
+
+        Color objectColor = activeTaggedObject.GetComponentInChildren<SpriteRenderer>().color;
+        activeTaggedObject.GetComponentInChildren<SpriteRenderer>().color = new Color(objectColor.r, objectColor.g, objectColor.b, 255);
     }
 
     public bool IsCollisionFree()
