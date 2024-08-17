@@ -1160,11 +1160,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a60c06fe2247aec40ba13c1737cd3808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virtualCamera: {fileID: 0}
-  defaultScale: 1
-  changeSpeed: 10
-  maxScale: 5
-  minScale: 0.5
+  virtualCamera: {fileID: 1173523038}
+  defaultPlayerScale: 1
+  playerScaleSpeed: 10
+  maxPlayerScale: 5
+  minPlayerScale: 0.5
+  defaultOrthoScale: 5
+  orthoScaleSpeed: 20
+  maxOrthoScale: 12
+  minOrthoScale: 2
 --- !u!1 &1181007245
 GameObject:
   m_ObjectHideFlags: 0

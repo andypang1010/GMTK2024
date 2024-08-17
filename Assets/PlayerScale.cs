@@ -1,38 +1,51 @@
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
-using TreeEditor;
 using UnityEngine;
 
 public class PlayerScale : MonoBehaviour
 {
+    [Header("References")]
     public CinemachineVirtualCamera virtualCamera;
-    public float defaultScale, changeSpeed;
-    [SerializeField] private float maxScale, minScale;
+
+    [Header("Player Scale")]
+    public float defaultPlayerScale;
+    public float playerScaleSpeed;
+    [SerializeField] private float maxPlayerScale, minPlayerScale;
+
+    [Header("Ortho Scale")]
+    public float defaultOrthoScale;
+    public float orthoScaleSpeed;
+    [SerializeField] private float maxOrthoScale, minOrthoScale;
+    
     void Start()
     {
-        
+        transform.localScale = Vector3.one * defaultPlayerScale;
+        virtualCamera.m_Lens.OrthographicSize = defaultOrthoScale;
     }
 
-    // Update is called once per frame
     void Update()
     {
 
-        // Check if can scale
-        if (transform.localScale.x <= maxScale
-            && transform.localScale.x >= minScale) {
-                
+        // Check if currently within min and max scale
+        if (transform.localScale.x <= maxPlayerScale
+            && transform.localScale.x >= minPlayerScale) {
+
+            // Can scale freely if no collision, can only scale down if has collision
             if (IsCollisionFree() || (!IsCollisionFree() && Input.mouseScrollDelta.y < 0f)) {
-                transform.localScale += Vector3.one * Input.mouseScrollDelta.y * changeSpeed * Time.deltaTime;
+                transform.localScale += Vector3.one * Input.mouseScrollDelta.y * playerScaleSpeed * Time.deltaTime;
+                virtualCamera.m_Lens.OrthographicSize = Mathf.Clamp(virtualCamera.m_Lens.OrthographicSize + Input.mouseScrollDelta.y * orthoScaleSpeed * Time.deltaTime, minOrthoScale, maxOrthoScale);
             }
+
+            Mathf.Clamp(virtualCamera.m_Lens.OrthographicSize, minOrthoScale, maxOrthoScale);
 
             // Clip scale to between min and max scale
-            if (transform.localScale.x > maxScale) {
-                transform.localScale = Vector3.one * maxScale;
+            if (transform.localScale.x > maxPlayerScale) {
+                transform.localScale = Vector3.one * maxPlayerScale;
             }
 
-            else if (transform.localScale.x < minScale) {
-                transform.localScale = Vector3.one * minScale;
+            else if (transform.localScale.x < minPlayerScale) {
+                transform.localScale = Vector3.one * minPlayerScale;
             }
         }
     }
