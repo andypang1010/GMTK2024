@@ -47,13 +47,6 @@ public class PlayerMovement : MonoBehaviour
         if (coyoteTimeCounter > 0f && jumpBufferCounter > 0f) {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
-
-        // // Hold jump to jump higher
-        // if (Input.GetKeyUp(KeyCode.Space) && rb.velocity.y > 0f) {
-        //     rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-
-        //     coyoteTimeCounter = 0f;
-        // }
     }
 
     void FixedUpdate() {
@@ -68,6 +61,10 @@ public class PlayerMovement : MonoBehaviour
     }
 
     bool IsGrounded() {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.05f, groundLayer);
+        return Physics2D.OverlapBox(groundCheck.position, new Vector2(0.75f * transform.localScale.x, 0.05f), 0f, groundLayer);
+    }
+
+    private void OnDrawGizmos() {
+        Gizmos.DrawCube(groundCheck.position, new Vector2(0.75f * transform.localScale.x, 0.05f));
     }
 }
