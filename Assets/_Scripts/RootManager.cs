@@ -7,36 +7,46 @@ public class RootManager : MonoBehaviour
 {
     public static RootManager Instance;
     public int frameRate = 60;
-    private void Awake() 
-    {         
-        if (Instance != null && Instance != this) 
-        { 
-            Destroy(this); 
-        } 
-        else 
-        { 
-            Instance = this; 
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
             DontDestroyOnLoad(gameObject);
-        } 
+        }
     }
 
-    private void Update() {
+    private void Update()
+    {
         Application.targetFrameRate = frameRate;
     }
 
-    public void GoMenu() {
+    public void GoMenu()
+    {
         SceneManager.LoadScene("MENU");
     }
 
-    public void GoGame() {
+    public void GoGame()
+    {
         SceneManager.LoadScene("GAME");
     }
 
-    public void GoSetting() {
+    public void GoSetting()
+    {
         SceneManager.LoadScene("SETTINGS");
     }
 
-    public void GoExit() {
+    public void GoExit()
+    {
         Application.Quit();
+    }
+
+    public void GoToScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
 }
