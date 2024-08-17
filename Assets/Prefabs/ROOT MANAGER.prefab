@@ -44,3 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49c8bee2df6361240bd2480e9579d109, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  frameRate: 60

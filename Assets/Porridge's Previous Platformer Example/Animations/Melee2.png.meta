@@ -1,9 +1,9 @@
 fileFormatVersion: 2
-guid: 0a356d3a91aa1d34b8079d7a9064160e
+guid: 8aeef0f52ea88ab479308869e45e04ce
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -123,202 +123,118 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Run2_0
+      name: Melee2_0
       rect:
         serializedVersion: 2
         x: 47
+        y: 3
+        width: 84
+        height: 166
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e00434586d2ac44c8e2215a531071f5
+      internalID: 798007260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Melee2_1
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 3
+        width: 85
+        height: 166
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1446ae513d39cd644971acf254ac15df
+      internalID: 1599920047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Melee2_2
+      rect:
+        serializedVersion: 2
+        x: 2007
+        y: 6
+        width: 146
+        height: 171
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67095f30d3017164fb9a29fa623d5c52
+      internalID: -1729184546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Melee2_3
+      rect:
+        serializedVersion: 2
+        x: 2224
+        y: 0
+        width: 118
+        height: 196
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b1aaa010626c3c4d94cf303778536cc
+      internalID: 1476812279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Melee2_5
+      rect:
+        serializedVersion: 2
+        x: 2419
+        y: 0
+        width: 118
+        height: 196
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79fb29b2fc136424e92710140755e917
+      internalID: 990111730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Melee2_6
+      rect:
+        serializedVersion: 2
+        x: 430
         y: 7
-        width: 87
-        height: 164
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9ecc0bc90acaccb4db485c8a9f85d582
-      internalID: -640655067
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Run2_1
-      rect:
-        serializedVersion: 2
-        x: 234
-        y: 10
-        width: 111
-        height: 167
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f8b3c1d6fc639a34a8d51b6d83d659a8
-      internalID: -691348954
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Run2_2
-      rect:
-        serializedVersion: 2
-        x: 424
-        y: 31
-        width: 121
-        height: 158
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f937ccf04044c8c4dbf0b0294cfc3b05
-      internalID: 1121630042
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Run2_3
-      rect:
-        serializedVersion: 2
-        x: 616
-        y: 31
-        width: 121
-        height: 158
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4e3cf3b47e981314e816c32b7b0d200c
-      internalID: -1186134478
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Run2_4
-      rect:
-        serializedVersion: 2
-        x: 816
-        y: 21
-        width: 105
-        height: 152
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b0a8f301c05244a4dbe83363ccf597ca
-      internalID: 1539333022
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Run2_5
-      rect:
-        serializedVersion: 2
-        x: 1021
-        y: 10
-        width: 72
-        height: 160
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3ec3f6f663aad5c4da0a130db52aa992
-      internalID: -595459253
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Run2_6
-      rect:
-        serializedVersion: 2
-        x: 1204
-        y: 8
-        width: 104
-        height: 164
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ff2c7c1f7f220264db6d061c7f083b19
-      internalID: 1218480642
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Run2_7
-      rect:
-        serializedVersion: 2
-        x: 1390
-        y: 32
-        width: 112
-        height: 152
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9d1c90cda4eb8f440ab95b33473a9202
-      internalID: -1640312653
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Run2_8
-      rect:
-        serializedVersion: 2
-        x: 1582
-        y: 32
-        width: 112
-        height: 152
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 32f4dd0b680093b4e98c27832bab5905
-      internalID: -1753905787
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Run2_9
-      rect:
-        serializedVersion: 2
-        x: 1772
-        y: 30
         width: 109
-        height: 128
+        height: 155
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -326,20 +242,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9496754d34819bb42ae6c4c29a2418b9
-      internalID: 511195653
+      spriteID: 9fbd1014e21d2b746937bb2c476747d9
+      internalID: -1066073807
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run2_10
+      name: Melee2_7
       rect:
         serializedVersion: 2
-        x: 1824
-        y: 155
-        width: 7
-        height: 5
+        x: 626
+        y: 7
+        width: 110
+        height: 155
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -347,8 +263,134 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84fb4faa95cdcdf46a0ee5415396d57c
-      internalID: 654361066
+      spriteID: 258b94259438319419fd5849d6416829
+      internalID: 1640179827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Melee2_8
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 4
+        width: 105
+        height: 149
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ea22357fda29f94d9a441fabc248617
+      internalID: 666652701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Melee2_9
+      rect:
+        serializedVersion: 2
+        x: 1041
+        y: 3
+        width: 104
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4128167532d8ffc4dbe7694207ff3bbe
+      internalID: 224315006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Melee2_10
+      rect:
+        serializedVersion: 2
+        x: 1236
+        y: 3
+        width: 105
+        height: 138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3ad68c8387a7da4f81ed50f482b035d
+      internalID: 1707885710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Melee2_11
+      rect:
+        serializedVersion: 2
+        x: 1428
+        y: 7
+        width: 106
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 131fe8ab6c91e5d419a42693dc174a4c
+      internalID: 1449315035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Melee2_12
+      rect:
+        serializedVersion: 2
+        x: 1617
+        y: 6
+        width: 125
+        height: 136
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a622cd0497cd16d4692af51b9048b0af
+      internalID: -465610180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Melee2_13
+      rect:
+        serializedVersion: 2
+        x: 1806
+        y: 7
+        width: 140
+        height: 138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7304304811664448b46b65d538db34f
+      internalID: -983251737
       vertices: []
       indices: 
       edges: []
@@ -364,17 +406,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Run2_0: -640655067
-      Run2_1: -691348954
-      Run2_10: 654361066
-      Run2_2: 1121630042
-      Run2_3: -1186134478
-      Run2_4: 1539333022
-      Run2_5: -595459253
-      Run2_6: 1218480642
-      Run2_7: -1640312653
-      Run2_8: -1753905787
-      Run2_9: 511195653
+      Melee2_0: 798007260
+      Melee2_1: 1599920047
+      Melee2_10: 1707885710
+      Melee2_11: 1449315035
+      Melee2_12: -465610180
+      Melee2_13: -983251737
+      Melee2_14: -1014632354
+      Melee2_15: 1205485160
+      Melee2_2: -1729184546
+      Melee2_3: 1476812279
+      Melee2_4: 1401374195
+      Melee2_5: 990111730
+      Melee2_6: -1066073807
+      Melee2_7: 1640179827
+      Melee2_8: 666652701
+      Melee2_9: 224315006
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
