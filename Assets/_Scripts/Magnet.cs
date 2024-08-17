@@ -34,10 +34,13 @@ public class Magnet : MonoBehaviour
         Vector2 metalDir = (V3ToV2(transform.position) - metalCollider.ClosestPoint(transform.position)).normalized;
         Vector2 magnetDir = (V3ToV2(metalObj.transform.position) - col.ClosestPoint(metalObj.transform.position)).normalized;
         // Force is stronger if magnet is larger
-        float forceMultiplier = magneticForce * (magnetArea / metalArea);
+        if (metalArea != 0)
+        {
+            float forceMultiplier = magneticForce * (magnetArea / metalArea);
 
-        metalRb.AddForce(metalDir * forceMultiplier);
-        rb.AddForce(magnetDir * forceMultiplier);
+            metalRb.AddForce(metalDir * forceMultiplier);
+            rb.AddForce(magnetDir * forceMultiplier);
+        }
     }
 
     private float CalcArea(GameObject obj)
