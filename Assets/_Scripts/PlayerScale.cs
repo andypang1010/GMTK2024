@@ -25,19 +25,22 @@ public class PlayerScale : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
     }
     
-    void Update()
-    {
+    void Update() {
+
+    float scrollValue = Input.mouseScrollDelta.y;
+    float deltaScale = scrollValue * playerScaleSpeed;
+
         if (!playerMovement.IsGrounded()) return;
 
-        if (transform.localScale.x > maxPlayerScale || transform.localScale.x < minPlayerScale) return;
+        if (transform.localScale.x  + deltaScale > maxPlayerScale || transform.localScale.x + deltaScale < minPlayerScale) return;
 
         // Can scale freely if no collision, can only scale down if has collision
-        if (IsCollisionFree() || (!IsCollisionFree() && Input.mouseScrollDelta.y < 0f)) {
-            
-            transform.localScale += Vector3.one * Input.mouseScrollDelta.y * playerScaleSpeed;
+        if (IsCollisionFree() || (!IsCollisionFree() && scrollValue < 0f)) {
+
+            transform.localScale += Vector3.one * deltaScale;
             virtualCamera.m_Lens.OrthographicSize = 
                 Mathf.Clamp(
-                    virtualCamera.m_Lens.OrthographicSize + Input.mouseScrollDelta.y * orthoScaleSpeed, 
+                    virtualCamera.m_Lens.OrthographicSize + scrollValue * orthoScaleSpeed, 
                     minOrthoScale, 
                     maxOrthoScale
                 );
