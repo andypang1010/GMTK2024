@@ -27,11 +27,15 @@ public class PlayerScale : MonoBehaviour
     public GameObject playerEyes;
     public LayerMask canSeeThroughLayer;
     private Vector3 originalPlayerScale;
+    public Vector3 calculatedPlayerMaxScale;
+    public Vector3 calculatedPlayerMinScale;
 
     void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
         originalPlayerScale = transform.localScale;
+        calculatedPlayerMaxScale = maxPlayerScale * originalPlayerScale;
+        calculatedPlayerMinScale = minPlayerScale * originalPlayerScale;
     }
 
     void Update()
@@ -67,7 +71,7 @@ public class PlayerScale : MonoBehaviour
 
         if (!playerMovement.IsGrounded()) return;
 
-        if (Mathf.Abs(transform.localScale.x) > maxPlayerScale || Mathf.Abs(transform.localScale.x) < minPlayerScale)
+        if (Mathf.Abs(transform.localScale.x) > calculatedPlayerMaxScale.x || Mathf.Abs(transform.localScale.x) < calculatedPlayerMinScale.x)
         {
             Debug.Log("Player scale is at max or min");
             return;
@@ -195,14 +199,14 @@ public class PlayerScale : MonoBehaviour
     private void ClampScale()
     {
         // Clamp player scale
-        if (Math.Abs(transform.localScale.x) > maxPlayerScale)
+        if (Math.Abs(transform.localScale.x) > calculatedPlayerMaxScale.x)
         {
-            transform.localScale = maxPlayerScale * (transform.localScale.x > 0 ? new Vector3(1, 1, 1) : new Vector3(-1, 1, 1));
+            transform.localScale = Vector3.Scale(calculatedPlayerMaxScale, transform.localScale.x > 0 ? new Vector3(1, 1, 1) : new Vector3(-1, 1, 1));
         }
 
-        else if (Math.Abs(transform.localScale.x) < minPlayerScale)
+        else if (Math.Abs(transform.localScale.x) < calculatedPlayerMinScale.x)
         {
-            transform.localScale = minPlayerScale * (transform.localScale.x > 0 ? new Vector3(1, 1, 1) : new Vector3(-1, 1, 1));
+            transform.localScale = Vector3.Scale(calculatedPlayerMinScale, transform.localScale.x > 0 ? new Vector3(1, 1, 1) : new Vector3(-1, 1, 1));
         }
 
         // Clamp camera scale 
