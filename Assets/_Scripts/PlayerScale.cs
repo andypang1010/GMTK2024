@@ -150,8 +150,8 @@ public class PlayerScale : MonoBehaviour
         }
 
         // check if object is in front of player
-        Vector2 playerFrontNormal = player.transform.localScale.x > 0 ? Vector2.right : Vector2.left;
-        Vector2 playerToClickedObject = clickedObject.transform.position - player.transform.position;
+        Vector2 playerFrontNormal = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
+        Vector2 playerToClickedObject = clickedObject.transform.position - transform.position;
         bool isObjectInFront = Vector2.Dot(playerFrontNormal, playerToClickedObject) > 0;
         if (!isObjectInFront) return false;
 
@@ -225,9 +225,9 @@ public class PlayerScale : MonoBehaviour
         Gizmos.DrawCube(transform.position + Vector3.right * (transform.localScale.x / 2), new Vector2(0.05f, 0.9f * transform.localScale.y));
         Gizmos.DrawCube(transform.position + Vector3.up * (transform.localScale.x / 2), new Vector2(0.9f * transform.localScale.x, 0.05f));
 
-        Vector2 playerFrontNormal = player.transform.localScale.x > 0 ? Vector2.right : Vector2.left;
+        Vector2 playerFrontNormal = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
         // gizmo draw player front normal
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(player.transform.position, player.transform.position + (Vector3)playerFrontNormal);
+        Gizmos.DrawLine(transform.position, transform.position + (Vector3)playerFrontNormal);
     }
 }
