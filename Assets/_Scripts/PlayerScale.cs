@@ -68,6 +68,7 @@ public class PlayerScale : MonoBehaviour
             }
         }
 
+        #region CHECK SCALE CONDITION
 
         if (!playerMovement.IsGrounded() || Mathf.Abs(playerMovement.horizontal) > 0) return;
 
@@ -77,11 +78,27 @@ public class PlayerScale : MonoBehaviour
             return;
         }
 
+        #endregion
+
         // Can scale freely if no collision, can only scale down if has collision
         if (IsCollisionFree() || (!IsCollisionFree() && Input.mouseScrollDelta.y < 0f))
         {
+
+            #region SCALE SELF
+            
             Vector3 normalizedPlayerScale = new Vector3(Math.Abs(originalPlayerScale.x), originalPlayerScale.y, originalPlayerScale.z).normalized;
             transform.localScale += Vector3.Scale(new Vector3(Mathf.Sign(transform.localScale.x), 1, 1), normalizedPlayerScale) * Input.mouseScrollDelta.y * playerScaleSpeed;
+
+            // Clamp player scale
+            if (Math.Abs(transform.localScale.x) > calculatedPlayerMaxScale.x)
+            {
+                transform.localScale = Vector3.Scale(calculatedPlayerMaxScale, transform.localScale.x > 0 ? new Vector3(1, 1, 1) : new Vector3(-1, 1, 1));
+            }
+
+            else if (Math.Abs(transform.localScale.x) < calculatedPlayerMinScale.x)
+            {
+                transform.localScale = Vector3.Scale(calculatedPlayerMinScale, transform.localScale.x > 0 ? new Vector3(1, 1, 1) : new Vector3(-1, 1, 1));
+            }
 
             virtualCamera.m_Lens.OrthographicSize =
                     Mathf.Clamp(
@@ -89,10 +106,14 @@ public class PlayerScale : MonoBehaviour
                         minOrthoScale,
                         maxOrthoScale
                     );
+        
+            #endregion
 
+            #region SCALE TAGGED OBJECT
             if (activeTaggedObject)
             {
                 Scalable scalableObject = activeTaggedObject.GetComponent<Scalable>();
+
                 if (scalableObject.isScalable() || (Input.mouseScrollDelta.y < 0f))
                 {
 
@@ -142,9 +163,9 @@ public class PlayerScale : MonoBehaviour
                     
                 }
             }
-        }
 
-        ClampScale();
+            #endregion
+        }
     }
 
     private GameObject GetClickedObject()
@@ -226,26 +247,12 @@ public class PlayerScale : MonoBehaviour
         return leftFree && rightFree && topFree;
     }
 
-    private void ClampScale()
-    {
-        // Clamp player scale
-        if (Math.Abs(transform.localScale.x) > calculatedPlayerMaxScale.x)
-        {
-            transform.localScale = Vector3.Scale(calculatedPlayerMaxScale, transform.localScale.x > 0 ? new Vector3(1, 1, 1) : new Vector3(-1, 1, 1));
-        }
-
-        else if (Math.Abs(transform.localScale.x) < calculatedPlayerMinScale.x)
-        {
-            transform.localScale = Vector3.Scale(calculatedPlayerMinScale, transform.localScale.x > 0 ? new Vector3(1, 1, 1) : new Vector3(-1, 1, 1));
-        }
-    }
-
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.green;
-        Gizmos.DrawCube(transform.position + Vector3.left * (transform.localScale.x / 2), new Vector2(0.05f, 0.9f * transform.localScale.y));
-        Gizmos.DrawCube(transform.position + Vector3.right * (transform.localScale.x / 2), new Vector2(0.05f, 0.9f * transform.localScale.y));
-        Gizmos.DrawCube(transform.position + Vector3.up * (transform.localScale.x / 2), new Vector2(0.9f * transform.localScale.x, 0.05f));
+        Gizmos.color = Color.white;
+        Gizmos.DrawCube(transform.position + Vector3.left * (Mathf.Abs(transform.localScale.x) / 2), new Vector2(0.05f, 0.9f * transform.localScale.y));
+        Gizmos.DrawCube(transform.position + Vector3.right * (Mathf.Abs(transform.localScale.x) / 2), new Vector2(0.05f, 0.9f * transform.localScale.y));
+        Gizmos.DrawCube(transform.position + Vector3.up * (transform.localScale.y / 2), new Vector2(0.9f * Mathf.Abs(transform.localScale.x), 0.05f));
 
         Vector2 playerFrontNormal = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
         // gizmo draw player front normal

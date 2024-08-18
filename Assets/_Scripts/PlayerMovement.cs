@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Tilemaps;
 using UnityEngine;
 
@@ -16,9 +17,10 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private float moveSpeed;
     public float horizontal;
+    private GameObject moveWithTarget;
+    private Vector3 moveWithOffset;
 
     [Header("Jump")]
-    [SerializeField] private float jumpForce;
     [SerializeField] private float coyoteTime;
     [SerializeField] private float jumpBuffer;
     private float coyoteTimeCounter, jumpBufferCounter;
@@ -27,12 +29,17 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         playerScale = GetComponent<PlayerScale>();
+
+        moveWithTarget = null;
     }
 
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
 
+        if (Mathf.Abs(horizontal) > 0) {
+            rb.isKinematic = false;
+        }
 
         // Coyote Time Check
         if (IsGrounded())
@@ -56,6 +63,10 @@ public class PlayerMovement : MonoBehaviour
 
         if (coyoteTimeCounter > 0f && jumpBufferCounter > 0f)
         {
+            if (Input.GetKeyDown(KeyCode.Space)) {
+                rb.isKinematic = false;
+            }
+
             rb.velocity = new Vector2(rb.velocity.x, HeightToVelocity());
         }
 
@@ -125,7 +136,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-
         // If the collider is of a layer in the Tea Layer
         if ((teaLayer.value & 1 << other.gameObject.layer) > 0)
         {
@@ -135,5 +145,30 @@ public class PlayerMovement : MonoBehaviour
             playerScale.ResetScale();
         }
     }
+
+
+    // #region Move with platform
+    // void OnCollisionStay2D(Collision2D other)
+    // {
+    //     if (other.gameObject.CompareTag("Movable")
+    //     && Physics2D.OverlapBox(groundCheck.position, new Vector2(0.75f * Mathf.Abs(transform.localScale.x), 0.05f), 0f).gameObject == other.gameObject) {
+    //         moveWithTarget = other.gameObject;
+    //         moveWithOffset = transform.position - moveWithTarget.transform.position;
+    //     }
+    // }
+    // void OnCollisionExit2D(Collision2D other){
+
+    //     if (other.gameObject.CompareTag("Movable")) {
+    //         moveWithTarget = null;
+    //     }
+    // }
+
+    // void LateUpdate() {
+    //     if (moveWithTarget != null) {
+    //         transform.position = moveWithTarget.transform.position + moveWithOffset;
+    //     }
+    // }
+
+    // #endregion
 
 }
