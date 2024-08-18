@@ -90,7 +90,7 @@ public class PlayerScale : MonoBehaviour
         {
 
             #region SCALE SELF
-            
+
             Vector3 normalizedPlayerScale = new Vector3(Math.Abs(originalPlayerScale.x), originalPlayerScale.y, originalPlayerScale.z).normalized;
             transform.localScale += Vector3.Scale(new Vector3(Mathf.Sign(transform.localScale.x), 1, 1), normalizedPlayerScale) * Input.mouseScrollDelta.y * playerScaleSpeed;
 
@@ -112,7 +112,7 @@ public class PlayerScale : MonoBehaviour
                         maxOrthoScale
                     );
             cinemachineTransposer.m_TrackedObjectOffset = new Vector3(0, GetWorldSize().y * initCamOffsetPercentage);
-        
+
             #endregion
 
             #region SCALE TAGGED OBJECT
@@ -124,7 +124,8 @@ public class PlayerScale : MonoBehaviour
                 {
 
                     // Scale Proportionally
-                    switch (scalableObject.scaleOption) {
+                    switch (scalableObject.scaleOption)
+                    {
                         case ScaleOption.PROPORTIONAL:
                             Vector3 objectOriginalScale = scalableObject.originalScale;
 
@@ -133,6 +134,11 @@ public class PlayerScale : MonoBehaviour
 
                             // scale the active object
                             activeTaggedObject.transform.localScale += Vector3.Scale(new Vector3(Mathf.Sign(activeTaggedObject.transform.localScale.x), 1, 1), normalizedOriginalScale) * Input.mouseScrollDelta.y * playerScaleSpeed;
+
+                            if (Vector3.Scale(new Vector3(Mathf.Sign(activeTaggedObject.transform.localScale.x), 1, 1), normalizedOriginalScale) * Input.mouseScrollDelta.y * playerScaleSpeed != Vector3.zero)
+                            {
+                                Debug.Log("Scaling " + activeTaggedObject.name + " proportionally: " + Vector3.Scale(new Vector3(Mathf.Sign(activeTaggedObject.transform.localScale.x), 1, 1), normalizedOriginalScale) * Input.mouseScrollDelta.y * playerScaleSpeed);
+                            }
 
                             // clamp active object scale
                             if (scalableObject.calculatedMaxScale.x < Mathf.Abs(activeTaggedObject.transform.localScale.x))
@@ -163,10 +169,10 @@ public class PlayerScale : MonoBehaviour
                                 Debug.Log("Clamping object scale - min");
                                 activeTaggedObject.transform.localScale = Vector3.Scale(activeTaggedObject.transform.localScale.y > 0 ? Vector3.one : new Vector3(-1, 1, 1), scalableObject.calculatedMinScale);
                             }
-                                
+
                             break;
                     }
-                    
+
                 }
             }
 
@@ -266,10 +272,11 @@ public class PlayerScale : MonoBehaviour
         Gizmos.DrawLine(transform.position, transform.position + (Vector3)playerFrontNormal);
     }
 
-    public void ResetScale() {
+    public void ResetScale()
+    {
         transform.localScale = Vector3.one * defaultPlayerScale;
         virtualCamera.m_Lens.OrthographicSize = defaultOrthoScale;
-    } 
+    }
 
     private Vector2 GetWorldSize()
     {

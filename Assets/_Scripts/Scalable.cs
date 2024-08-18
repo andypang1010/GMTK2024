@@ -1,8 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 using UnityEngine;
 
 public class Scalable : MonoBehaviour
@@ -19,7 +15,8 @@ public class Scalable : MonoBehaviour
     {
         originalScale = transform.localScale;
 
-        switch (scaleOption) {
+        switch (scaleOption)
+        {
             case ScaleOption.PROPORTIONAL:
                 calculatedMinScale = minScale * originalScale;
                 calculatedMaxScale = maxScale * originalScale;
@@ -52,21 +49,26 @@ public class Scalable : MonoBehaviour
         switch (scaleOption)
         {
             case ScaleOption.PROPORTIONAL:
-                if (transform.localScale.x > calculatedMaxScale.x 
-                || transform.localScale.x < calculatedMinScale.x) {
+                if (Mathf.Abs(transform.localScale.x) > calculatedMaxScale.x
+                || Mathf.Abs(transform.localScale.x) < calculatedMinScale.x)
+                {
+                    Debug.Log("X scale out of bounds");
                     return false;
                 }
 
-                if (transform.localScale.y > calculatedMaxScale.y 
-                || transform.localScale.y < calculatedMinScale.y) {
+                if (transform.localScale.y > calculatedMaxScale.y
+                || transform.localScale.y < calculatedMinScale.y)
+                {
+                    Debug.Log("Y scale out of bounds");
                     return false;
                 }
 
                 return true;
 
             case ScaleOption.VERTICAL:
-                if (transform.localScale.y > calculatedMaxScale.y 
-                || transform.localScale.y < calculatedMinScale.y) {
+                if (transform.localScale.y > calculatedMaxScale.y
+                || transform.localScale.y < calculatedMinScale.y)
+                {
                     return false;
                 }
 
@@ -83,20 +85,21 @@ public class Scalable : MonoBehaviour
         bool topFree = !Physics2D.OverlapBox(transform.position + Vector3.up * (Math.Abs(transform.localScale.y) / 2), new Vector2(0.8f * Math.Abs(transform.localScale.x), 0.05f), 0, ~whatToIgnore);
 
         bool result = leftFree && rightFree && topFree;
-        // if (result)
-        // {
-        //     Debug.Log("Collision free");
-        // }
-        // else
-        // {
-        //     Debug.Log("Collision detected" + leftFree + rightFree + topFree);
-        // }
+        if (result)
+        {
+            // Debug.Log("Collision free");
+        }
+        else
+        {
+            Debug.Log("Collision detected" + leftFree + rightFree + topFree);
+        }
 
         return leftFree && rightFree && topFree;
     }
 }
 
-public enum ScaleOption {
+public enum ScaleOption
+{
     PROPORTIONAL,
     VERTICAL
 }
