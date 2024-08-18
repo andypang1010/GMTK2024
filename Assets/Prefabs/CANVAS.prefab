@@ -618,6 +618,7 @@ GameObject:
   - component: {fileID: 6700926097906575423}
   - component: {fileID: 6900754962324003345}
   - component: {fileID: 4341760909430215532}
+  - component: {fileID: 252052446366490104}
   m_Layer: 5
   m_Name: CANVAS
   m_TagString: Untagged
@@ -710,6 +711,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &252052446366490104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6357356676923080495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcf3af784f174874b99ddb291fd8ee99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pausePanel: {fileID: 8844840755069965843}
 --- !u!1 &6826229737403104403
 GameObject:
   m_ObjectHideFlags: 0
@@ -1132,7 +1146,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5396336192226515098
 RectTransform:
   m_ObjectHideFlags: 0

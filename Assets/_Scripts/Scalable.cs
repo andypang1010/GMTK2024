@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 using UnityEngine;
 
 public class Scalable : MonoBehaviour
@@ -8,6 +10,7 @@ public class Scalable : MonoBehaviour
     public LayerMask whatToIgnore;
     public float maxScale = 5f;
     public float minScale = 0.5f;
+    public ScaleOption scaleOption;
     public Vector3 originalScale;
     public Vector3 calculatedMinScale;
     public Vector3 calculatedMaxScale;
@@ -15,8 +18,22 @@ public class Scalable : MonoBehaviour
     void Start()
     {
         originalScale = transform.localScale;
-        calculatedMinScale = minScale * originalScale;
-        calculatedMaxScale = maxScale * originalScale;
+
+        switch (scaleOption) {
+            case ScaleOption.PROPORTIONAL:
+                calculatedMinScale = minScale * originalScale;
+                calculatedMaxScale = maxScale * originalScale;
+                break;
+            case ScaleOption.VERTICAL:
+                calculatedMinScale = originalScale;
+                calculatedMinScale.y = minScale;
+
+                calculatedMaxScale = originalScale;
+                calculatedMaxScale.y = maxScale;
+
+                break;
+
+        }
     }
 
     // Update is called once per frame
@@ -27,15 +44,36 @@ public class Scalable : MonoBehaviour
 
     public bool isScalable()
     {
-        if (transform.localScale.y > calculatedMaxScale.y || transform.localScale.y < calculatedMinScale.y)
-        {
-            return false;
-        }
         if (!IsCollisionFree())
         {
             return false;
         }
-        return true;
+
+        switch (scaleOption)
+        {
+            case ScaleOption.PROPORTIONAL:
+                if (transform.localScale.x > calculatedMaxScale.x 
+                || transform.localScale.x < calculatedMinScale.x) {
+                    return false;
+                }
+
+                if (transform.localScale.y > calculatedMaxScale.y 
+                || transform.localScale.y < calculatedMinScale.y) {
+                    return false;
+                }
+
+                return true;
+
+            case ScaleOption.VERTICAL:
+                if (transform.localScale.y > calculatedMaxScale.y 
+                || transform.localScale.y < calculatedMinScale.y) {
+                    return false;
+                }
+
+                return true;
+        }
+
+        return false;
     }
 
     public bool IsCollisionFree()
@@ -56,4 +94,9 @@ public class Scalable : MonoBehaviour
 
         return leftFree && rightFree && topFree;
     }
+}
+
+public enum ScaleOption {
+    PROPORTIONAL,
+    VERTICAL
 }
