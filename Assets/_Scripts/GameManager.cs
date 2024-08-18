@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public GameState currentGameState { get; private set; }
     public GameObject currentLevel;
+    public GameObject teaLake;
     public int[] defaultLevelScales = { 1, 1 };
     private GameObject player;
 
@@ -83,6 +84,10 @@ public class GameManager : MonoBehaviour
 
         player.GetComponent<PlayerScale>().ResetPlayerScale();
 
+    }
+
+    public void DrainTea() {
+        teaLake.SetActive(false);
     }
 }
 
