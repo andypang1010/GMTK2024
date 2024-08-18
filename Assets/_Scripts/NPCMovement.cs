@@ -7,6 +7,7 @@ public class NPCMovement : MonoBehaviour
     [Header("References")]
     [SerializeField] private Transform forwardCheck;
     [SerializeField] private LayerMask teaLayer;
+    [SerializeField] private List<Collider2D> ignoreColliders;
     private Rigidbody2D rb;
 
     [Header("Movement")]
@@ -27,7 +28,6 @@ public class NPCMovement : MonoBehaviour
     {
         if (IsHittingWall())
         {
-            print("Is Hitting wall");
             horizontal *= -1;
         }
 
@@ -54,7 +54,7 @@ public class NPCMovement : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapBoxAll(forwardCheck.position, GetForwarCheckBoxDimension(), 0f);
         
         foreach (Collider2D collider in colliders) {
-            if (collider.gameObject == gameObject) continue;
+            if (collider.gameObject == gameObject || ignoreColliders.Contains(collider)) continue;
             return true;
         }
 
@@ -69,7 +69,7 @@ public class NPCMovement : MonoBehaviour
     private Vector2 GetForwarCheckBoxDimension()
     {
         Vector2 colliderSize = GetComponent<Collider2D>().bounds.size;
-        return new Vector2(0.05f * colliderSize.x, 0.75f * colliderSize.y);
+        return new Vector2(0.05f * colliderSize.x, 0.9f * colliderSize.y);
     }
 
     private Vector2 GetWorldSize()
