@@ -177,6 +177,9 @@ MonoBehaviour:
   maxScale: 15
   minScale: 0.5
   scaleOption: 1
+  whatToIgnore:
+    serializedVersion: 2
+    m_Bits: 168
   originalScale: {x: 0, y: 0, z: 0}
   calculatedMinScale: {x: 0, y: 0, z: 0}
   calculatedMaxScale: {x: 0, y: 0, z: 0}
