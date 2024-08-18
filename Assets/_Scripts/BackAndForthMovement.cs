@@ -11,12 +11,14 @@ public class BackAndForthMovement : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private float moveSpeed;
     private int horizontal;
+    private Vector3 spawnPosition;
 
     // Start is called before the first frame update
     void Start()
     {
         horizontal = 1;
         rb = GetComponent<Rigidbody2D>();
+        spawnPosition = transform.position;
     }
 
     // Update is called once per frame
