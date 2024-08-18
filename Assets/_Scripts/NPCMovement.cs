@@ -51,7 +51,7 @@ public class NPCMovement : MonoBehaviour
 
     private bool IsHittingWall()
     {
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(forwardCheck.position, GetForwarCheckBoxDimension(), 0f);
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(forwardCheck.position, GetForwarCheckBoxDimension(), 0f, ~LayerMask.GetMask("UI"));
         
         foreach (Collider2D collider in colliders) {
             if (collider.gameObject == gameObject) continue;
@@ -75,10 +75,11 @@ public class NPCMovement : MonoBehaviour
 
         // If the collider is of a layer in the Tea Layer
         if ((teaLayer.value & 1 << other.gameObject.layer) > 0) {
-
-            // Reset position and scale
-            transform.position = spawnPosition;
-            transform.localScale = GetComponent<Scalable>().originalScale;
+            ResetPosition();
         }
+    }
+
+    public void ResetPosition() {
+        transform.position = spawnPosition;
     }
 }

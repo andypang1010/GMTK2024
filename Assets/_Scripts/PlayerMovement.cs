@@ -16,9 +16,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Movement")]
     [SerializeField] private float moveSpeed;
-    public float horizontal;
-    private GameObject moveWithTarget;
-    private Vector3 moveWithOffset;
+    [HideInInspector] public float horizontal;
 
     [Header("Jump")]
     [SerializeField] private float coyoteTime;
@@ -29,8 +27,6 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         playerScale = GetComponent<PlayerScale>();
-
-        moveWithTarget = null;
     }
 
     void Update()
@@ -142,33 +138,23 @@ public class PlayerMovement : MonoBehaviour
 
             // Reset position and scale
             transform.position = other.transform.GetChild(0).transform.position;
-            playerScale.ResetScale();
+            playerScale.ResetPlayerScale();
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collider) {
+        if (collider.gameObject.CompareTag("Level Zone")) {
+            GameManager.Instance.currentLevel = collider.gameObject;
+        }
+    }
 
-    // #region Move with platform
-    // void OnCollisionStay2D(Collision2D other)
-    // {
-    //     if (other.gameObject.CompareTag("Movable")
-    //     && Physics2D.OverlapBox(groundCheck.position, new Vector2(0.75f * Mathf.Abs(transform.localScale.x), 0.05f), 0f).gameObject == other.gameObject) {
-    //         moveWithTarget = other.gameObject;
-    //         moveWithOffset = transform.position - moveWithTarget.transform.position;
-    //     }
-    // }
-    // void OnCollisionExit2D(Collision2D other){
+    private void OnTriggerExit2D(Collider2D collider) {
+        if (collider.gameObject.CompareTag("Level Zone")) {
+            GameManager.Instance.currentLevel = null;
+        }
+    }
 
-    //     if (other.gameObject.CompareTag("Movable")) {
-    //         moveWithTarget = null;
-    //     }
-    // }
-
-    // void LateUpdate() {
-    //     if (moveWithTarget != null) {
-    //         transform.position = moveWithTarget.transform.position + moveWithOffset;
-    //     }
-    // }
-
-    // #endregion
-
+    public void ResetLevelPosition(Vector3 pos) {
+        transform.position = pos;
+    }
 }
