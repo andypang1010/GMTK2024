@@ -42,6 +42,7 @@ public class Scalable : MonoBehaviour
 
     public bool isScalable()
     {
+        print(gameObject.name + " " + IsCollisionFree());
         if (!IsCollisionFree())
         {
             return false;
@@ -78,19 +79,60 @@ public class Scalable : MonoBehaviour
                 }
 
                 return true;
-            }
+        }
 
         return false;
-        
+
     }
 
     public bool IsCollisionFree()
     {
-        bool leftFree = !Physics2D.OverlapBox(transform.position + Vector3.left * (Math.Abs(transform.localScale.x) / 2), new Vector2(0.05f, 0.8f * transform.localScale.y), 0, ~whatToIgnore);
-        bool rightFree = !Physics2D.OverlapBox(transform.position + Vector3.right * (Math.Abs(transform.localScale.x) / 2), new Vector2(0.05f, 0.8f * transform.localScale.y), 0, ~whatToIgnore);
-        bool topFree = !Physics2D.OverlapBox(transform.position + Vector3.up * (Math.Abs(transform.localScale.y) / 2), new Vector2(0.8f * Math.Abs(transform.localScale.x), 0.05f), 0, ~whatToIgnore);
+        Collider2D leftCol = Physics2D.OverlapBox(GetBoxPos(-1, 0), GetVerticalBoxSize(), 0, ~whatToIgnore);
+        Collider2D rightCol = Physics2D.OverlapBox(GetBoxPos(1, 0), GetVerticalBoxSize(), 0, ~whatToIgnore);
+        Collider2D topCol = Physics2D.OverlapBox(GetBoxPos(0, 1), GetHorizontalBoxSize(), 0, ~whatToIgnore);
+
+        Debug.Log(gameObject.name + " left collider: " + leftCol?.name);
+        Debug.Log(gameObject.name + " right collider: " + rightCol?.name);
+        Debug.Log(gameObject.name + " top collider: " + topCol?.name);
+
+        bool leftFree = !leftCol;
+        bool rightFree = !rightCol;
+        bool topFree = !topCol;
 
         return leftFree && rightFree && topFree;
+    }
+
+    // Get box size for left and right
+    private Vector2 GetVerticalBoxSize()
+    {
+        return new Vector2(0.05f, 0.8f * transform.localScale.y);
+    }
+
+    // Get box size for top
+    private Vector2 GetHorizontalBoxSize()
+    {
+        return new Vector2(0.8f * Math.Abs(transform.localScale.x), 0.05f);
+    }
+
+    /// <summary>
+    /// One of xDir and yDir should be 0
+    /// </summary>
+    /// <param name="xDir">xDir = 1 for pos X, -1 for neg X</param>
+    /// <param name="yDir">yDir = 1 for pos Y, -1 for neg Y</param>
+    /// <returns>The box position</returns>
+    private Vector2 GetBoxPos(int xDir, int yDir)
+    {
+        Vector3 dir = new Vector3(xDir, yDir, 0);
+        float posOffset = 0;
+        if(xDir != 0)
+        {
+            posOffset = Math.Abs(transform.localScale.x) / 2;
+        }
+        else if (yDir != 0)
+        {
+            posOffset = Math.Abs(transform.localScale.y) / 2;
+        }
+        return transform.position + dir * posOffset;
     }
 
     public void ResetScale()
@@ -98,6 +140,12 @@ public class Scalable : MonoBehaviour
         transform.localScale = originalScale;
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawCube(GetBoxPos(-1, 0), GetVerticalBoxSize());
+        Gizmos.DrawCube(GetBoxPos(1, 0), GetVerticalBoxSize());
+        Gizmos.DrawCube(GetBoxPos(0, 1), GetHorizontalBoxSize());
+    }
 }
 
 public enum ScaleOption

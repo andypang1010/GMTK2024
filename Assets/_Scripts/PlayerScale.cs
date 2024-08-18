@@ -265,10 +265,10 @@ public class PlayerScale : MonoBehaviour
         }
 
         // check if object is in front of player
-        Vector2 playerFrontNormal = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
-        Vector2 playerToClickedObject = clickedObject.transform.position - transform.position;
-        bool isObjectInFront = Vector2.Dot(playerFrontNormal, playerToClickedObject) >= 0;
-        if (!isObjectInFront) return false;
+        //Vector2 playerFrontNormal = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
+        //Vector2 playerToClickedObject = clickedObject.transform.position - transform.position;
+        //bool isObjectInFront = Vector2.Dot(playerFrontNormal, playerToClickedObject) >= 0;
+        //if (!isObjectInFront) return false;
 
         // Debug.Log("Current Active Object IS in front of player");
 
