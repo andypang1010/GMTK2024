@@ -89,11 +89,11 @@ public class PlayerScale : MonoBehaviour
             }
 
             virtualCamera.m_Lens.OrthographicSize =
-                Mathf.Clamp(
-                    virtualCamera.m_Lens.OrthographicSize + Input.mouseScrollDelta.y * orthoScaleSpeed,
-                    minOrthoScale,
-                    maxOrthoScale
-                );
+                    Mathf.Clamp(
+                        virtualCamera.m_Lens.OrthographicSize + Input.mouseScrollDelta.y * orthoScaleSpeed,
+                        minOrthoScale,
+                        maxOrthoScale
+                    );
 
             if (activeTaggedObject)
             {
@@ -107,13 +107,12 @@ public class PlayerScale : MonoBehaviour
                     else
                     {
                         activeTaggedObject.transform.localScale += new Vector3(-1, 1, 1) * Input.mouseScrollDelta.y * playerScaleSpeed;
-
                     }
-                    if (activeTaggedObject.GetComponent<Scalable>().maxScale < activeTaggedObject.transform.localScale.x)
+                    if (activeTaggedObject.GetComponent<Scalable>().maxScale < Mathf.Abs(activeTaggedObject.transform.localScale.x))
                     {
                         activeTaggedObject.transform.localScale = Vector3.Scale(activeTaggedObject.transform.localScale.x > 0 ? Vector3.one : new Vector3(-1, 1, 1), activeTaggedObject.GetComponent<Scalable>().calculatedMaxScale);
                     }
-                    if (activeTaggedObject.GetComponent<Scalable>().minScale > activeTaggedObject.transform.localScale.x)
+                    if (activeTaggedObject.GetComponent<Scalable>().minScale > Mathf.Abs(activeTaggedObject.transform.localScale.x))
                     {
                         activeTaggedObject.transform.localScale = Vector3.Scale(activeTaggedObject.transform.localScale.x > 0 ? Vector3.one : new Vector3(-1, 1, 1), activeTaggedObject.GetComponent<Scalable>().calculatedMinScale);
                     }
@@ -172,10 +171,10 @@ public class PlayerScale : MonoBehaviour
 
     public void DeselectObject()
     {
-        activeTaggedObject = null;
-
         Color objectColor = activeTaggedObject.GetComponentInChildren<SpriteRenderer>().color;
         activeTaggedObject.GetComponentInChildren<SpriteRenderer>().color = new Color(objectColor.r, objectColor.g, objectColor.b, 100);
+
+        activeTaggedObject = null;
     }
 
     public void SelectObject(GameObject clickedObject)
