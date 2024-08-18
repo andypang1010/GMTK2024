@@ -28,9 +28,9 @@ public class PlayerScale : MonoBehaviour
     public GameObject activeTaggedObject;
     public GameObject playerEyes;
     public LayerMask canSeeThroughLayer;
-    private Vector3 originalPlayerScale;
-    public Vector3 calculatedPlayerMaxScale;
-    public Vector3 calculatedPlayerMinScale;
+    [HideInInspector] private Vector3 originalPlayerScale;
+    [HideInInspector] public Vector3 calculatedPlayerMaxScale;
+    [HideInInspector] public Vector3 calculatedPlayerMinScale;
 
     void Start()
     {

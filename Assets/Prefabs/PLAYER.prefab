@@ -157,7 +157,7 @@ MonoBehaviour:
   groundCheck: {fileID: 5860788446478585975}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 960
   teaLayer:
     serializedVersion: 2
     m_Bits: 16
@@ -183,14 +183,14 @@ MonoBehaviour:
   maxPlayerScale: 5
   minPlayerScale: 0.5
   defaultOrthoScale: 5
-  camHeightRelativeToPlayer: 0
+  camHeightRelativeToPlayer: 5
   maxOrthoScale: 12
   minOrthoScale: 2
   activeTaggedObject: {fileID: 0}
   playerEyes: {fileID: 7461226385118338980}
   canSeeThroughLayer:
     serializedVersion: 2
-    m_Bits: 776
+    m_Bits: 808
   calculatedPlayerMaxScale: {x: 0, y: 0, z: 0}
   calculatedPlayerMinScale: {x: 0, y: 0, z: 0}
 --- !u!1 &7461226385118338980

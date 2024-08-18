@@ -2067,6 +2067,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1173523038}
     - target: {fileID: 5616701695585130035, guid: 0a8c9b55891fd214896db3e67327f61d, type: 3}
+      propertyPath: camHeightRelativeToPlayer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5616701695585130035, guid: 0a8c9b55891fd214896db3e67327f61d, type: 3}
       propertyPath: canSeeThroughLayer.m_Bits
       value: 296
       objectReference: {fileID: 0}

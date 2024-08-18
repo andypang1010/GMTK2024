@@ -18,8 +18,6 @@ public class Scalable : MonoBehaviour
 
         switch (scaleOption)
         {
-        switch (scaleOption)
-        {
             case ScaleOption.PROPORTIONAL:
                 calculatedMinScale = minScale * originalScale;
                 calculatedMaxScale = maxScale * originalScale;
@@ -70,6 +68,9 @@ public class Scalable : MonoBehaviour
                 if (transform.localScale.y > calculatedMaxScale.y
                 || transform.localScale.y < calculatedMinScale.y)
                 {
+                    return false;
+                }
+
                 if (transform.localScale.y > calculatedMaxScale.y
                 || transform.localScale.y < calculatedMinScale.y)
                 {
@@ -77,9 +78,10 @@ public class Scalable : MonoBehaviour
                 }
 
                 return true;
-        }
+            }
 
         return false;
+        
     }
 
     public bool IsCollisionFree()
@@ -95,6 +97,7 @@ public class Scalable : MonoBehaviour
     {
         transform.localScale = originalScale;
     }
+
 }
 
 public enum ScaleOption
