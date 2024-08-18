@@ -11,6 +11,7 @@ public class PlayerScale : MonoBehaviour
     [Header("References")]
     public CinemachineVirtualCamera virtualCamera;
     PlayerMovement playerMovement;
+    public EyeTracer eyeTracer;
 
     [Header("Player Scale")]
     public float defaultPlayerScale;
@@ -52,6 +53,7 @@ public class PlayerScale : MonoBehaviour
                 DeselectObject();
             }
         }
+
         // detect if player's mouse is clicking on a game object
         GameObject clickedObject = Input.GetMouseButtonDown(0) ? GetClickedObject() : null;
         if (clickedObject)
@@ -64,6 +66,12 @@ public class PlayerScale : MonoBehaviour
             }
         }
 
+        // Deselect if clicking somewhere else
+        if(Input.GetMouseButtonDown(0) && activeTaggedObject && (clickedObject == null || !IsObjectAvailable(clickedObject)))
+        {
+            DeselectObject();
+        }
+
         GameObject rightClickedObject = Input.GetMouseButtonDown(1) ? GetClickedObject() : null;
         if (rightClickedObject)
         {
@@ -72,6 +80,8 @@ public class PlayerScale : MonoBehaviour
                 DeselectObject();
             }
         }
+
+        UpdateEyeTracer();
 
         #region CHECK SCALE CONDITION
 
@@ -211,6 +221,7 @@ public class PlayerScale : MonoBehaviour
 
         // raycast from player's eyes to clicked object, disregard canSeeThroughLayer
         RaycastHit2D hit = Physics2D.Raycast(playerEyes.transform.position, clickedObject.transform.position - playerEyes.transform.position, Mathf.Infinity, ~canSeeThroughLayer);
+
         if (hit.collider != null)
         {
 
@@ -221,6 +232,27 @@ public class PlayerScale : MonoBehaviour
             }
         }
         return false;
+    }
+
+    private void UpdateEyeTracer()
+    {
+        Vector2 eyePos = playerEyes.transform.position;
+        Vector2 destPos;
+        if (activeTaggedObject != null)
+        {
+            destPos = activeTaggedObject.transform.position;
+        }
+        else
+        {
+            Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 posDiff = cursorPos - eyePos;
+            RaycastHit2D hit = Physics2D.Raycast(eyePos, posDiff, posDiff.magnitude, ~canSeeThroughLayer);
+
+            eyeTracer.UpdateColor(hit && hit.collider.gameObject.GetComponent<Scalable>());
+
+            destPos = hit ? hit.point : cursorPos;
+        }
+        eyeTracer.DrawLine(eyePos, destPos);
     }
 
     public void DeselectObject()
