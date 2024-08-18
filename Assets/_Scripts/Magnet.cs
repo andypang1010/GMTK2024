@@ -39,7 +39,7 @@ public class Magnet : MonoBehaviour
             float forceMultiplier = magneticForce * (magnetArea / metalArea);
 
             metalRb.AddForce(metalDir * forceMultiplier);
-            rb.AddForce(magnetDir * forceMultiplier);
+            // rb.AddForce(magnetDir * forceMultiplier);
         }
     }
 

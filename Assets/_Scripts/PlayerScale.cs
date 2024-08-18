@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class PlayerScale : MonoBehaviour
@@ -53,7 +54,7 @@ public class PlayerScale : MonoBehaviour
             bool isAvailable = IsObjectAvailable(clickedObject);
             if (isAvailable)
             {
-                Debug.Log("Object is available");
+                // Debug.Log("Object is available");
                 SelectObject(clickedObject);
             }
         }
@@ -79,13 +80,14 @@ public class PlayerScale : MonoBehaviour
         // Can scale freely if no collision, can only scale down if has collision
         if (IsCollisionFree() || (!IsCollisionFree() && Input.mouseScrollDelta.y < 0f))
         {
+            Vector3 normalizedPlayerScale = new Vector3(Math.Abs(originalPlayerScale.x), originalPlayerScale.y, originalPlayerScale.z) / originalPlayerScale.magnitude;
             if (transform.localScale.x >= 0)
             {
-                transform.localScale += Vector3.one * Input.mouseScrollDelta.y * playerScaleSpeed;
+                transform.localScale += Vector3.Scale(Vector3.one, normalizedPlayerScale) * Input.mouseScrollDelta.y * playerScaleSpeed;
             }
             else
             {
-                transform.localScale += new Vector3(-1, 1, 1) * Input.mouseScrollDelta.y * playerScaleSpeed;
+                transform.localScale += Vector3.Scale(new Vector3(-1, 1, 1), normalizedPlayerScale) * Input.mouseScrollDelta.y * playerScaleSpeed;
             }
 
             virtualCamera.m_Lens.OrthographicSize =
@@ -99,21 +101,34 @@ public class PlayerScale : MonoBehaviour
             {
                 if (activeTaggedObject.GetComponent<Scalable>().isScalable() || (Input.mouseScrollDelta.y < 0f))
                 {
-                    Debug.Log("We can scale the object");
+                    Vector3 objectOriginalScale = activeTaggedObject.GetComponent<Scalable>().originalScale;
+                    // normalize the original scale using the length
+                    Vector3 normalizedOriginalScale = new Vector3(Math.Abs(objectOriginalScale.x), objectOriginalScale.y, objectOriginalScale.z) / objectOriginalScale.magnitude;
+
+                    if (Vector3.one * Input.mouseScrollDelta.y * playerScaleSpeed != Vector3.zero)
+                    {
+                        Debug.Log("Scaling object." + Vector3.Scale(Vector3.one, normalizedOriginalScale) * Input.mouseScrollDelta.y * playerScaleSpeed);
+                    }
+
+                    // scale the active object
                     if (activeTaggedObject.transform.localScale.x >= 0)
                     {
-                        activeTaggedObject.transform.localScale += Vector3.one * Input.mouseScrollDelta.y * playerScaleSpeed;
+                        activeTaggedObject.transform.localScale += Vector3.Scale(Vector3.one, normalizedOriginalScale) * Input.mouseScrollDelta.y * playerScaleSpeed;
                     }
                     else
                     {
-                        activeTaggedObject.transform.localScale += new Vector3(-1, 1, 1) * Input.mouseScrollDelta.y * playerScaleSpeed;
+                        activeTaggedObject.transform.localScale += Vector3.Scale(new Vector3(-1, 1, 1), normalizedOriginalScale) * Input.mouseScrollDelta.y * playerScaleSpeed;
                     }
-                    if (activeTaggedObject.GetComponent<Scalable>().maxScale < Mathf.Abs(activeTaggedObject.transform.localScale.x))
+
+                    // clamp active object scale
+                    if (activeTaggedObject.GetComponent<Scalable>().calculatedMaxScale.x < Mathf.Abs(activeTaggedObject.transform.localScale.x))
                     {
+                        Debug.Log("Clamping object scale - max");
                         activeTaggedObject.transform.localScale = Vector3.Scale(activeTaggedObject.transform.localScale.x > 0 ? Vector3.one : new Vector3(-1, 1, 1), activeTaggedObject.GetComponent<Scalable>().calculatedMaxScale);
                     }
-                    if (activeTaggedObject.GetComponent<Scalable>().minScale > Mathf.Abs(activeTaggedObject.transform.localScale.x))
+                    if (activeTaggedObject.GetComponent<Scalable>().calculatedMinScale.x > Mathf.Abs(activeTaggedObject.transform.localScale.x))
                     {
+                        Debug.Log("Clamping object scale - min");
                         activeTaggedObject.transform.localScale = Vector3.Scale(activeTaggedObject.transform.localScale.x > 0 ? Vector3.one : new Vector3(-1, 1, 1), activeTaggedObject.GetComponent<Scalable>().calculatedMinScale);
                     }
                 }
@@ -171,6 +186,7 @@ public class PlayerScale : MonoBehaviour
 
     public void DeselectObject()
     {
+        Debug.Log("Deselecting object: " + activeTaggedObject.name);
         Color objectColor = activeTaggedObject.GetComponentInChildren<SpriteRenderer>().color;
         activeTaggedObject.GetComponentInChildren<SpriteRenderer>().color = new Color(objectColor.r, objectColor.g, objectColor.b, 100);
 
@@ -188,6 +204,8 @@ public class PlayerScale : MonoBehaviour
 
         Color objectColor = activeTaggedObject.GetComponentInChildren<SpriteRenderer>().color;
         activeTaggedObject.GetComponentInChildren<SpriteRenderer>().color = new Color(objectColor.r, objectColor.g, objectColor.b, 255);
+
+        Debug.Log("Selecting object: " + activeTaggedObject.name);
     }
 
     public bool IsCollisionFree()

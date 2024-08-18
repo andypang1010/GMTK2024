@@ -45,14 +45,14 @@ public class Scalable : MonoBehaviour
         bool topFree = !Physics2D.OverlapBox(transform.position + Vector3.up * (Math.Abs(transform.localScale.y) / 2), new Vector2(0.8f * Math.Abs(transform.localScale.x), 0.05f), 0, ~whatToIgnore);
 
         bool result = leftFree && rightFree && topFree;
-        if (result)
-        {
-            Debug.Log("Collision free");
-        }
-        else
-        {
-            Debug.Log("Collision detected" + leftFree + rightFree + topFree);
-        }
+        // if (result)
+        // {
+        //     Debug.Log("Collision free");
+        // }
+        // else
+        // {
+        //     Debug.Log("Collision detected" + leftFree + rightFree + topFree);
+        // }
 
         return leftFree && rightFree && topFree;
     }
