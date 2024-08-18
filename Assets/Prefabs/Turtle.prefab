@@ -163,6 +163,9 @@ MonoBehaviour:
   maxScale: 5
   minScale: 0.5
   scaleOption: 0
+  whatToIgnore:
+    serializedVersion: 2
+    m_Bits: 168
   originalScale: {x: 0, y: 0, z: 0}
   calculatedMinScale: {x: 0, y: 0, z: 0}
   calculatedMaxScale: {x: 0, y: 0, z: 0}
@@ -279,7 +282,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4746131479170026677}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Forward Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}

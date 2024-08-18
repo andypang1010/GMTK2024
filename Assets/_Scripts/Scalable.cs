@@ -6,15 +6,14 @@ public class Scalable : MonoBehaviour
     public float maxScale = 5f;
     public float minScale = 0.5f;
     public ScaleOption scaleOption;
+    public LayerMask whatToIgnore;
     [HideInInspector] public Vector3 originalScale;
     [HideInInspector] public Vector3 calculatedMinScale;
     [HideInInspector] public Vector3 calculatedMaxScale;
-    private LayerMask whatToIgnore;
 
     void Start()
     {
         originalScale = transform.localScale;
-        whatToIgnore = LayerMask.GetMask("Player", "UI", "Scalable");
 
         switch (scaleOption)
         {
@@ -87,8 +86,13 @@ public class Scalable : MonoBehaviour
     public bool IsCollisionFree()
     {
         bool leftFree = !Physics2D.OverlapBox(transform.position + Vector3.left * (Math.Abs(transform.localScale.x) / 2), new Vector2(0.05f, 0.8f * transform.localScale.y), 0, ~whatToIgnore);
+        // print(Physics2D.OverlapBox(transform.position + Vector3.left * (Math.Abs(transform.localScale.x) / 2), new Vector2(0.05f, 0.8f * transform.localScale.y), 0, ~whatToIgnore).gameObject);
+
         bool rightFree = !Physics2D.OverlapBox(transform.position + Vector3.right * (Math.Abs(transform.localScale.x) / 2), new Vector2(0.05f, 0.8f * transform.localScale.y), 0, ~whatToIgnore);
+        // print(Physics2D.OverlapBox(transform.position + Vector3.right * (Math.Abs(transform.localScale.x) / 2), new Vector2(0.05f, 0.8f * transform.localScale.y), 0, ~whatToIgnore).gameObject);
+
         bool topFree = !Physics2D.OverlapBox(transform.position + Vector3.up * (Math.Abs(transform.localScale.y) / 2), new Vector2(0.8f * Math.Abs(transform.localScale.x), 0.05f), 0, ~whatToIgnore);
+        // print(Physics2D.OverlapBox(transform.position + Vector3.up * (Math.Abs(transform.localScale.y) / 2), new Vector2(0.8f * Math.Abs(transform.localScale.x), 0.05f), 0, ~whatToIgnore).gameObject);
 
         return leftFree && rightFree && topFree;
     }
