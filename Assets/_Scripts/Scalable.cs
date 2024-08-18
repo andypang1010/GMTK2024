@@ -1,8 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 using UnityEngine;
 
 public class Scalable : MonoBehaviour
@@ -20,6 +16,8 @@ public class Scalable : MonoBehaviour
         originalScale = transform.localScale;
         whatToIgnore = LayerMask.GetMask("Player", "UI", "Scalable");
 
+        switch (scaleOption)
+        {
         switch (scaleOption)
         {
             case ScaleOption.PROPORTIONAL:
@@ -69,6 +67,9 @@ public class Scalable : MonoBehaviour
                 return true;
 
             case ScaleOption.VERTICAL:
+                if (transform.localScale.y > calculatedMaxScale.y
+                || transform.localScale.y < calculatedMinScale.y)
+                {
                 if (transform.localScale.y > calculatedMaxScale.y
                 || transform.localScale.y < calculatedMinScale.y)
                 {

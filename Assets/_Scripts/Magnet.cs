@@ -20,11 +20,6 @@ public class Magnet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-    }
-
-    private void FixedUpdate()
-    {
         Rigidbody2D metalRb = metalObj.GetComponent<Rigidbody2D>();
         Collider2D metalCollider = metalObj.GetComponent<Collider2D>();
 
@@ -41,6 +36,12 @@ public class Magnet : MonoBehaviour
             metalRb.AddForce(metalDir * forceMultiplier);
             // rb.AddForce(magnetDir * forceMultiplier);
         }
+
+    }
+
+    private void FixedUpdate()
+    {
+
     }
 
     private float CalcArea(GameObject obj)

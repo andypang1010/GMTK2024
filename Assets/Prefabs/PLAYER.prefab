@@ -162,7 +162,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 16
   moveSpeed: 8
-  jumpForce: 9
+  horizontal: 0
   coyoteTime: 0.2
   jumpBuffer: 0.2
 --- !u!114 &5616701695585130035
@@ -183,14 +183,14 @@ MonoBehaviour:
   maxPlayerScale: 5
   minPlayerScale: 0.5
   defaultOrthoScale: 5
-  orthoScaleSpeed: 0.25
+  camHeightRelativeToPlayer: 0
   maxOrthoScale: 12
   minOrthoScale: 2
   activeTaggedObject: {fileID: 0}
   playerEyes: {fileID: 7461226385118338980}
   canSeeThroughLayer:
     serializedVersion: 2
-    m_Bits: 264
+    m_Bits: 776
   calculatedPlayerMaxScale: {x: 0, y: 0, z: 0}
   calculatedPlayerMinScale: {x: 0, y: 0, z: 0}
 --- !u!1 &7461226385118338980

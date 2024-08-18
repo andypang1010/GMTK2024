@@ -31,6 +31,13 @@ public class PhysicsButton : MonoBehaviour
             foreach (Collider2D singleCollider in CollidersToIgnore)
             {
                 Physics2D.IgnoreCollision(localCollider, singleCollider);
+
+                List<Collider2D> buttonTopColliders = new List<Collider2D>();
+                buttonTopRigid.GetAttachedColliders(buttonTopColliders);
+                foreach(var col in  buttonTopColliders)
+                {
+                    Physics2D.IgnoreCollision(col, singleCollider);
+                }
             }
         }
 
