@@ -90,9 +90,9 @@ public class Scalable : MonoBehaviour
         Collider2D rightCol = Physics2D.OverlapBox(GetBoxPos(1, 0), GetVerticalBoxSize(), 0, ~whatToIgnore);
         Collider2D topCol = Physics2D.OverlapBox(GetBoxPos(0, 1), GetHorizontalBoxSize(), 0, ~whatToIgnore);
 
-        Debug.Log(gameObject.name + " left collider: " + leftCol?.name);
-        Debug.Log(gameObject.name + " right collider: " + rightCol?.name);
-        Debug.Log(gameObject.name + " top collider: " + topCol?.name);
+        //Debug.Log(gameObject.name + " left collider: " + leftCol?.name);
+        //Debug.Log(gameObject.name + " right collider: " + rightCol?.name);
+        //Debug.Log(gameObject.name + " top collider: " + topCol?.name);
 
         bool leftFree = !leftCol;
         bool rightFree = !rightCol;
