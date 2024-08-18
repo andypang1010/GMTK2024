@@ -6,15 +6,14 @@ public class Scalable : MonoBehaviour
     public float maxScale = 5f;
     public float minScale = 0.5f;
     public ScaleOption scaleOption;
+    public LayerMask whatToIgnore;
     [HideInInspector] public Vector3 originalScale;
     [HideInInspector] public Vector3 calculatedMinScale;
     [HideInInspector] public Vector3 calculatedMaxScale;
-    private LayerMask whatToIgnore;
 
     void Start()
     {
         originalScale = transform.localScale;
-        whatToIgnore = LayerMask.GetMask("Player", "UI", "Scalable");
 
         switch (scaleOption)
         {

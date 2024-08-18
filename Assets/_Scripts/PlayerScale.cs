@@ -114,68 +114,68 @@ public class PlayerScale : MonoBehaviour
 
             #endregion
 
-            #region SCALE TAGGED OBJECT
-            if (activeTaggedObject)
-            {
-                Scalable scalableObject = activeTaggedObject.GetComponent<Scalable>();
-                
-                if (scalableObject.isScalable() || (Input.mouseScrollDelta.y < 0f))
-                {
+            //     #region SCALE TAGGED OBJECT
+            //     if (activeTaggedObject)
+            //     {
+            //         Scalable scalableObject = activeTaggedObject.GetComponent<Scalable>();
 
-                    // Scale Proportionally
-                    switch (scalableObject.scaleOption)
-                    {
-                        case ScaleOption.PROPORTIONAL:
-                            Vector3 objectOriginalScale = scalableObject.originalScale;
+            //         if (scalableObject.isScalable() || (Input.mouseScrollDelta.y < 0f))
+            //         {
 
-                            // normalize the original scale using the length
-                            Vector3 normalizedOriginalScale = new Vector3(Math.Abs(objectOriginalScale.x), objectOriginalScale.y, objectOriginalScale.z).normalized;
+            //             // Scale Proportionally
+            //             switch (scalableObject.scaleOption)
+            //             {
+            //                 case ScaleOption.PROPORTIONAL:
+            //                     Vector3 objectOriginalScale = scalableObject.originalScale;
 
-                            // scale the active object
-                            activeTaggedObject.transform.localScale += Vector3.Scale(new Vector3(Mathf.Sign(activeTaggedObject.transform.localScale.x), 1, 1), normalizedOriginalScale) * Input.mouseScrollDelta.y * playerScaleSpeed;
+            //                     // normalize the original scale using the length
+            //                     Vector3 normalizedOriginalScale = new Vector3(Math.Abs(objectOriginalScale.x), objectOriginalScale.y, objectOriginalScale.z).normalized;
 
-                            if (Vector3.Scale(new Vector3(Mathf.Sign(activeTaggedObject.transform.localScale.x), 1, 1), normalizedOriginalScale) * Input.mouseScrollDelta.y * playerScaleSpeed != Vector3.zero)
-                            {
-                                Debug.Log("Scaling " + activeTaggedObject.name + " proportionally: " + Vector3.Scale(new Vector3(Mathf.Sign(activeTaggedObject.transform.localScale.x), 1, 1), normalizedOriginalScale) * Input.mouseScrollDelta.y * playerScaleSpeed);
-                            }
+            //                     // scale the active object
+            //                     activeTaggedObject.transform.localScale += Vector3.Scale(new Vector3(Mathf.Sign(activeTaggedObject.transform.localScale.x), 1, 1), normalizedOriginalScale) * Input.mouseScrollDelta.y * playerScaleSpeed;
 
-                            // clamp active object scale
-                            if (scalableObject.calculatedMaxScale.x < Mathf.Abs(activeTaggedObject.transform.localScale.x))
-                            {
-                                Debug.Log("Clamping object scale - max");
-                                activeTaggedObject.transform.localScale = Vector3.Scale(activeTaggedObject.transform.localScale.x > 0 ? Vector3.one : new Vector3(-1, 1, 1), scalableObject.calculatedMaxScale);
-                            }
+            //                     if (Vector3.Scale(new Vector3(Mathf.Sign(activeTaggedObject.transform.localScale.x), 1, 1), normalizedOriginalScale) * Input.mouseScrollDelta.y * playerScaleSpeed != Vector3.zero)
+            //                     {
+            //                         Debug.Log("Scaling " + activeTaggedObject.name + " proportionally: " + Vector3.Scale(new Vector3(Mathf.Sign(activeTaggedObject.transform.localScale.x), 1, 1), normalizedOriginalScale) * Input.mouseScrollDelta.y * playerScaleSpeed);
+            //                     }
 
-                            if (scalableObject.calculatedMinScale.x > Mathf.Abs(activeTaggedObject.transform.localScale.x))
-                            {
-                                Debug.Log("Clamping object scale - min");
-                                activeTaggedObject.transform.localScale = Vector3.Scale(activeTaggedObject.transform.localScale.x > 0 ? Vector3.one : new Vector3(-1, 1, 1), scalableObject.calculatedMinScale);
-                            }
+            //                     // clamp active object scale
+            //                     if (scalableObject.calculatedMaxScale.x < Mathf.Abs(activeTaggedObject.transform.localScale.x))
+            //                     {
+            //                         Debug.Log("Clamping object scale - max");
+            //                         activeTaggedObject.transform.localScale = Vector3.Scale(activeTaggedObject.transform.localScale.x > 0 ? Vector3.one : new Vector3(-1, 1, 1), scalableObject.calculatedMaxScale);
+            //                     }
 
-                            break;
-                        case ScaleOption.VERTICAL:
-                            activeTaggedObject.transform.localScale += Vector3.up * Input.mouseScrollDelta.y * playerScaleSpeed;
+            //                     if (scalableObject.calculatedMinScale.x > Mathf.Abs(activeTaggedObject.transform.localScale.x))
+            //                     {
+            //                         Debug.Log("Clamping object scale - min");
+            //                         activeTaggedObject.transform.localScale = Vector3.Scale(activeTaggedObject.transform.localScale.x > 0 ? Vector3.one : new Vector3(-1, 1, 1), scalableObject.calculatedMinScale);
+            //                     }
 
-                            // clamp active object scale
-                            if (scalableObject.calculatedMaxScale.y < Mathf.Abs(activeTaggedObject.transform.localScale.y))
-                            {
-                                Debug.Log("Clamping object scale - max");
-                                activeTaggedObject.transform.localScale = Vector3.Scale(activeTaggedObject.transform.localScale.x > 0 ? Vector3.one : new Vector3(-1, 1, 1), scalableObject.calculatedMaxScale);
-                            }
+            //                     break;
+            //                 case ScaleOption.VERTICAL:
+            //                     activeTaggedObject.transform.localScale += Vector3.up * Input.mouseScrollDelta.y * playerScaleSpeed;
 
-                            if (scalableObject.calculatedMinScale.y > Mathf.Abs(activeTaggedObject.transform.localScale.y))
-                            {
-                                Debug.Log("Clamping object scale - min");
-                                activeTaggedObject.transform.localScale = Vector3.Scale(activeTaggedObject.transform.localScale.x > 0 ? Vector3.one : new Vector3(-1, 1, 1), scalableObject.calculatedMinScale);
-                            }
+            //                     // clamp active object scale
+            //                     if (scalableObject.calculatedMaxScale.y < Mathf.Abs(activeTaggedObject.transform.localScale.y))
+            //                     {
+            //                         Debug.Log("Clamping object scale - max");
+            //                         activeTaggedObject.transform.localScale = Vector3.Scale(activeTaggedObject.transform.localScale.x > 0 ? Vector3.one : new Vector3(-1, 1, 1), scalableObject.calculatedMaxScale);
+            //                     }
 
-                            break;
-                    }
+            //                     if (scalableObject.calculatedMinScale.y > Mathf.Abs(activeTaggedObject.transform.localScale.y))
+            //                     {
+            //                         Debug.Log("Clamping object scale - min");
+            //                         activeTaggedObject.transform.localScale = Vector3.Scale(activeTaggedObject.transform.localScale.x > 0 ? Vector3.one : new Vector3(-1, 1, 1), scalableObject.calculatedMinScale);
+            //                     }
 
-                }
-            }
+            //                     break;
+            //             }
 
-            #endregion
+            //         }
+            //     }
+
+            //     #endregion
         }
 
         #region SCALE TAGGED OBJECT
@@ -314,10 +314,10 @@ public class PlayerScale : MonoBehaviour
     {
         bool leftFree = !Physics2D.OverlapBox(transform.position + Vector3.left * (Math.Abs(transform.localScale.x) / 2), new Vector2(0.05f, 0.9f * transform.localScale.y), 0, ~LayerMask.GetMask("Player", "UI"));
         // print("Left: " + Physics2D.OverlapBox(transform.position + Vector3.left * (Math.Abs(transform.localScale.x) / 2), new Vector2(0.05f, 0.9f * transform.localScale.y), 0, ~LayerMask.GetMask("Player", "UI")).gameObject.name);
-        
+
         bool rightFree = !Physics2D.OverlapBox(transform.position + Vector3.right * (Math.Abs(transform.localScale.x) / 2), new Vector2(0.05f, 0.9f * transform.localScale.y), 0, ~LayerMask.GetMask("Player", "UI"));
         // print("Right: " + Physics2D.OverlapBox(transform.position + Vector3.right * (Math.Abs(transform.localScale.x) / 2), new Vector2(0.05f, 0.9f * transform.localScale.y), 0, ~LayerMask.GetMask("Player", "UI")).gameObject.name);
-        
+
         bool topFree = !Physics2D.OverlapBox(transform.position + Vector3.up * (transform.localScale.y / 2), new Vector2(0.9f * Math.Abs(transform.localScale.x), 0.05f), 0, ~LayerMask.GetMask("Player", "UI"));
         // print("Top: " + Physics2D.OverlapBox(transform.position + Vector3.up * (transform.localScale.y / 2), new Vector2(0.9f * Math.Abs(transform.localScale.x), 0.05f), 0, ~LayerMask.GetMask("Player", "UI")).gameObject.name);
 
@@ -338,7 +338,8 @@ public class PlayerScale : MonoBehaviour
         Gizmos.DrawLine(transform.position, transform.position + (Vector3)playerFrontNormal);
     }
 
-    public void ResetPlayerScale() {
+    public void ResetPlayerScale()
+    {
         transform.localScale = Vector3.one * defaultPlayerScale;
         virtualCamera.m_Lens.OrthographicSize = defaultOrthoScale;
     }
