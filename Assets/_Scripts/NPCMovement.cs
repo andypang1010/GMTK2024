@@ -46,7 +46,7 @@ public class NPCMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);
+        rb.velocity = new Vector2(horizontal * moveSpeed * GetWorldSize().x, rb.velocity.y);
     }
 
     private bool IsHittingWall()
@@ -68,7 +68,13 @@ public class NPCMovement : MonoBehaviour
 
     private Vector2 GetForwarCheckBoxDimension()
     {
-        return new Vector2(0.05f, 0.75f * Mathf.Abs(transform.localScale.y));
+        Vector2 colliderSize = GetComponent<Collider2D>().bounds.size;
+        return new Vector2(0.05f * colliderSize.x, 0.75f * colliderSize.y);
+    }
+
+    private Vector2 GetWorldSize()
+    {
+        return GetComponent<Collider2D>().bounds.size;
     }
 
     private void OnCollisionEnter2D(Collision2D other) {

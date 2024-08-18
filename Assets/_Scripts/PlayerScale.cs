@@ -19,8 +19,10 @@ public class PlayerScale : MonoBehaviour
 
     [Header("Ortho Scale")]
     public float defaultOrthoScale;
-    public float orthoScaleSpeed;
+    public float camHeightRelativeToPlayer;
     [SerializeField] private float maxOrthoScale, minOrthoScale;
+    private CinemachineFramingTransposer cinemachineTransposer;
+    private float initCamOffsetPercentage;
 
     [Header("Tagging Objects")]
     public GameObject activeTaggedObject;
@@ -36,6 +38,9 @@ public class PlayerScale : MonoBehaviour
         originalPlayerScale = transform.localScale;
         calculatedPlayerMaxScale = maxPlayerScale * originalPlayerScale;
         calculatedPlayerMinScale = minPlayerScale * originalPlayerScale;
+
+        cinemachineTransposer = virtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
+        initCamOffsetPercentage = cinemachineTransposer.m_TrackedObjectOffset.y / GetWorldSize().y;
     }
 
     void Update()
@@ -85,10 +90,11 @@ public class PlayerScale : MonoBehaviour
 
             virtualCamera.m_Lens.OrthographicSize =
                     Mathf.Clamp(
-                        virtualCamera.m_Lens.OrthographicSize + Input.mouseScrollDelta.y * orthoScaleSpeed,
+                        GetWorldSize().y * camHeightRelativeToPlayer,
                         minOrthoScale,
                         maxOrthoScale
                     );
+            cinemachineTransposer.m_TrackedObjectOffset = new Vector3(0, GetWorldSize().y * initCamOffsetPercentage);
 
             if (activeTaggedObject)
             {
@@ -257,4 +263,9 @@ public class PlayerScale : MonoBehaviour
         transform.localScale = Vector3.one * defaultPlayerScale;
         virtualCamera.m_Lens.OrthographicSize = defaultOrthoScale;
     } 
+
+    private Vector2 GetWorldSize()
+    {
+        return GetComponent<Collider2D>().bounds.size;
+    }
 }

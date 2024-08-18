@@ -191,7 +191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatToIgnore:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 136
   maxScale: 5
   minScale: 0.5
   scaleOption: 0
