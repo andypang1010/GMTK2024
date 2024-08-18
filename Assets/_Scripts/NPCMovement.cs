@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BackAndForthMovement : MonoBehaviour
+public class NPCMovement : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private Transform forwardCheck;
+    [SerializeField] private LayerMask teaLayer;
     private Rigidbody2D rb;
 
     [Header("Movement")]
@@ -68,5 +69,16 @@ public class BackAndForthMovement : MonoBehaviour
     private Vector2 GetForwarCheckBoxDimension()
     {
         return new Vector2(0.05f, 0.75f * Mathf.Abs(transform.localScale.y));
+    }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+
+        // If the collider is of a layer in the Tea Layer
+        if ((teaLayer.value & 1 << other.gameObject.layer) > 0) {
+
+            // Reset position and scale
+            transform.position = spawnPosition;
+            transform.localScale = GetComponent<Scalable>().originalScale;
+        }
     }
 }

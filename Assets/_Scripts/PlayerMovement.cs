@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("References")]
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private LayerMask teaLayer;
     private PlayerScale playerScale;
     private Rigidbody2D rb;
 
@@ -121,4 +122,18 @@ public class PlayerMovement : MonoBehaviour
     {
         Gizmos.DrawCube(groundCheck.position, new Vector2(0.75f * Mathf.Abs(transform.localScale.x), 0.05f));
     }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+
+        // If the collider is of a layer in the Tea Layer
+        if ((teaLayer.value & 1 << other.gameObject.layer) > 0)
+        {
+
+            // Reset position and scale
+            transform.position = other.transform.GetChild(0).transform.position;
+            // playerScale.ResetScale();
+        }
+    }
+
 }
