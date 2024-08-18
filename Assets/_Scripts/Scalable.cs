@@ -3,17 +3,18 @@ using UnityEngine;
 
 public class Scalable : MonoBehaviour
 {
-    public LayerMask whatToIgnore;
     public float maxScale = 5f;
     public float minScale = 0.5f;
     public ScaleOption scaleOption;
-    public Vector3 originalScale;
-    public Vector3 calculatedMinScale;
-    public Vector3 calculatedMaxScale;
-    // Start is called before the first frame update
+    [HideInInspector] public Vector3 originalScale;
+    [HideInInspector] public Vector3 calculatedMinScale;
+    [HideInInspector] public Vector3 calculatedMaxScale;
+    private LayerMask whatToIgnore;
+
     void Start()
     {
         originalScale = transform.localScale;
+        whatToIgnore = LayerMask.GetMask("Player", "UI", "Scalable");
 
         switch (scaleOption)
         {
@@ -36,7 +37,7 @@ public class Scalable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        print(gameObject.name + " isScalable: " + isScalable());
     }
 
     public bool isScalable()
@@ -52,14 +53,12 @@ public class Scalable : MonoBehaviour
                 if (Mathf.Abs(transform.localScale.x) > calculatedMaxScale.x
                 || Mathf.Abs(transform.localScale.x) < calculatedMinScale.x)
                 {
-                    Debug.Log("X scale out of bounds");
                     return false;
                 }
 
                 if (transform.localScale.y > calculatedMaxScale.y
                 || transform.localScale.y < calculatedMinScale.y)
                 {
-                    Debug.Log("Y scale out of bounds");
                     return false;
                 }
 
@@ -72,10 +71,17 @@ public class Scalable : MonoBehaviour
                     return false;
                 }
 
+                if (transform.localScale.y > calculatedMaxScale.y
+                || transform.localScale.y < calculatedMinScale.y)
+                {
+                    return false;
+                }
+
                 return true;
-        }
+            }
 
         return false;
+        
     }
 
     public bool IsCollisionFree()
@@ -84,18 +90,14 @@ public class Scalable : MonoBehaviour
         bool rightFree = !Physics2D.OverlapBox(transform.position + Vector3.right * (Math.Abs(transform.localScale.x) / 2), new Vector2(0.05f, 0.8f * transform.localScale.y), 0, ~whatToIgnore);
         bool topFree = !Physics2D.OverlapBox(transform.position + Vector3.up * (Math.Abs(transform.localScale.y) / 2), new Vector2(0.8f * Math.Abs(transform.localScale.x), 0.05f), 0, ~whatToIgnore);
 
-        bool result = leftFree && rightFree && topFree;
-        if (result)
-        {
-            // Debug.Log("Collision free");
-        }
-        else
-        {
-            Debug.Log("Collision detected" + leftFree + rightFree + topFree);
-        }
-
         return leftFree && rightFree && topFree;
     }
+
+    public void ResetScale()
+    {
+        transform.localScale = originalScale;
+    }
+
 }
 
 public enum ScaleOption

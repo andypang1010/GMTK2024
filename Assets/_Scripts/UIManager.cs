@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
+    public GameObject resetButton;
     public GameObject pausePanel;
     void Start()
     {
@@ -20,6 +21,14 @@ public class UIManager : MonoBehaviour
         else if (GameManager.Instance.currentGameState == GameState.PAUSE)
         {
             pausePanel.SetActive(true);
+        }
+
+        if (GameManager.Instance.currentLevel == null) {
+            resetButton.SetActive(false);
+        }
+
+        else {
+            resetButton.SetActive(true);
         }
     }
 }

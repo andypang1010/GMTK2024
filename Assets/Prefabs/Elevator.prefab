@@ -179,7 +179,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1.5
-  points:
-  - {fileID: 0}
-  - {fileID: 0}
+  points: []
   startIndex: 0

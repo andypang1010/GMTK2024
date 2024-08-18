@@ -28,9 +28,9 @@ public class PlayerScale : MonoBehaviour
     public GameObject activeTaggedObject;
     public GameObject playerEyes;
     public LayerMask canSeeThroughLayer;
-    private Vector3 originalPlayerScale;
-    public Vector3 calculatedPlayerMaxScale;
-    public Vector3 calculatedPlayerMinScale;
+    [HideInInspector] private Vector3 originalPlayerScale;
+    [HideInInspector] public Vector3 calculatedPlayerMaxScale;
+    [HideInInspector] public Vector3 calculatedPlayerMinScale;
 
     void Start()
     {
@@ -96,12 +96,12 @@ public class PlayerScale : MonoBehaviour
             // Clamp player scale
             if (Math.Abs(transform.localScale.x) > calculatedPlayerMaxScale.x)
             {
-                transform.localScale = Vector3.Scale(calculatedPlayerMaxScale, transform.localScale.x > 0 ? new Vector3(1, 1, 1) : new Vector3(-1, 1, 1));
+                transform.localScale = Vector3.Scale(calculatedPlayerMaxScale, new Vector3(Mathf.Sign(transform.localScale.x), 1, 1));
             }
 
             else if (Math.Abs(transform.localScale.x) < calculatedPlayerMinScale.x)
             {
-                transform.localScale = Vector3.Scale(calculatedPlayerMinScale, transform.localScale.x > 0 ? new Vector3(1, 1, 1) : new Vector3(-1, 1, 1));
+                transform.localScale = Vector3.Scale(calculatedPlayerMinScale, new Vector3(Mathf.Sign(transform.localScale.x), 1, 1));
             }
 
             virtualCamera.m_Lens.OrthographicSize =
@@ -111,6 +111,69 @@ public class PlayerScale : MonoBehaviour
                         maxOrthoScale
                     );
             cinemachineTransposer.m_TrackedObjectOffset = new Vector3(0, GetWorldSize().y * initCamOffsetPercentage);
+
+            #endregion
+
+            #region SCALE TAGGED OBJECT
+            if (activeTaggedObject)
+            {
+                Scalable scalableObject = activeTaggedObject.GetComponent<Scalable>();
+                
+                if (scalableObject.isScalable() || (Input.mouseScrollDelta.y < 0f))
+                {
+
+                    // Scale Proportionally
+                    switch (scalableObject.scaleOption)
+                    {
+                        case ScaleOption.PROPORTIONAL:
+                            Vector3 objectOriginalScale = scalableObject.originalScale;
+
+                            // normalize the original scale using the length
+                            Vector3 normalizedOriginalScale = new Vector3(Math.Abs(objectOriginalScale.x), objectOriginalScale.y, objectOriginalScale.z).normalized;
+
+                            // scale the active object
+                            activeTaggedObject.transform.localScale += Vector3.Scale(new Vector3(Mathf.Sign(activeTaggedObject.transform.localScale.x), 1, 1), normalizedOriginalScale) * Input.mouseScrollDelta.y * playerScaleSpeed;
+
+                            if (Vector3.Scale(new Vector3(Mathf.Sign(activeTaggedObject.transform.localScale.x), 1, 1), normalizedOriginalScale) * Input.mouseScrollDelta.y * playerScaleSpeed != Vector3.zero)
+                            {
+                                Debug.Log("Scaling " + activeTaggedObject.name + " proportionally: " + Vector3.Scale(new Vector3(Mathf.Sign(activeTaggedObject.transform.localScale.x), 1, 1), normalizedOriginalScale) * Input.mouseScrollDelta.y * playerScaleSpeed);
+                            }
+
+                            // clamp active object scale
+                            if (scalableObject.calculatedMaxScale.x < Mathf.Abs(activeTaggedObject.transform.localScale.x))
+                            {
+                                Debug.Log("Clamping object scale - max");
+                                activeTaggedObject.transform.localScale = Vector3.Scale(activeTaggedObject.transform.localScale.x > 0 ? Vector3.one : new Vector3(-1, 1, 1), scalableObject.calculatedMaxScale);
+                            }
+
+                            if (scalableObject.calculatedMinScale.x > Mathf.Abs(activeTaggedObject.transform.localScale.x))
+                            {
+                                Debug.Log("Clamping object scale - min");
+                                activeTaggedObject.transform.localScale = Vector3.Scale(activeTaggedObject.transform.localScale.x > 0 ? Vector3.one : new Vector3(-1, 1, 1), scalableObject.calculatedMinScale);
+                            }
+
+                            break;
+                        case ScaleOption.VERTICAL:
+                            activeTaggedObject.transform.localScale += Vector3.up * Input.mouseScrollDelta.y * playerScaleSpeed;
+
+                            // clamp active object scale
+                            if (scalableObject.calculatedMaxScale.y < Mathf.Abs(activeTaggedObject.transform.localScale.y))
+                            {
+                                Debug.Log("Clamping object scale - max");
+                                activeTaggedObject.transform.localScale = Vector3.Scale(activeTaggedObject.transform.localScale.x > 0 ? Vector3.one : new Vector3(-1, 1, 1), scalableObject.calculatedMaxScale);
+                            }
+
+                            if (scalableObject.calculatedMinScale.y > Mathf.Abs(activeTaggedObject.transform.localScale.y))
+                            {
+                                Debug.Log("Clamping object scale - min");
+                                activeTaggedObject.transform.localScale = Vector3.Scale(activeTaggedObject.transform.localScale.x > 0 ? Vector3.one : new Vector3(-1, 1, 1), scalableObject.calculatedMinScale);
+                            }
+
+                            break;
+                    }
+
+                }
+            }
 
             #endregion
         }
@@ -181,10 +244,8 @@ public class PlayerScale : MonoBehaviour
 
     private GameObject GetClickedObject()
     {
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);
+        RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity, ~LayerMask.GetMask("UI"));
 
         if (hit.collider != null)
         {
@@ -251,9 +312,15 @@ public class PlayerScale : MonoBehaviour
 
     public bool IsCollisionFree()
     {
-        bool leftFree = !Physics2D.OverlapBox(transform.position + Vector3.left * (Math.Abs(transform.localScale.x) / 2), new Vector2(0.05f, 0.9f * transform.localScale.y), 0, ~LayerMask.GetMask("Player"));
-        bool rightFree = !Physics2D.OverlapBox(transform.position + Vector3.right * (Math.Abs(transform.localScale.x) / 2), new Vector2(0.05f, 0.9f * transform.localScale.y), 0, ~LayerMask.GetMask("Player"));
-        bool topFree = !Physics2D.OverlapBox(transform.position + Vector3.up * (Math.Abs(transform.localScale.y) / 2), new Vector2(0.9f * Math.Abs(transform.localScale.x), 0.05f), 0, ~LayerMask.GetMask("Player"));
+        bool leftFree = !Physics2D.OverlapBox(transform.position + Vector3.left * (Math.Abs(transform.localScale.x) / 2), new Vector2(0.05f, 0.9f * transform.localScale.y), 0, ~LayerMask.GetMask("Player", "UI"));
+        // print("Left: " + Physics2D.OverlapBox(transform.position + Vector3.left * (Math.Abs(transform.localScale.x) / 2), new Vector2(0.05f, 0.9f * transform.localScale.y), 0, ~LayerMask.GetMask("Player", "UI")).gameObject.name);
+        
+        bool rightFree = !Physics2D.OverlapBox(transform.position + Vector3.right * (Math.Abs(transform.localScale.x) / 2), new Vector2(0.05f, 0.9f * transform.localScale.y), 0, ~LayerMask.GetMask("Player", "UI"));
+        // print("Right: " + Physics2D.OverlapBox(transform.position + Vector3.right * (Math.Abs(transform.localScale.x) / 2), new Vector2(0.05f, 0.9f * transform.localScale.y), 0, ~LayerMask.GetMask("Player", "UI")).gameObject.name);
+        
+        bool topFree = !Physics2D.OverlapBox(transform.position + Vector3.up * (transform.localScale.y / 2), new Vector2(0.9f * Math.Abs(transform.localScale.x), 0.05f), 0, ~LayerMask.GetMask("Player", "UI"));
+        // print("Top: " + Physics2D.OverlapBox(transform.position + Vector3.up * (transform.localScale.y / 2), new Vector2(0.9f * Math.Abs(transform.localScale.x), 0.05f), 0, ~LayerMask.GetMask("Player", "UI")).gameObject.name);
+
 
         return leftFree && rightFree && topFree;
     }
@@ -271,8 +338,7 @@ public class PlayerScale : MonoBehaviour
         Gizmos.DrawLine(transform.position, transform.position + (Vector3)playerFrontNormal);
     }
 
-    public void ResetScale()
-    {
+    public void ResetPlayerScale() {
         transform.localScale = Vector3.one * defaultPlayerScale;
         virtualCamera.m_Lens.OrthographicSize = defaultOrthoScale;
     }

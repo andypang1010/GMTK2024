@@ -7,7 +7,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public GameState currentGameState { get; private set; }
+    public GameObject currentLevel;
     public int[] defaultLevelScales = { 1, 1 };
+    private GameObject player;
 
 
     void Awake()
@@ -27,6 +29,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Instance.currentGameState = GameState.GAME;
+        player = GameObject.Find("PLAYER");
     }
 
     void Update()
@@ -52,6 +55,34 @@ public class GameManager : MonoBehaviour
         Debug.Log("Placing player in level " + levelIndex + " from level " + fromLevelIndex);
         player.transform.position = toPosition.position;
         player.transform.localScale = Vector3.one * defaultLevelScales[levelIndex];
+    }
+
+    public void ResetLevel() {
+        print("Level reset");
+        if (currentLevel == null) {
+            print("Currently at lobby");
+            return;
+        }
+
+        foreach (Transform element in currentLevel.transform) {
+            if (element.TryGetComponent(out Scalable scalable)) {
+                scalable.ResetScale();
+            }
+
+            if (element.TryGetComponent(out NPCMovement npcMovement)) {
+                npcMovement.ResetPosition();
+            }
+            
+            if (element.TryGetComponent(out Elevator elevator)) {
+                elevator.ResetElevator();
+            }
+        }
+
+        player.GetComponent<PlayerMovement>().ResetLevelPosition(
+            currentLevel.transform.Find("Player Reset Spawn").transform.position);
+
+        player.GetComponent<PlayerScale>().ResetPlayerScale();
+
     }
 }
 

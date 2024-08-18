@@ -9,10 +9,12 @@ public class Elevator : MonoBehaviour
     public float moveSpeed;
     public Transform[] points;
     public int startIndex;
+    private Vector3 startPosition;
     private int index;
     
     private void Start() {
         index = startIndex;
+        startPosition = transform.position;
     }
 
     private void Update() {
@@ -22,6 +24,11 @@ public class Elevator : MonoBehaviour
             index %= points.Length;
         }
 
-        transform.position = Vector2.MoveTowards(transform.position, points[index].position, moveSpeed * Time.deltaTime);
+        transform.position = 
+            Vector2.MoveTowards(transform.position, points[index].position, moveSpeed * Time.deltaTime);
+    }
+
+    public void ResetElevator() {
+        transform.position = startPosition;
     }
 }
