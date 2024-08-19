@@ -188,7 +188,7 @@ MonoBehaviour:
     m_Bits: 16
   ignoreColliders: []
   npcAnim: {fileID: 5202195445445025073}
-  moveSpeed: 0
+  moveSpeed: 2
 --- !u!1 &7109230371027069354
 GameObject:
   m_ObjectHideFlags: 0

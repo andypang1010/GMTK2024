@@ -6,10 +6,6 @@ public class UIManager : MonoBehaviour
 {
     public GameObject resetButton;
     public GameObject pausePanel;
-    void Start()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
 
     void Update()
     {

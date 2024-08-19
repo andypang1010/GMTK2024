@@ -23,12 +23,6 @@ public class RootManager : MonoBehaviour
     private void Update()
     {
         Application.targetFrameRate = frameRate;
-
-        if (SceneManager.GetActiveScene().name == "MENU"
-        || SceneManager.GetActiveScene().name == "SETTINGS")
-        {
-            Destroy(GameObject.Find("GAME MANAGER"));
-        }
     }
 
     public void GoMenu()
@@ -36,15 +30,19 @@ public class RootManager : MonoBehaviour
         SceneManager.LoadScene("MENU");
     }
 
-    public void GoGame()
-    {
-        SceneManager.LoadScene("LEVEL 1");
+    public void GoTutorial() {
+        SceneManager.LoadScene("TUTORIAL");
     }
 
-    public void GoSetting()
+    public void GoGame()
     {
-        SceneManager.LoadScene("SETTINGS");
+        SceneManager.LoadScene("GAME");
     }
+
+    // public void GoSetting()
+    // {
+    //     SceneManager.LoadScene("SETTINGS");
+    // }
 
     public void GoExit()
     {

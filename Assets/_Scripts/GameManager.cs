@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
 
-            DontDestroyOnLoad(gameObject);
+            // DontDestroyOnLoad(gameObject);
         }
     }
 
@@ -96,6 +96,7 @@ public class GameManager : MonoBehaviour
 
         player.GetComponent<PlayerScale>().ResetPlayerScale();
 
+        currentGameState = GameState.GAME;
     }
 
     public void DrainTea() {
