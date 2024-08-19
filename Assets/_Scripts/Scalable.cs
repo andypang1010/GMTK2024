@@ -36,12 +36,12 @@ public class Scalable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(gameObject.name + " isScalable: " + isScalable());
+        //print(gameObject.name + " isScalable: " + isScalable());
     }
 
     public bool isScalable()
     {
-        print(gameObject.name + " " + IsCollisionFree());
+        //print(gameObject.name + " " + IsCollisionFree());
         if (!IsCollisionFree())
         {
             return false;
