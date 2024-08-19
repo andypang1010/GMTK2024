@@ -142,7 +142,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collider) {
+    private void OnTriggerStay2D(Collider2D collider) {
         if (collider.gameObject.CompareTag("Level Zone")) {
             GameManager.Instance.currentLevel = collider.gameObject;
         }
