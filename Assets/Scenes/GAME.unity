@@ -4529,7 +4529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   metalObj: {fileID: 1246350714}
-  magneticForce: 10
+  magneticForce: 20
 --- !u!61 &268962503
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10694,7 +10694,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   metalObj: {fileID: 1613962041}
-  magneticForce: 45
+  magneticForce: 80
 --- !u!61 &860712977
 BoxCollider2D:
   m_ObjectHideFlags: 0
