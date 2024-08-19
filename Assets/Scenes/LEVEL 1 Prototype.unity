@@ -1691,6 +1691,7 @@ MonoBehaviour:
   whatToIgnore:
     serializedVersion: 2
     m_Bits: 168
+  realScalableObj: {fileID: 0}
   originalScale: {x: 0, y: 0, z: 0}
   calculatedMinScale: {x: 0, y: 0, z: 0}
   calculatedMaxScale: {x: 0, y: 0, z: 0}
@@ -1793,6 +1794,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: {fileID: 0}
+  allLevels: []
   teaLake: {fileID: 0}
   defaultLevelScales: 01000000010000000100000001000000
 --- !u!4 &928876918
@@ -2431,6 +2433,7 @@ MonoBehaviour:
   whatToIgnore:
     serializedVersion: 2
     m_Bits: 168
+  realScalableObj: {fileID: 0}
   originalScale: {x: 0, y: 0, z: 0}
   calculatedMinScale: {x: 0, y: 0, z: 0}
   calculatedMaxScale: {x: 0, y: 0, z: 0}
@@ -2953,6 +2956,7 @@ MonoBehaviour:
   whatToIgnore:
     serializedVersion: 2
     m_Bits: 168
+  realScalableObj: {fileID: 0}
   originalScale: {x: 0, y: 0, z: 0}
   calculatedMinScale: {x: 0, y: 0, z: 0}
   calculatedMaxScale: {x: 0, y: 0, z: 0}
@@ -3453,6 +3457,7 @@ MonoBehaviour:
   whatToIgnore:
     serializedVersion: 2
     m_Bits: 168
+  realScalableObj: {fileID: 0}
   originalScale: {x: 0, y: 0, z: 0}
   calculatedMinScale: {x: 0, y: 0, z: 0}
   calculatedMaxScale: {x: 0, y: 0, z: 0}
@@ -4323,10 +4328,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 877515816036633045, guid: 0a8c9b55891fd214896db3e67327f61d, type: 3}
-      propertyPath: m_Avatar
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1482163726134479851, guid: 0a8c9b55891fd214896db3e67327f61d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.25
