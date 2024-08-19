@@ -49,4 +49,16 @@ public class AudioManager : MonoBehaviour
     {
 
     }
+
+    void playWalk()
+    {
+        sfxSource.clip = walkClip;
+        sfxSource.Play();
+    }
+
+    void playJump()
+    {
+        sfxSource.clip = jumpClip;
+        sfxSource.PlayOneShot(jumpClip);
+    }
 }

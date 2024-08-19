@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask teaLayer;
     private PlayerScale playerScale;
     private Rigidbody2D rb;
+    public Animator playerAnim;
 
     [Header("Movement")]
     [SerializeField] private float moveSpeed;
@@ -27,13 +28,16 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         playerScale = GetComponent<PlayerScale>();
+        playerAnim.SetBool("IsWalking", false);
+        playerAnim.SetBool("IsJumping", false);
     }
 
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
 
-        if (Mathf.Abs(horizontal) > 0) {
+        if (Mathf.Abs(horizontal) > 0)
+        {
             rb.isKinematic = false;
         }
 
@@ -59,11 +63,14 @@ public class PlayerMovement : MonoBehaviour
 
         if (coyoteTimeCounter > 0f && jumpBufferCounter > 0f)
         {
-            if (Input.GetKeyDown(KeyCode.Space)) {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
                 rb.isKinematic = false;
             }
 
             rb.velocity = new Vector2(rb.velocity.x, HeightToVelocity());
+
+            playerAnim.SetBool("IsJumping", true);
         }
 
         Flip();
@@ -106,6 +113,15 @@ public class PlayerMovement : MonoBehaviour
         if (IsGrounded())
         {
             rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);
+
+            if (Mathf.Abs(horizontal) > 0)
+            {
+                playerAnim.SetBool("IsWalking", true);
+            }
+            else
+            {
+                playerAnim.SetBool("IsWalking", false);
+            }
         }
 
         // Damping in air
@@ -140,21 +156,31 @@ public class PlayerMovement : MonoBehaviour
             transform.position = other.transform.GetChild(0).transform.position;
             playerScale.ResetPlayerScale();
         }
+
+        if ((groundLayer.value & 1 << other.gameObject.layer) > 0)
+        {
+            playerAnim.SetBool("IsJumping", false);
+        }
     }
 
-    private void OnTriggerStay2D(Collider2D collider) {
-        if (collider.gameObject.CompareTag("Level Zone")) {
+    private void OnTriggerStay2D(Collider2D collider)
+    {
+        if (collider.gameObject.CompareTag("Level Zone"))
+        {
             GameManager.Instance.currentLevel = collider.gameObject;
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collider) {
-        if (collider.gameObject.CompareTag("Level Zone")) {
+    private void OnTriggerExit2D(Collider2D collider)
+    {
+        if (collider.gameObject.CompareTag("Level Zone"))
+        {
             GameManager.Instance.currentLevel = null;
         }
     }
 
-    public void ResetLevelPosition(Vector3 pos) {
+    public void ResetLevelPosition(Vector3 pos)
+    {
         transform.position = pos;
     }
 }
