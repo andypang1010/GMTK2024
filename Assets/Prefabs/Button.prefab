@@ -437,7 +437,7 @@ MonoBehaviour:
   buttonLowerLimit: {fileID: 1655166726198243683}
   buttonUpperLimit: {fileID: 282040504425635062}
   threshHold: 0.5
-  force: 10
+  force: 0.0001
   isPressed: 0
   pressedSound: {fileID: 0}
   releasedSound: {fileID: 0}

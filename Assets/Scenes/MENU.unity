@@ -364,6 +364,7 @@ MonoBehaviour:
   LV2BGM: {fileID: 8300000, guid: 66608b3eb4c8ba4428ac8c6ae63f38c4, type: 3}
   LV3BGM: {fileID: 0}
   LV4BGM: {fileID: 8300000, guid: fbf9c86795c4f064a9de80af20466a1b, type: 3}
+  fadeSpeed: 0.05
 --- !u!82 &269201391
 AudioSource:
   m_ObjectHideFlags: 0

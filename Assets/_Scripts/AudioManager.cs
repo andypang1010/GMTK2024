@@ -28,6 +28,9 @@ public class AudioManager : MonoBehaviour
     public AudioClip LV3BGM;
     public AudioClip LV4BGM;
 
+    [Header("Settings")]
+    public float fadeSpeed;
+
     void Awake()
     {
         if (instance == null)
@@ -59,16 +62,16 @@ public class AudioManager : MonoBehaviour
         else if (SceneManager.GetActiveScene().name == "GAME") {
             switch (GameManager.Instance.currentLevel.name) {
                 case "LV1_ENVIRONMENT":
-                    musicSource.clip = LV1BGM;
+                    FadeBGM(LV1BGM);
                     break;
                 case "LV2_ENVIRONMENT":
-                    musicSource.clip = LV2BGM;
+                    FadeBGM(LV2BGM);
                     break;
                 case "LV3_ENVIRONMENT":
-                    musicSource.clip = LV3BGM;
+                    FadeBGM(LV3BGM);
                     break;
                 case "LV4_ENVIRONMENT":
-                    musicSource.clip = LV4BGM;
+                    FadeBGM(LV4BGM);
                     break;
                 default:
                     musicSource.clip = null;
@@ -100,8 +103,27 @@ public class AudioManager : MonoBehaviour
         sfxSource.PlayOneShot(jumpClip);
     }
     
-    void playBGM(AudioClip bgm) {
-        musicSource.clip = bgm;
-        musicSource.Play();
+    void FadeBGM(AudioClip clip) {
+        if (musicSource.clip != clip) {
+            StartCoroutine(Crossfade(musicSource, clip));
+        }
+    }
+
+    IEnumerator Crossfade(AudioSource source, AudioClip targetClip) {
+        while (source.volume > 0) {
+            source.volume -= Time.deltaTime * fadeSpeed;
+            source.volume = Mathf.Clamp(source.volume, 0, 1);
+            yield return null;
+        }
+
+        source.Pause();
+        source.clip = targetClip;
+        source.Play();
+
+        while (source.volume < 1) {
+            source.volume += Time.deltaTime * fadeSpeed;
+            source.volume = Mathf.Clamp(source.volume, 0, 1);
+            yield return null;
+        }
     }
 }
