@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Sky" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 2250 596.645">
+  <defs>
+    <linearGradient id="linear-gradient" x1="836.002" y1="169.862" x2="2249.996" y2="169.862" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8acdea"/>
+      <stop offset=".376" stop-color="#7dd6d5"/>
+      <stop offset=".707" stop-color="#88cfe6"/>
+      <stop offset=".999" stop-color="#7bd8d3"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="-.004" y1="369.368" x2="2219.339" y2="369.368" xlink:href="#linear-gradient"/>
+  </defs>
+  <rect x="0" y="0" width="2250" height="596.645" fill="#c8e7f0" stroke-width="0"/>
+  <g>
+    <polygon points="2249.996 339.724 2249.996 0 836.002 0 2249.996 339.724" fill="url(#linear-gradient)" isolation="isolate" opacity=".24" stroke-width="0"/>
+    <polygon points="1971.586 596.645 2219.339 596.645 -.004 142.09 0 212.946 1971.586 596.645" fill="url(#linear-gradient-2)" isolation="isolate" opacity=".24" stroke-width="0"/>
+  </g>
+</svg>

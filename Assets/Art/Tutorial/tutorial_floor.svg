@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2270.923 58.669">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #356b43;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: #bed042;
+      }
+
+      .cls-6 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-3, .cls-7 {
+        fill: none;
+      }
+
+      .cls-8 {
+        stroke: #356b43;
+        stroke-width: 2px;
+      }
+
+      .cls-8, .cls-5 {
+        fill: #83ad4f;
+      }
+
+      .cls-8, .cls-7 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-4 {
+        fill: #72c057;
+      }
+
+      .cls-7 {
+        stroke: #156346;
+        stroke-width: 3px;
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-3" width="2270.923" height="58.669"/>
+    </clipPath>
+  </defs>
+  <g id="Platforms">
+    <g class="cls-6">
+      <rect class="cls-5" width="2285.381" height="63.115"/>
+      <rect class="cls-2" width="182.505" height="65.903"/>
+      <rect class="cls-2" x="352.133" width="21.966" height="77.801"/>
+      <rect class="cls-2" x="534.878" width="81.763" height="74.14"/>
+      <rect class="cls-2" x="765.522" width="172.068" height="77.191"/>
+      <rect class="cls-2" x="1161.522" width="15.864" height="66.818"/>
+      <rect class="cls-2" x="1415.048" y=".614" width="120.814" height="75.356"/>
+      <rect class="cls-2" x="1728.675" width="33.559" height="89.699"/>
+      <rect class="cls-2" x="1960.514" y=".614" width="106.805" height="69.559"/>
+      <rect class="cls-2" x="2205.147" y=".614" width="32.272" height="92.746"/>
+      <circle class="cls-4" cx="241.174" cy="58.669" r="58.669"/>
+      <circle class="cls-1" cx="503.302" cy="31.557" r="31.165"/>
+      <circle class="cls-1" cx="765.522" cy="31.557" r="31.165"/>
+      <circle class="cls-4" cx="1008.624" cy="71.034" r="71.034"/>
+      <circle class="cls-4" cx="1657.641" cy="66.818" r="71.034"/>
+      <circle class="cls-1" cx="1929.349" cy="31.95" r="31.165"/>
+      <polygon class="cls-1" points="1762.234 0 1844.607 63.115 1844.607 0 1762.234 0"/>
+      <polygon class="cls-1" points="2067.319 63.115 2205.147 .614 2205.147 63.115 2067.319 63.115"/>
+      <polygon class="cls-4" points="2237.419 63.115 2237.419 .614 2285.381 63.115 2237.419 63.115"/>
+      <polygon class="cls-1" points="1079.658 62.722 1161.522 0 1161.522 66.818 1079.658 62.722"/>
+      <path class="cls-4" d="M1177.387,63.115c2.746-.568,237.661-62.501,237.661-62.501v62.501h-237.661Z"/>
+      <rect class="cls-1" x="616.641" y="28.072" width="117.717" height="3.485"/>
+      <rect class="cls-1" x="570.839" y="-13.727" width="4.271" height="104.644" transform="translate(140.529 416.458) rotate(-45)"/>
+      <rect class="cls-1" x="796.687" y=".393" width="3.615" height="76.798"/>
+      <rect class="cls-8" x="1468.59" y="-34.626" width="2.441" height="158.951" transform="translate(699.385 -1207.667) rotate(56.656)"/>
+      <rect class="cls-1" x="1962.37" y="31.557" width="104.949" height="3.837"/>
+      <polyline class="cls-7" points="472.137 .393 472.137 63.115 374.099 0"/>
+      <line class="cls-7" y1="63.115" x2="182.505"/>
+    </g>
+  </g>
+</svg>
