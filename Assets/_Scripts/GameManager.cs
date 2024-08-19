@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public GameState currentGameState { get; private set; }
     public GameObject currentLevel;
+    public GameObject[] allLevels;
     public GameObject teaLake;
     public int[] defaultLevelScales = { 1, 1 };
     private GameObject player;
@@ -35,7 +36,18 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-
+        foreach (GameObject level in allLevels) {
+            if (level == currentLevel) {
+                foreach (Transform element in level.transform) {
+                    element.gameObject.SetActive(true);
+                }
+            }
+            else {
+                foreach (Transform element in level.transform) {
+                    element.gameObject.SetActive(false);
+                }
+            }
+        }
     }
 
     public void ContinueGame()
