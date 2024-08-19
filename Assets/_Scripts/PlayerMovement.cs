@@ -84,6 +84,15 @@ public class PlayerMovement : MonoBehaviour
             // playerAnim.SetBool("IsJumping", true);
         }
 
+        if (playerScale.playerIsScaling)
+        {
+            playerAnim.SetBool("IsScaling", true);
+        }
+        else
+        {
+            playerAnim.SetBool("IsScaling", false);
+        }
+
         Flip();
 
         previouslyGrounded = IsGrounded();
@@ -169,11 +178,6 @@ public class PlayerMovement : MonoBehaviour
             transform.position = other.transform.GetChild(0).transform.position;
             playerScale.ResetPlayerScale();
         }
-
-        // if ((groundLayer.value & 1 << other.gameObject.layer) > 0)
-        // {
-        //     playerAnim.SetBool("IsJumping", false);
-        // }
     }
 
     private void OnTriggerStay2D(Collider2D collider)

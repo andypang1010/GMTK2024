@@ -17,6 +17,7 @@ public class PlayerScale : MonoBehaviour
     public float defaultPlayerScale;
     public float playerScaleSpeed;
     [SerializeField] private float maxPlayerScale, minPlayerScale;
+    public bool playerIsScaling;
 
     [Header("Ortho Scale")]
     public float defaultOrthoScale;
@@ -106,6 +107,9 @@ public class PlayerScale : MonoBehaviour
 
             // push player down when scaling up
             // GetComponent<Rigidbody2D>().AddForce(Vector2.down * 10f, ForceMode2D.Impulse);
+
+            // update playerIsScaling
+            playerIsScaling = Input.mouseScrollDelta.y != 0;
 
             // Clamp player scale
             if (Math.Abs(transform.localScale.x) > calculatedPlayerMaxScale.x)
