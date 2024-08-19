@@ -357,7 +357,7 @@ public class PlayerScale : MonoBehaviour
 
     public void ResetPlayerScale()
     {
-        transform.localScale = Vector3.one * defaultPlayerScale;
+        transform.localScale = originalPlayerScale;
         virtualCamera.m_Lens.OrthographicSize = defaultOrthoScale;
     }
 
