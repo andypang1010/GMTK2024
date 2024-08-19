@@ -21,7 +21,10 @@ public class AudioManager : MonoBehaviour
 
     [Header("Music Clips")]
     public AudioClip mainMenuBGM;
-    public AudioClip gameBGM;
+    public AudioClip LV1BGM;
+    public AudioClip LV2BGM;
+    public AudioClip LV3BGM;
+    public AudioClip LV4BGM;
 
 
     void Awake()
