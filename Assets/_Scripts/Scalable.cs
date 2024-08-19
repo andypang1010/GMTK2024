@@ -7,6 +7,7 @@ public class Scalable : MonoBehaviour
     public float minScale = 0.5f;
     public ScaleOption scaleOption;
     public LayerMask whatToIgnore;
+    public GameObject realScalableObj;
     [HideInInspector] public Vector3 originalScale;
     [HideInInspector] public Vector3 calculatedMinScale;
     [HideInInspector] public Vector3 calculatedMaxScale;
@@ -98,7 +99,17 @@ public class Scalable : MonoBehaviour
         bool rightFree = !rightCol;
         bool topFree = !topCol;
 
-        return leftFree && rightFree && topFree;
+        bool canScale;
+        if(scaleOption == ScaleOption.PROPORTIONAL)
+        {
+            canScale = leftFree && rightFree && topFree;
+        }
+        else
+        {
+            canScale = topFree;
+        }
+
+        return canScale;
     }
 
     // Get box size for left and right

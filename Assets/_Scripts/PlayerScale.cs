@@ -29,6 +29,7 @@ public class PlayerScale : MonoBehaviour
     public GameObject activeTaggedObject;
     public GameObject playerEyes;
     public LayerMask canSeeThroughLayer;
+    public LayerMask canSeeThroughWhenTagged;
     [HideInInspector] private Vector3 originalPlayerScale;
     [HideInInspector] public Vector3 calculatedPlayerMaxScale;
     [HideInInspector] public Vector3 calculatedPlayerMinScale;
@@ -48,7 +49,7 @@ public class PlayerScale : MonoBehaviour
     {
         if (activeTaggedObject)
         {
-            if (!IsObjectAvailable(activeTaggedObject))
+            if (!IsObjectAvailable(activeTaggedObject, true))
             {
                 DeselectObject();
             }
@@ -207,7 +208,7 @@ public class PlayerScale : MonoBehaviour
         return null;
     }
 
-    public bool IsObjectAvailable(GameObject clickedObject)
+    public bool IsObjectAvailable(GameObject clickedObject, bool checkForDeselect = false)
     {
         // check if object has the "Scalable" script
         if (!clickedObject.GetComponent<Scalable>())
@@ -224,11 +225,21 @@ public class PlayerScale : MonoBehaviour
         // Debug.Log("Current Active Object IS in front of player");
 
         // raycast from player's eyes to clicked object, disregard canSeeThroughLayer
-        RaycastHit2D hit = Physics2D.Raycast(playerEyes.transform.position, clickedObject.transform.position - playerEyes.transform.position, Mathf.Infinity, ~canSeeThroughLayer);
+        LayerMask combineMask;
+        if (checkForDeselect)
+        {
+            combineMask = canSeeThroughLayer | canSeeThroughWhenTagged;
+        }
+        else
+        {
+            combineMask = canSeeThroughLayer;
+        }
+        RaycastHit2D hit = Physics2D.Raycast(playerEyes.transform.position, clickedObject.transform.position - playerEyes.transform.position, Mathf.Infinity, ~combineMask);
+
+        Debug.Log("Hit: " + hit.collider.name);
 
         if (hit.collider != null)
         {
-
             if (hit.collider.gameObject == clickedObject)
             {
                 // Debug.Log("Current Active Object IS visible");
@@ -300,7 +311,15 @@ public class PlayerScale : MonoBehaviour
             DeselectObject();
         }
 
-        activeTaggedObject = clickedObject;
+        GameObject realScalableObj = clickedObject.GetComponent<Scalable>().realScalableObj;
+        if (realScalableObj != null)
+        {
+            activeTaggedObject = realScalableObj;
+        }
+        else
+        {
+            activeTaggedObject = clickedObject;
+        }
 
         Color objectColor = activeTaggedObject.GetComponentInChildren<SpriteRenderer>().color;
         activeTaggedObject.GetComponentInChildren<SpriteRenderer>().color = new Color(objectColor.r, objectColor.g, objectColor.b, 255);

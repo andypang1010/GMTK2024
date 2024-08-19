@@ -346,6 +346,9 @@ MonoBehaviour:
   canSeeThroughLayer:
     serializedVersion: 2
     m_Bits: 808
+  canSeeThroughWhenTagged:
+    serializedVersion: 2
+    m_Bits: 1024
   calculatedPlayerMaxScale: {x: 0, y: 0, z: 0}
   calculatedPlayerMinScale: {x: 0, y: 0, z: 0}
 --- !u!1 &7461226385118338980
