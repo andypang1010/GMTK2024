@@ -87,6 +87,14 @@ public class PlayerMovement : MonoBehaviour
         if (playerScale.playerIsScaling)
         {
             playerAnim.SetBool("IsScaling", true);
+            if (playerScale.activeTaggedObject != null)
+            {
+                playerAnim.SetFloat("hasActiveObject", 1);
+            }
+            else
+            {
+                playerAnim.SetFloat("hasActiveObject", 0);
+            }
         }
         else
         {
