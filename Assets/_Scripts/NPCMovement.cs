@@ -9,6 +9,7 @@ public class NPCMovement : MonoBehaviour
     [SerializeField] private LayerMask teaLayer;
     [SerializeField] private List<Collider2D> ignoreColliders;
     private Rigidbody2D rb;
+    public Animator npcAnim;
 
     [Header("Movement")]
     [SerializeField] private float moveSpeed;
@@ -52,9 +53,11 @@ public class NPCMovement : MonoBehaviour
     private bool IsHittingWall()
     {
         Collider2D[] colliders = Physics2D.OverlapBoxAll(forwardCheck.position, GetForwarCheckBoxDimension(), 0f, ~LayerMask.GetMask("UI"));
-        
-        foreach (Collider2D collider in colliders) {
+
+        foreach (Collider2D collider in colliders)
+        {
             if (collider.gameObject == gameObject || ignoreColliders.Contains(collider)) continue;
+            Debug.Log(gameObject.name + " colliding with: " + collider.gameObject.name);
             return true;
         }
 
@@ -69,7 +72,7 @@ public class NPCMovement : MonoBehaviour
     private Vector2 GetForwarCheckBoxDimension()
     {
         Vector2 colliderSize = GetComponent<Collider2D>().bounds.size;
-        return new Vector2(0.05f * colliderSize.x, 0.9f * colliderSize.y);
+        return new Vector2(0.05f * colliderSize.x, 0.8f * colliderSize.y);
     }
 
     private Vector2 GetWorldSize()
@@ -77,15 +80,20 @@ public class NPCMovement : MonoBehaviour
         return GetComponent<Collider2D>().bounds.size;
     }
 
-    private void OnCollisionEnter2D(Collision2D other) {
+    private void OnCollisionEnter2D(Collision2D other)
+    {
 
         // If the collider is of a layer in the Tea Layer
-        if ((teaLayer.value & 1 << other.gameObject.layer) > 0) {
+        if ((teaLayer.value & 1 << other.gameObject.layer) > 0)
+        {
             ResetPosition();
         }
     }
 
-    public void ResetPosition() {
+    public void ResetPosition()
+    {
         transform.position = spawnPosition;
+
+        npcAnim.SetTrigger("Respawn");
     }
 }
