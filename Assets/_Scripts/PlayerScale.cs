@@ -20,7 +20,7 @@ public class PlayerScale : MonoBehaviour
 
     [Header("Ortho Scale")]
     public float defaultOrthoScale;
-    public float camHeightRelativeToPlayer;
+    public float camHeightAtMinScale, camHeightAtMaxScale;
     [SerializeField] private float maxOrthoScale, minOrthoScale;
     private CinemachineFramingTransposer cinemachineTransposer;
     private float initCamOffsetPercentage;
@@ -67,7 +67,7 @@ public class PlayerScale : MonoBehaviour
         }
 
         // Deselect if clicking somewhere else
-        if(Input.GetMouseButtonDown(0) && activeTaggedObject && (clickedObject == null || !IsObjectAvailable(clickedObject)))
+        if (Input.GetMouseButtonDown(0) && activeTaggedObject && (clickedObject == null || !IsObjectAvailable(clickedObject)))
         {
             DeselectObject();
         }
@@ -114,14 +114,7 @@ public class PlayerScale : MonoBehaviour
                 transform.localScale = Vector3.Scale(calculatedPlayerMinScale, new Vector3(Mathf.Sign(transform.localScale.x), 1, 1));
             }
 
-            virtualCamera.m_Lens.OrthographicSize =
-                    Mathf.Clamp(
-                        GetWorldSize().y * camHeightRelativeToPlayer,
-                        minOrthoScale,
-                        maxOrthoScale
-                    );
-            cinemachineTransposer.m_TrackedObjectOffset = new Vector3(0, GetWorldSize().y * initCamOffsetPercentage);
-
+            UpdateCamera();
             #endregion
         }
 
@@ -187,6 +180,17 @@ public class PlayerScale : MonoBehaviour
         }
 
         #endregion
+
+    }
+
+    private void FixedUpdate()
+    {
+        //UpdateCamera();
+    }
+
+    private void LateUpdate()
+    {
+        //UpdateCamera();
     }
 
     private GameObject GetClickedObject()
@@ -253,6 +257,31 @@ public class PlayerScale : MonoBehaviour
             destPos = hit ? hit.point : cursorPos;
         }
         eyeTracer.DrawLine(eyePos, destPos);
+    }
+
+    private void UpdateCamera()
+    {
+        float camHeight = Mathf.Lerp(camHeightAtMinScale, camHeightAtMaxScale, GetPercentageScale());
+
+        virtualCamera.m_Lens.OrthographicSize =
+                    Mathf.Clamp(
+                        camHeight,
+                        minOrthoScale,
+                        maxOrthoScale
+                    );
+
+        cinemachineTransposer.m_TrackedObjectOffset = new Vector3(0, GetWorldSize().y * initCamOffsetPercentage);
+    }
+
+    /// <summary>
+    /// Return the current scale as a percentage of the max and min scale
+    /// </summary>
+    /// <returns>value between 0 to 1</returns>
+    private float GetPercentageScale()
+    {
+        float maxMinDifference = calculatedPlayerMaxScale.x - calculatedPlayerMinScale.x;
+        float playerCurrScale = Math.Abs(transform.localScale.x) - calculatedPlayerMinScale.x;
+        return playerCurrScale / maxMinDifference;
     }
 
     public void DeselectObject()

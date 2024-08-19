@@ -337,7 +337,8 @@ MonoBehaviour:
   maxPlayerScale: 5
   minPlayerScale: 0.5
   defaultOrthoScale: 5
-  camHeightRelativeToPlayer: 5
+  camHeightAtMinScale: 3.5
+  camHeightAtMaxScale: 8.5
   maxOrthoScale: 12
   minOrthoScale: 2
   activeTaggedObject: {fileID: 0}
