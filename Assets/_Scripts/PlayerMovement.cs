@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float coyoteTime;
     [SerializeField] private float jumpBuffer;
     private float coyoteTimeCounter, jumpBufferCounter;
+    private bool previouslyGrounded = true;
 
     void Start()
     {
@@ -45,10 +46,20 @@ public class PlayerMovement : MonoBehaviour
         if (IsGrounded())
         {
             coyoteTimeCounter = coyoteTime;
+
+            if (!previouslyGrounded)
+            {
+                playerAnim.SetBool("IsJumping", false);
+            }
         }
         else
         {
             coyoteTimeCounter -= Time.deltaTime;
+
+            if (previouslyGrounded && coyoteTimeCounter > 0f)
+            {
+                playerAnim.SetBool("IsJumping", true);
+            }
         }
 
         // Jump Buffer Check
@@ -70,10 +81,29 @@ public class PlayerMovement : MonoBehaviour
 
             rb.velocity = new Vector2(rb.velocity.x, HeightToVelocity());
 
-            playerAnim.SetBool("IsJumping", true);
+            // playerAnim.SetBool("IsJumping", true);
+        }
+
+        if (playerScale.playerIsScaling)
+        {
+            playerAnim.SetBool("IsScaling", true);
+            if (playerScale.activeTaggedObject != null)
+            {
+                playerAnim.SetFloat("hasActiveObject", 1);
+            }
+            else
+            {
+                playerAnim.SetFloat("hasActiveObject", 0);
+            }
+        }
+        else
+        {
+            playerAnim.SetBool("IsScaling", false);
         }
 
         Flip();
+
+        previouslyGrounded = IsGrounded();
     }
 
     void Flip()
@@ -155,11 +185,6 @@ public class PlayerMovement : MonoBehaviour
             // Reset position and scale
             transform.position = other.transform.GetChild(0).transform.position;
             playerScale.ResetPlayerScale();
-        }
-
-        if ((groundLayer.value & 1 << other.gameObject.layer) > 0)
-        {
-            playerAnim.SetBool("IsJumping", false);
         }
     }
 
