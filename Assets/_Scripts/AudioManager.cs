@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -26,7 +28,6 @@ public class AudioManager : MonoBehaviour
     public AudioClip LV3BGM;
     public AudioClip LV4BGM;
 
-
     void Awake()
     {
         if (instance == null)
@@ -50,7 +51,41 @@ public class AudioManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (SceneManager.GetActiveScene().name == "MENU"
+        || SceneManager.GetActiveScene().name == "TUTORIAL") {
+            musicSource.clip = mainMenuBGM;
+        }
 
+        else if (SceneManager.GetActiveScene().name == "GAME") {
+            switch (GameManager.Instance.currentLevel.name) {
+                case "LV1_ENVIRONMENT":
+                    musicSource.clip = LV1BGM;
+                    break;
+                case "LV2_ENVIRONMENT":
+                    musicSource.clip = LV2BGM;
+                    break;
+                case "LV3_ENVIRONMENT":
+                    musicSource.clip = LV3BGM;
+                    break;
+                case "LV4_ENVIRONMENT":
+                    musicSource.clip = LV4BGM;
+                    break;
+                default:
+                    musicSource.clip = null;
+                    break;
+            }
+
+            if (GameManager.Instance.currentGameState == GameState.PAUSE) {
+                musicSource.Pause();
+                sfxSource.Pause();
+
+                return;
+            }
+        }
+        
+        if (!musicSource.isPlaying) {
+            musicSource.Play();
+        }
     }
 
     void playWalk()
@@ -63,5 +98,10 @@ public class AudioManager : MonoBehaviour
     {
         sfxSource.clip = jumpClip;
         sfxSource.PlayOneShot(jumpClip);
+    }
+    
+    void playBGM(AudioClip bgm) {
+        musicSource.clip = bgm;
+        musicSource.Play();
     }
 }

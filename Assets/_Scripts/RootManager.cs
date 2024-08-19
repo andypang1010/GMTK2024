@@ -27,15 +27,18 @@ public class RootManager : MonoBehaviour
 
     public void GoMenu()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("MENU");
     }
 
     public void GoTutorial() {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("TUTORIAL");
     }
 
     public void GoGame()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("GAME");
     }
 
