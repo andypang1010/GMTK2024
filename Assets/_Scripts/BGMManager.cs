@@ -1,24 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class AudioManager : MonoBehaviour
+public class BGMManager : MonoBehaviour
 {
 
     [Header("Audio Sources")]
-    public AudioSource musicSource;
-    public AudioSource sfxSource;
-
-    [Header("Sfx Clips")]
-    public AudioClip walkClip;
-    public AudioClip jumpClip;
-    public AudioClip landClip;
-    public AudioClip deathClip;
-    public AudioClip scaleObjectClip;
-    public AudioClip tagObjectClip;
-    public AudioClip respawnClip;
+    AudioSource bgmSource;
 
     [Header("Music Clips")]
     public AudioClip mainMenuBGM;
@@ -35,11 +26,16 @@ public class AudioManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    void Start() {
+        bgmSource = GetComponent<AudioSource>();
+    }
+
     void Update()
     {
         if (SceneManager.GetActiveScene().name == "MENU"
         || SceneManager.GetActiveScene().name == "TUTORIAL") {
-            FadeBGM(mainMenuBGM);
+            bgmSource.clip = mainMenuBGM;
+
         }
 
         else if (SceneManager.GetActiveScene().name == "GAME") {
@@ -57,65 +53,56 @@ public class AudioManager : MonoBehaviour
                     FadeBGM(LV4BGM);
                     break;
                 default:
-                    musicSource.clip = null;
+                    bgmSource.clip = null;
                     break;
             }
 
             if (GameManager.Instance.currentGameState == GameState.PAUSE) {
-                musicSource.Pause();
-                sfxSource.Pause();
-
+                bgmSource.Pause();
                 return;
             }
 
             else {
-                musicSource.UnPause();
-                sfxSource.UnPause();
+                bgmSource.UnPause();
             }
         }
         
-        if (!musicSource.isPlaying) {
-            musicSource.Play();
+        if (!bgmSource.isPlaying) {
+            bgmSource.Play();
         }
     }
 
-    void playWalk()
-    {
-        sfxSource.clip = walkClip;
-        sfxSource.Play();
-    }
 
-    void playJump()
-    {
-        sfxSource.clip = jumpClip;
-        sfxSource.PlayOneShot(jumpClip);
-    }
     
     void FadeBGM(AudioClip clip) {
-        if (musicSource.clip != clip) {
-            StartCoroutine(Crossfade(musicSource, clip));
+        if (bgmSource.clip == mainMenuBGM) {
+            bgmSource.clip = clip;
+            bgmSource.Play();
+        }
+
+        else if (bgmSource.clip != clip) {
+            StartCoroutine(Crossfade(clip));
         }
     }
 
-    IEnumerator Crossfade(AudioSource source, AudioClip targetClip) {
-        while (source.volume > 0) {
-            source.volume -= Time.deltaTime * fadeSpeed;
-            source.volume = Mathf.Clamp(source.volume, 0, 1);
+    IEnumerator Crossfade(AudioClip targetClip) {
+        while (bgmSource.volume > 0) {
+            bgmSource.volume -= Time.deltaTime * fadeSpeed;
+            bgmSource.volume = Mathf.Clamp(bgmSource.volume, 0, 1);
             yield return null;
         }
 
-        source.clip = targetClip;
-        source.Play();
+        bgmSource.clip = targetClip;
+        bgmSource.Play();
 
-        while (source.volume < 1) {
-            source.volume += Time.deltaTime * fadeSpeed;
-            source.volume = Mathf.Clamp(source.volume, 0, 1);
+        while (bgmSource.volume < 1) {
+            bgmSource.volume += Time.deltaTime * fadeSpeed;
+            bgmSource.volume = Mathf.Clamp(bgmSource.volume, 0, 1);
             yield return null;
         }
     }
 
     public void ResetAudio() {
-        musicSource.clip = null;
-        sfxSource.clip = null;
+        bgmSource.clip = null;
     }
 }

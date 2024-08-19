@@ -100,7 +100,7 @@ public class GameManager : MonoBehaviour
 
         currentGameState = GameState.GAME;
 
-        GameObject.Find("AUDIO MANAGER").GetComponent<AudioManager>().ResetAudio();
+        GameObject.Find("AUDIO MANAGER").GetComponent<BGMManager>().ResetAudio();
     }
 
     public void DrainTea() {
