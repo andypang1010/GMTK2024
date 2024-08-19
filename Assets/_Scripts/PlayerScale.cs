@@ -104,6 +104,9 @@ public class PlayerScale : MonoBehaviour
             Vector3 normalizedPlayerScale = new Vector3(Math.Abs(originalPlayerScale.x), originalPlayerScale.y, originalPlayerScale.z).normalized;
             transform.localScale += Vector3.Scale(new Vector3(Mathf.Sign(transform.localScale.x), 1, 1), normalizedPlayerScale) * Input.mouseScrollDelta.y * playerScaleSpeed;
 
+            // push player down when scaling up
+            // GetComponent<Rigidbody2D>().AddForce(Vector2.down * 10f, ForceMode2D.Impulse);
+
             // Clamp player scale
             if (Math.Abs(transform.localScale.x) > calculatedPlayerMaxScale.x)
             {
@@ -357,7 +360,7 @@ public class PlayerScale : MonoBehaviour
 
     public void ResetPlayerScale()
     {
-        transform.localScale = Vector3.one * defaultPlayerScale;
+        transform.localScale = originalPlayerScale;
         virtualCamera.m_Lens.OrthographicSize = defaultOrthoScale;
     }
 

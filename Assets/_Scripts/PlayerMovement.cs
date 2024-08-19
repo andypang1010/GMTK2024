@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float coyoteTime;
     [SerializeField] private float jumpBuffer;
     private float coyoteTimeCounter, jumpBufferCounter;
+    private bool previouslyGrounded = true;
 
     void Start()
     {
@@ -45,10 +46,20 @@ public class PlayerMovement : MonoBehaviour
         if (IsGrounded())
         {
             coyoteTimeCounter = coyoteTime;
+
+            if (!previouslyGrounded)
+            {
+                playerAnim.SetBool("IsJumping", false);
+            }
         }
         else
         {
             coyoteTimeCounter -= Time.deltaTime;
+
+            if (previouslyGrounded && coyoteTimeCounter > 0f)
+            {
+                playerAnim.SetBool("IsJumping", true);
+            }
         }
 
         // Jump Buffer Check
@@ -70,10 +81,12 @@ public class PlayerMovement : MonoBehaviour
 
             rb.velocity = new Vector2(rb.velocity.x, HeightToVelocity());
 
-            playerAnim.SetBool("IsJumping", true);
+            // playerAnim.SetBool("IsJumping", true);
         }
 
         Flip();
+
+        previouslyGrounded = IsGrounded();
     }
 
     void Flip()
@@ -157,10 +170,10 @@ public class PlayerMovement : MonoBehaviour
             playerScale.ResetPlayerScale();
         }
 
-        if ((groundLayer.value & 1 << other.gameObject.layer) > 0)
-        {
-            playerAnim.SetBool("IsJumping", false);
-        }
+        // if ((groundLayer.value & 1 << other.gameObject.layer) > 0)
+        // {
+        //     playerAnim.SetBool("IsJumping", false);
+        // }
     }
 
     private void OnTriggerStay2D(Collider2D collider)
