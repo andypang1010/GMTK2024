@@ -15,6 +15,7 @@ public class NPCMovement : MonoBehaviour
     [SerializeField] private float moveSpeed;
     private int horizontal;
     private Vector3 spawnPosition;
+    private float respawnTimer = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,12 @@ public class NPCMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        respawnTimer -= Time.deltaTime;
+        if (respawnTimer <= 0)
+        {
+            respawnTimer = 0;
+        }
+
         if (IsHittingWall())
         {
             horizontal *= -1;
@@ -47,6 +54,7 @@ public class NPCMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (respawnTimer > 0) return;
         rb.velocity = new Vector2(horizontal * moveSpeed * GetWorldSize().x, rb.velocity.y);
     }
 
@@ -95,5 +103,6 @@ public class NPCMovement : MonoBehaviour
         transform.position = spawnPosition;
 
         npcAnim.SetTrigger("Respawn");
+        respawnTimer = 1;
     }
 }
