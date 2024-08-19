@@ -33,8 +33,6 @@ public class PlayerScale : MonoBehaviour
     [HideInInspector] public Vector3 calculatedPlayerMaxScale;
     [HideInInspector] public Vector3 calculatedPlayerMinScale;
 
-    // TODO: remove
-    private float lastCam;
     void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
@@ -265,22 +263,14 @@ public class PlayerScale : MonoBehaviour
     {
         float camHeight = Mathf.Lerp(camHeightAtMinScale, camHeightAtMaxScale, GetPercentageScale());
 
-        if (camHeight != lastCam)
-        {
-            Debug.Log("cam height: " + camHeight);
-            Debug.Log(GetPercentageScale());
-        }
-
         virtualCamera.m_Lens.OrthographicSize =
                     Mathf.Clamp(
-                        GetWorldSize().y * camHeight,
+                        camHeight,
                         minOrthoScale,
                         maxOrthoScale
                     );
 
         cinemachineTransposer.m_TrackedObjectOffset = new Vector3(0, GetWorldSize().y * initCamOffsetPercentage);
-
-        lastCam = camHeight;
     }
 
     /// <summary>

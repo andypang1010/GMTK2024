@@ -2079,14 +2079,6 @@ PrefabInstance:
       value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 5616701695585130035, guid: 0a8c9b55891fd214896db3e67327f61d, type: 3}
-      propertyPath: camHeightAtMaxScale
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616701695585130035, guid: 0a8c9b55891fd214896db3e67327f61d, type: 3}
-      propertyPath: camHeightAtMinScale
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616701695585130035, guid: 0a8c9b55891fd214896db3e67327f61d, type: 3}
       propertyPath: camHeightRelativeToPlayer
       value: 5
       objectReference: {fileID: 0}
