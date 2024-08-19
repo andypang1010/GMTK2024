@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 835.218 35.445">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #97d5d6;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5 {
+        stroke-width: 0px;
+      }
+
+      .cls-6 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-2 {
+        fill: none;
+      }
+
+      .cls-3 {
+        fill: #70c7c9;
+      }
+
+      .cls-4 {
+        fill: #bae1ce;
+      }
+
+      .cls-5 {
+        fill: #3eb9bc;
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-2" x="399.941" y="-399.831" width="35.445" height="835.108" transform="translate(435.387 -399.941) rotate(90)"/>
+    </clipPath>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <rect class="cls-4" x="399.831" y="-399.831" width="35.445" height="835.108" transform="translate(435.277 -399.831) rotate(90)"/>
+      <g class="cls-6">
+        <g>
+          <polygon class="cls-3" points="222.604 -115.657 241.37 -114.601 721.516 210.789 702.75 209.733 222.604 -115.657"/>
+          <polygon class="cls-1" points=".599 -160.094 75.663 -155.87 607.214 204.357 532.15 200.133 .599 -160.094"/>
+          <polygon class="cls-5" points="-53.331 -138.334 -34.565 -137.278 441.849 185.583 423.083 184.527 -53.331 -138.334"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
