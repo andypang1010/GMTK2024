@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager instance;
 
     [Header("Audio Sources")]
     public AudioSource musicSource;
@@ -33,30 +32,14 @@ public class AudioManager : MonoBehaviour
 
     void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-
         DontDestroyOnLoad(gameObject);
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (SceneManager.GetActiveScene().name == "MENU"
         || SceneManager.GetActiveScene().name == "TUTORIAL") {
-            musicSource.clip = mainMenuBGM;
+            FadeBGM(mainMenuBGM);
         }
 
         else if (SceneManager.GetActiveScene().name == "GAME") {
@@ -83,6 +66,11 @@ public class AudioManager : MonoBehaviour
                 sfxSource.Pause();
 
                 return;
+            }
+
+            else {
+                musicSource.UnPause();
+                sfxSource.UnPause();
             }
         }
         
@@ -116,7 +104,6 @@ public class AudioManager : MonoBehaviour
             yield return null;
         }
 
-        source.Pause();
         source.clip = targetClip;
         source.Play();
 
@@ -125,5 +112,10 @@ public class AudioManager : MonoBehaviour
             source.volume = Mathf.Clamp(source.volume, 0, 1);
             yield return null;
         }
+    }
+
+    public void ResetAudio() {
+        musicSource.clip = null;
+        sfxSource.clip = null;
     }
 }

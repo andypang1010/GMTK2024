@@ -71,6 +71,8 @@ public class GameManager : MonoBehaviour
     }
 
     public void ResetLevel() {
+        Time.timeScale = 1f;
+
         print("Level reset");
         if (currentLevel == null) {
             print("Currently at lobby");
@@ -97,6 +99,8 @@ public class GameManager : MonoBehaviour
         player.GetComponent<PlayerScale>().ResetPlayerScale();
 
         currentGameState = GameState.GAME;
+
+        GameObject.Find("AUDIO MANAGER").GetComponent<AudioManager>().ResetAudio();
     }
 
     public void DrainTea() {
