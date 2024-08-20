@@ -87,8 +87,15 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+
+        player.GetComponent<PlayerMovement>().ResetLevelPosition(
+            currentLevel.transform.Find("Player Reset Spawn").transform.position);
+
+        player.GetComponent<PlayerScale>().ResetPlayerScale();
+
         foreach (Transform element in currentLevel.transform)
         {
+            Debug.Log("Resetting " + element.name + "! It's transform is " + element.transform.position);
             if (element.TryGetComponent(out Scalable scalable))
             {
                 scalable.ResetScale();
@@ -96,7 +103,10 @@ public class GameManager : MonoBehaviour
 
             if (element.TryGetComponent(out NPCMovement npcMovement))
             {
-                npcMovement.ResetPosition();
+                if (npcMovement.enabled)
+                {
+                    npcMovement.ResetPosition();
+                }
             }
 
             if (element.TryGetComponent(out Elevator elevator))
@@ -105,10 +115,6 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        player.GetComponent<PlayerMovement>().ResetLevelPosition(
-            currentLevel.transform.Find("Player Reset Spawn").transform.position);
-
-        player.GetComponent<PlayerScale>().ResetPlayerScale();
 
         currentGameState = GameState.GAME;
 
