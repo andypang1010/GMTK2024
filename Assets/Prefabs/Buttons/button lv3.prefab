@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3533621039391261183}
   m_Layer: 0
-  m_Name: Button 3
+  m_Name: button lv3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57,7 +57,7 @@ Transform:
   m_GameObject: {fileID: 4398643206693931912}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.012, y: 0.0613, z: 0}
+  m_LocalPosition: {x: -0.012, y: 0.051, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -142,12 +142,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3286163911610860551, guid: 24ba8eacd2eefc7449cb8759fb0a3700, type: 3}
+  m_Sprite: {fileID: 3286163911610860551, guid: 4ca7aa91c5c029345964e59f65b2ff89, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.28854933, y: 0.14847015}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -214,7 +214,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0010521412, y: 0}
+  m_Offset: {x: -0.0016329102, y: -0.0005807914}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -224,7 +224,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.15152022, y: 0.13913}
+  m_Size: {x: 0.14571247, y: 0.11125285}
   m_EdgeRadius: 0
 --- !u!1 &6035378240480868796
 GameObject:
@@ -336,7 +336,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3286163911610860551, guid: 62fd859769b3a9c4fae5a2cf66a04aa1, type: 3}
+  m_Sprite: {fileID: 3286163911610860551, guid: ed70b83453b11064b80d70dcec8a4928, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
