@@ -10,6 +10,7 @@ public class EndingCGManager : MonoBehaviour
 
     void Start()
     {
+        videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "EndingCutScene.mp4");
         videoPlayer.loopPointReached += Skip;
     }
 

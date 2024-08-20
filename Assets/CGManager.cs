@@ -9,9 +9,11 @@ public class CGManager : MonoBehaviour
     public VideoPlayer videoPlayer;
     public CGType cgType;
 
-    void Start() {
-            videoPlayer.loopPointReached += Skip;
-        }
+    void Start()
+    {
+        videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "CutSceneOpening.mp4");
+        videoPlayer.loopPointReached += Skip;
+    }
 
     private void Skip(VideoPlayer source)
     {
@@ -20,12 +22,14 @@ public class CGManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.anyKeyDown) {
+        if (Input.anyKeyDown)
+        {
             RootManager.Instance.GoTutorial();
         }
     }
 
-    public enum CGType {
+    public enum CGType
+    {
         OPENING,
         CLOSING
     }
