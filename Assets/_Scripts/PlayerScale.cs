@@ -31,9 +31,19 @@ public class PlayerScale : MonoBehaviour
     public GameObject playerEyes;
     public LayerMask canSeeThroughLayer;
     public LayerMask canSeeThroughWhenTagged;
+
+    [Header("SFX")]
+    public AudioClip[] taggingSFXs;
+    public AudioClip scaleUpSFX;
+    public AudioClip scaleDownSFX;
+    public AudioSource scaleSFXSource;
+    public float scaleSFXVolume = 0.3f;
+    public float taggingSFXVolume = 0.6f;
+
     [HideInInspector] private Vector3 originalPlayerScale;
     [HideInInspector] public Vector3 calculatedPlayerMaxScale;
     [HideInInspector] public Vector3 calculatedPlayerMinScale;
+
 
     void Start()
     {
@@ -65,6 +75,9 @@ public class PlayerScale : MonoBehaviour
             {
                 // Debug.Log("Object is available");
                 SelectObject(clickedObject);
+
+                // Play tagging SFX
+                PlayRandomTaggingSFX();
             }
         }
 
@@ -189,6 +202,19 @@ public class PlayerScale : MonoBehaviour
 
         #endregion
 
+        #region Play Scaling SFX
+        if (Input.mouseScrollDelta.y > 0f)
+        {
+            scaleSFXSource.clip = scaleUpSFX;
+            scaleSFXSource.PlayOneShot(scaleSFXSource.clip, scaleSFXVolume);
+        }
+        else if (Input.mouseScrollDelta.y < 0f)
+        {
+            scaleSFXSource.clip = scaleDownSFX;
+            scaleSFXSource.PlayOneShot(scaleSFXSource.clip, scaleSFXVolume);
+        }
+
+        #endregion
     }
 
     private void FixedUpdate()
@@ -371,5 +397,11 @@ public class PlayerScale : MonoBehaviour
     private Vector2 GetWorldSize()
     {
         return GetComponent<Collider2D>().bounds.size;
+    }
+
+    public void PlayRandomTaggingSFX()
+    {
+        scaleSFXSource.clip = taggingSFXs[UnityEngine.Random.Range(0, taggingSFXs.Length)];
+        scaleSFXSource.PlayOneShot(scaleSFXSource.clip, taggingSFXVolume);
     }
 }

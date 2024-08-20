@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 18adbe70977d35c49a8de3894dabe1cc
+guid: a3afa73bb9574fa4599b6964cbd0f642
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8039509393089571917
-    second: lv4_terrain_texture_5_0
+      213: -5072008804460204796
+    second: lv3_terrain_texture_5_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 25
+  spritePixelsToUnits: 150
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -109,30 +109,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: lv4_terrain_texture_5_0
+      name: lv3_terrain_texture_5_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1417
-        height: 715
+        width: 1497
+        height: 809
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +127,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d4c2587a233129f60800000000000000
-      internalID: 8039509393089571917
+      spriteID: 40dee707dda9c99b0800000000000000
+      internalID: -5072008804460204796
       vertices: []
       indices: 
       edges: []
@@ -157,7 +144,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      lv4_terrain_texture_5_0: 8039509393089571917
+      lv3_terrain_texture_5_0: -5072008804460204796
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

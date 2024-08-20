@@ -31,6 +31,11 @@ public class RootManager : MonoBehaviour
         SceneManager.LoadScene("MENU");
     }
 
+    public void GoOpeningCG() {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("OPENING CG");
+    }
+
     public void GoTutorial() {
         Time.timeScale = 1f;
         SceneManager.LoadScene("TUTORIAL");
@@ -41,11 +46,6 @@ public class RootManager : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene("GAME");
     }
-
-    // public void GoSetting()
-    // {
-    //     SceneManager.LoadScene("SETTINGS");
-    // }
 
     public void GoExit()
     {

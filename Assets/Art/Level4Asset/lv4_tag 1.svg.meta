@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5d8f68dac1d9099468632d131f37fd7b
+guid: 8d3e7460c3c6e0849ad2e8cebdaa8bf4
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -10,7 +10,7 @@ ScriptedImporter:
   script: {fileID: 11500000, guid: a57477913897c46af95d590f580878bd, type: 3}
   svgType: 0
   texturedSpriteMeshType: 0
-  svgPixelsPerUnit: 750
+  svgPixelsPerUnit: 100
   gradientResolution: 64
   alignment: 0
   customPivot: {x: 0, y: 0}
@@ -39,16 +39,16 @@ ScriptedImporter:
   spriteData:
     TessellationDetail: 0
     SpriteRect:
-      name: lv4_hatcrown_aSprite
+      name: 
       originalName: 
-      pivot: {x: 0.49996954, y: 0.5000532}
+      pivot: {x: 0, y: 0}
       alignment: 0
       border: {x: 0, y: 0, z: 0, w: 0}
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 3089
-        height: 1343
-      spriteID: b4a21dc1a2196314bbc64b815b181e75
+        width: 0
+        height: 0
+      spriteID: e1af3f4d40d8a2243b58a616b98b4923
     PhysicsOutlines: []

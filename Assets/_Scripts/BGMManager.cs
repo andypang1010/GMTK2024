@@ -33,6 +33,7 @@ public class BGMManager : MonoBehaviour
     void Update()
     {
         if (SceneManager.GetActiveScene().name == "MENU"
+        || SceneManager.GetActiveScene().name == "OPENING CG"
         || SceneManager.GetActiveScene().name == "TUTORIAL") {
             bgmSource.clip = mainMenuBGM;
 
