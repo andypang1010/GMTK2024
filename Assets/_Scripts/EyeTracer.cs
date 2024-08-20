@@ -36,8 +36,8 @@ public class EyeTracer : MonoBehaviour
 
     public void SetColor(Color color)
     {
-        lineRenderer.startColor = color.WithAlpha(1);
-        lineRenderer.endColor = color.WithAlpha(0.2f);
+        lineRenderer.startColor = new Color(color.r, color.g, color.b, 1);
+        lineRenderer.endColor = new Color(color.r, color.g, color.b, 0.2f);
     }
 
     public void UpdateColor(bool isSelectable)
