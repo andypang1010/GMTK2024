@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      coverart mockup_0: 3661725524011195298
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
