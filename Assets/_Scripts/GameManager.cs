@@ -54,6 +54,18 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (currentGameState == GameState.GAME)
+            {
+                PauseGame();
+            }
+            else if (currentGameState == GameState.PAUSE)
+            {
+                ContinueGame();
+            }
+        }
     }
 
     public void ContinueGame()

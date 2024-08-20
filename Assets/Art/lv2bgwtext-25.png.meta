@@ -1,0 +1,2002 @@
+fileFormatVersion: 2
+guid: 6b0f70b327a018449a8be06747c81981
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2102333429701817563
+    second: lv2bgwtext-25_0
+  - first:
+      213: 4745478805508234227
+    second: lv2bgwtext-25_1
+  - first:
+      213: 114149803308141945
+    second: lv2bgwtext-25_2
+  - first:
+      213: -8834083077394797845
+    second: lv2bgwtext-25_3
+  - first:
+      213: 9113511034417426441
+    second: lv2bgwtext-25_4
+  - first:
+      213: -3699158344168505514
+    second: lv2bgwtext-25_5
+  - first:
+      213: 2129640349788282381
+    second: lv2bgwtext-25_6
+  - first:
+      213: 518671055279270085
+    second: lv2bgwtext-25_7
+  - first:
+      213: -4393751005121820959
+    second: lv2bgwtext-25_8
+  - first:
+      213: -4075064766204081642
+    second: lv2bgwtext-25_9
+  - first:
+      213: 8991427784622483361
+    second: lv2bgwtext-25_10
+  - first:
+      213: 2930808712212517547
+    second: lv2bgwtext-25_11
+  - first:
+      213: -2976662588426088313
+    second: lv2bgwtext-25_12
+  - first:
+      213: -4164040344459510640
+    second: lv2bgwtext-25_13
+  - first:
+      213: -8295031687193684611
+    second: lv2bgwtext-25_14
+  - first:
+      213: 8524499130477653484
+    second: lv2bgwtext-25_15
+  - first:
+      213: -5366742145016968287
+    second: lv2bgwtext-25_16
+  - first:
+      213: -7130436432053186522
+    second: lv2bgwtext-25_17
+  - first:
+      213: -6601061707291513537
+    second: lv2bgwtext-25_18
+  - first:
+      213: -7201535547393705018
+    second: lv2bgwtext-25_19
+  - first:
+      213: -8464986746318621752
+    second: lv2bgwtext-25_20
+  - first:
+      213: -477381654382431463
+    second: lv2bgwtext-25_21
+  - first:
+      213: 2467896776283349690
+    second: lv2bgwtext-25_22
+  - first:
+      213: -1616305133627670343
+    second: lv2bgwtext-25_23
+  - first:
+      213: -8483746522254153180
+    second: lv2bgwtext-25_24
+  - first:
+      213: -3515172419221338934
+    second: lv2bgwtext-25_25
+  - first:
+      213: 9164351011715576766
+    second: lv2bgwtext-25_26
+  - first:
+      213: -6954823598046685964
+    second: lv2bgwtext-25_27
+  - first:
+      213: 2044331355190935020
+    second: lv2bgwtext-25_28
+  - first:
+      213: 4000774846762294929
+    second: lv2bgwtext-25_29
+  - first:
+      213: -4596920731073414244
+    second: lv2bgwtext-25_30
+  - first:
+      213: -6842149119992919809
+    second: lv2bgwtext-25_31
+  - first:
+      213: -5101420627146285749
+    second: lv2bgwtext-25_32
+  - first:
+      213: -8945065234204310674
+    second: lv2bgwtext-25_33
+  - first:
+      213: -1008661017399756303
+    second: lv2bgwtext-25_34
+  - first:
+      213: -2481848563681513019
+    second: lv2bgwtext-25_35
+  - first:
+      213: 5367336364756496269
+    second: lv2bgwtext-25_36
+  - first:
+      213: 5414154024321906501
+    second: lv2bgwtext-25_37
+  - first:
+      213: -945631990751747210
+    second: lv2bgwtext-25_38
+  - first:
+      213: -7796201419293726310
+    second: lv2bgwtext-25_39
+  - first:
+      213: -6724227504405770884
+    second: lv2bgwtext-25_40
+  - first:
+      213: -1549324808430018262
+    second: lv2bgwtext-25_41
+  - first:
+      213: -5052388478750361332
+    second: lv2bgwtext-25_42
+  - first:
+      213: 1047002192272486810
+    second: lv2bgwtext-25_43
+  - first:
+      213: -1384666419525839
+    second: lv2bgwtext-25_44
+  - first:
+      213: -7792229791166306546
+    second: lv2bgwtext-25_45
+  - first:
+      213: 8795505013118944475
+    second: lv2bgwtext-25_46
+  - first:
+      213: -6108574275667259675
+    second: lv2bgwtext-25_47
+  - first:
+      213: 614878776249487157
+    second: lv2bgwtext-25_48
+  - first:
+      213: 5481003923294468423
+    second: lv2bgwtext-25_49
+  - first:
+      213: 7598856637318616882
+    second: lv2bgwtext-25_50
+  - first:
+      213: 2214452935300804509
+    second: lv2bgwtext-25_51
+  - first:
+      213: -5328877409728761337
+    second: lv2bgwtext-25_52
+  - first:
+      213: -1772817218767824902
+    second: lv2bgwtext-25_53
+  - first:
+      213: -7931210438987659284
+    second: lv2bgwtext-25_54
+  - first:
+      213: -7962605918372397546
+    second: lv2bgwtext-25_55
+  - first:
+      213: -4020548241266781333
+    second: lv2bgwtext-25_56
+  - first:
+      213: 4561274006973314758
+    second: lv2bgwtext-25_57
+  - first:
+      213: 3018954821587482862
+    second: lv2bgwtext-25_58
+  - first:
+      213: -6614319250394657073
+    second: lv2bgwtext-25_59
+  - first:
+      213: 2244080614673505760
+    second: lv2bgwtext-25_60
+  - first:
+      213: 1809246311260310488
+    second: lv2bgwtext-25_61
+  - first:
+      213: 2110870747691898741
+    second: lv2bgwtext-25_62
+  - first:
+      213: -4292872236797508876
+    second: lv2bgwtext-25_63
+  - first:
+      213: 8227776922687641968
+    second: lv2bgwtext-25_64
+  - first:
+      213: 6342691901798988597
+    second: lv2bgwtext-25_65
+  - first:
+      213: -1350134753215968061
+    second: lv2bgwtext-25_66
+  - first:
+      213: 5882065729456181833
+    second: lv2bgwtext-25_67
+  - first:
+      213: -1450341670283347737
+    second: lv2bgwtext-25_68
+  - first:
+      213: 5251536130145342781
+    second: lv2bgwtext-25_69
+  - first:
+      213: -7142757980542396764
+    second: lv2bgwtext-25_70
+  - first:
+      213: 7696352902208241383
+    second: lv2bgwtext-25_71
+  - first:
+      213: 3511279389293551093
+    second: lv2bgwtext-25_72
+  - first:
+      213: -442102534470548790
+    second: lv2bgwtext-25_73
+  - first:
+      213: -8392694997837393574
+    second: lv2bgwtext-25_74
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: lv2bgwtext-25_0
+      rect:
+        serializedVersion: 2
+        x: 2866
+        y: 5377
+        width: 1737
+        height: 2262
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd43ecc9d1dfc2d10800000000000000
+      internalID: 2102333429701817563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_1
+      rect:
+        serializedVersion: 2
+        x: 4762
+        y: 6222
+        width: 638
+        height: 704
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fb967bb4d35bd140800000000000000
+      internalID: 4745478805508234227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_2
+      rect:
+        serializedVersion: 2
+        x: 5516
+        y: 6218
+        width: 986
+        height: 712
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97dcc5d24aa859100800000000000000
+      internalID: 114149803308141945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_3
+      rect:
+        serializedVersion: 2
+        x: 7019
+        y: 6641
+        width: 391
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: beae79ffe38076580800000000000000
+      internalID: -8834083077394797845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_4
+      rect:
+        serializedVersion: 2
+        x: 7926
+        y: 6519
+        width: 599
+        height: 598
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 900bd071002b97e70800000000000000
+      internalID: 9113511034417426441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_5
+      rect:
+        serializedVersion: 2
+        x: 9534
+        y: 6677
+        width: 31
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65ff9efb513f9acc0800000000000000
+      internalID: -3699158344168505514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_6
+      rect:
+        serializedVersion: 2
+        x: 9536
+        y: 6516
+        width: 175
+        height: 196
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0e18746d900e8d10800000000000000
+      internalID: 2129640349788282381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_7
+      rect:
+        serializedVersion: 2
+        x: 10104
+        y: 6026
+        width: 1329
+        height: 842
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c8a235a390b23700800000000000000
+      internalID: 518671055279270085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_8
+      rect:
+        serializedVersion: 2
+        x: 10774
+        y: 6472
+        width: 137
+        height: 489
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e6c23c6db24603c0800000000000000
+      internalID: -4393751005121820959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_9
+      rect:
+        serializedVersion: 2
+        x: 10916
+        y: 6478
+        width: 127
+        height: 439
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61a02bd8f267277c0800000000000000
+      internalID: -4075064766204081642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_10
+      rect:
+        serializedVersion: 2
+        x: 11885
+        y: 5994
+        width: 973
+        height: 719
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a720067ee7f7cc70800000000000000
+      internalID: 8991427784622483361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_11
+      rect:
+        serializedVersion: 2
+        x: 6855
+        y: 6516
+        width: 599
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba21c04eef25ca820800000000000000
+      internalID: 2930808712212517547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_12
+      rect:
+        serializedVersion: 2
+        x: 9497
+        y: 6567
+        width: 35
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7801ba89525c0b6d0800000000000000
+      internalID: -2976662588426088313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_13
+      rect:
+        serializedVersion: 2
+        x: 6775
+        y: 4109
+        width: 2082
+        height: 2457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09c78166e5b5636c0800000000000000
+      internalID: -4164040344459510640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_14
+      rect:
+        serializedVersion: 2
+        x: 9531
+        y: 6514
+        width: 25
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d75163421a022ec80800000000000000
+      internalID: -8295031687193684611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_15
+      rect:
+        serializedVersion: 2
+        x: 9574
+        y: 6487
+        width: 33
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ced2f306bca1d4670800000000000000
+      internalID: 8524499130477653484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_16
+      rect:
+        serializedVersion: 2
+        x: 9652
+        y: 6513
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ab452d04708585b0800000000000000
+      internalID: -5366742145016968287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_17
+      rect:
+        serializedVersion: 2
+        x: 12999
+        y: 6191
+        width: 203
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62057fdf7d99b0d90800000000000000
+      internalID: -7130436432053186522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_18
+      rect:
+        serializedVersion: 2
+        x: 13101
+        y: 6401
+        width: 37
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3da474e9515464a0800000000000000
+      internalID: -6601061707291513537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_19
+      rect:
+        serializedVersion: 2
+        x: 13570
+        y: 6219
+        width: 166
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cbff3433910f0c90800000000000000
+      internalID: -7201535547393705018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_20
+      rect:
+        serializedVersion: 2
+        x: 13664
+        y: 6388
+        width: 32
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c3f9455763568a80800000000000000
+      internalID: -8464986746318621752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_21
+      rect:
+        serializedVersion: 2
+        x: 13185
+        y: 6370
+        width: 45
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9133f342aefff59f0800000000000000
+      internalID: -477381654382431463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_22
+      rect:
+        serializedVersion: 2
+        x: 13729
+        y: 6351
+        width: 38
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab263b4ea0bbf3220800000000000000
+      internalID: 2467896776283349690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_23
+      rect:
+        serializedVersion: 2
+        x: 9174
+        y: 6290
+        width: 33
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b08b756b0bb199e0800000000000000
+      internalID: -1616305133627670343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_24
+      rect:
+        serializedVersion: 2
+        x: 9197
+        y: 6119
+        width: 219
+        height: 239
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42ae590ac7da34a80800000000000000
+      internalID: -8483746522254153180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_25
+      rect:
+        serializedVersion: 2
+        x: 13207
+        y: 6299
+        width: 39
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac4cf041f49973fc0800000000000000
+      internalID: -3515172419221338934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_26
+      rect:
+        serializedVersion: 2
+        x: 13739
+        y: 6289
+        width: 35
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb37c4ab0b05e2f70800000000000000
+      internalID: 9164351011715576766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_27
+      rect:
+        serializedVersion: 2
+        x: 13188
+        y: 6234
+        width: 50
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f45cea29c08b7f90800000000000000
+      internalID: -6954823598046685964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_28
+      rect:
+        serializedVersion: 2
+        x: 13715
+        y: 6236
+        width: 42
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ced3955498cee5c10800000000000000
+      internalID: 2044331355190935020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_29
+      rect:
+        serializedVersion: 2
+        x: 15681
+        y: 5383
+        width: 955
+        height: 902
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19e959fa68b958730800000000000000
+      internalID: 4000774846762294929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_30
+      rect:
+        serializedVersion: 2
+        x: 13622
+        y: 6198
+        width: 31
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9b7dbb53f47430c0800000000000000
+      internalID: -4596920731073414244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_31
+      rect:
+        serializedVersion: 2
+        x: 9163
+        y: 6146
+        width: 37
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff8029a60adcb01a0800000000000000
+      internalID: -6842149119992919809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_32
+      rect:
+        serializedVersion: 2
+        x: 13086
+        y: 6171
+        width: 38
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4d5815d7fc1439b0800000000000000
+      internalID: -5101420627146285749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_33
+      rect:
+        serializedVersion: 2
+        x: 9219
+        y: 6091
+        width: 27
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e634e8eff8ebcd380800000000000000
+      internalID: -8945065234204310674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_34
+      rect:
+        serializedVersion: 2
+        x: 9286
+        y: 6073
+        width: 35
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f97a1716248002f0800000000000000
+      internalID: -1008661017399756303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_35
+      rect:
+        serializedVersion: 2
+        x: 6508
+        y: 5668
+        width: 218
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c1337771e3be8dd0800000000000000
+      internalID: -2481848563681513019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_36
+      rect:
+        serializedVersion: 2
+        x: 6608
+        y: 5896
+        width: 39
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8fe8538cfb9c7a40800000000000000
+      internalID: 5367336364756496269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_37
+      rect:
+        serializedVersion: 2
+        x: 6701
+        y: 5873
+        width: 48
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54775f25660f22b40800000000000000
+      internalID: 5414154024321906501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_38
+      rect:
+        serializedVersion: 2
+        x: 6733
+        y: 5801
+        width: 39
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6732ffee6b070e2f0800000000000000
+      internalID: -945631990751747210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_39
+      rect:
+        serializedVersion: 2
+        x: 6114
+        y: 5705
+        width: 31
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a99e99d7d145ec390800000000000000
+      internalID: -7796201419293726310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_40
+      rect:
+        serializedVersion: 2
+        x: 6720
+        y: 5729
+        width: 53
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7d8bf216bebea2a0800000000000000
+      internalID: -6724227504405770884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_41
+      rect:
+        serializedVersion: 2
+        x: 11120
+        y: 4009
+        width: 842
+        height: 1760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2124df9b41bf7ae0800000000000000
+      internalID: -1549324808430018262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_42
+      rect:
+        serializedVersion: 2
+        x: 11666
+        y: 4006
+        width: 1686
+        height: 1761
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c09fec0827f42e9b0800000000000000
+      internalID: -5052388478750361332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_43
+      rect:
+        serializedVersion: 2
+        x: 6041
+        y: 5524
+        width: 173
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a91f47552f2b78e00800000000000000
+      internalID: 1047002192272486810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_44
+      rect:
+        serializedVersion: 2
+        x: 6189
+        y: 5694
+        width: 38
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1378ee937a41bfff0800000000000000
+      internalID: -1384666419525839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_45
+      rect:
+        serializedVersion: 2
+        x: 6219
+        y: 5639
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e07e0593a407cd390800000000000000
+      internalID: -7792229791166306546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_46
+      rect:
+        serializedVersion: 2
+        x: 6619
+        y: 5650
+        width: 41
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd44f177539ef0a70800000000000000
+      internalID: 8795505013118944475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_47
+      rect:
+        serializedVersion: 2
+        x: 6214
+        y: 5582
+        width: 42
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ee83c69f0cf93ba0800000000000000
+      internalID: -6108574275667259675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_48
+      rect:
+        serializedVersion: 2
+        x: 6140
+        y: 5513
+        width: 33
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53f074e3dfc788800800000000000000
+      internalID: 614878776249487157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_49
+      rect:
+        serializedVersion: 2
+        x: 3793
+        y: 4811
+        width: 37
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7493d745700701c40800000000000000
+      internalID: 5481003923294468423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_50
+      rect:
+        serializedVersion: 2
+        x: 5836
+        y: 4117
+        width: 898
+        height: 1056
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 237de76e9df847960800000000000000
+      internalID: 7598856637318616882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_51
+      rect:
+        serializedVersion: 2
+        x: 9053
+        y: 3724
+        width: 1393
+        height: 1725
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9fec6446315bbe10800000000000000
+      internalID: 2214452935300804509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_52
+      rect:
+        serializedVersion: 2
+        x: 10538
+        y: 4818
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 702738dba360c06b0800000000000000
+      internalID: -5328877409728761337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_53
+      rect:
+        serializedVersion: 2
+        x: 10609
+        y: 4846
+        width: 34
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af7d5afd120b567e0800000000000000
+      internalID: -1772817218767824902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_54
+      rect:
+        serializedVersion: 2
+        x: 10690
+        y: 4828
+        width: 26
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce74549802eaee190800000000000000
+      internalID: -7931210438987659284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_55
+      rect:
+        serializedVersion: 2
+        x: 3721
+        y: 4605
+        width: 223
+        height: 199
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61e7dfcda142f7190800000000000000
+      internalID: -7962605918372397546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_56
+      rect:
+        serializedVersion: 2
+        x: 3729
+        y: 4791
+        width: 38
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b63d8f42da42438c0800000000000000
+      internalID: -4020548241266781333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_57
+      rect:
+        serializedVersion: 2
+        x: 10526
+        y: 4613
+        width: 244
+        height: 227
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c6fddcea86ec4f30800000000000000
+      internalID: 4561274006973314758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_58
+      rect:
+        serializedVersion: 2
+        x: 3692
+        y: 4737
+        width: 32
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee8bca54a6b75e920800000000000000
+      internalID: 3018954821587482862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_59
+      rect:
+        serializedVersion: 2
+        x: 10504
+        y: 4724
+        width: 30
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcec2399fa73534a0800000000000000
+      internalID: -6614319250394657073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_60
+      rect:
+        serializedVersion: 2
+        x: 10766
+        y: 4717
+        width: 25
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ed54fced63942f10800000000000000
+      internalID: 2244080614673505760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_61
+      rect:
+        serializedVersion: 2
+        x: 3713
+        y: 4653
+        width: 31
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8db4bdd2febbb1910800000000000000
+      internalID: 1809246311260310488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_62
+      rect:
+        serializedVersion: 2
+        x: 4079
+        y: 4387
+        width: 33
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57750fad2c15b4d10800000000000000
+      internalID: 2110870747691898741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_63
+      rect:
+        serializedVersion: 2
+        x: 4132
+        y: 4406
+        width: 32
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f24c8bf177ac64c0800000000000000
+      internalID: -4292872236797508876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_64
+      rect:
+        serializedVersion: 2
+        x: 4051
+        y: 4340
+        width: 27
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07914ffb48fee2270800000000000000
+      internalID: 8227776922687641968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_65
+      rect:
+        serializedVersion: 2
+        x: 4077
+        y: 4235
+        width: 187
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53bb97efda4c50850800000000000000
+      internalID: 6342691901798988597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_66
+      rect:
+        serializedVersion: 2
+        x: 10752
+        y: 4317
+        width: 22
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cc07a3689b534de0800000000000000
+      internalID: -1350134753215968061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_67
+      rect:
+        serializedVersion: 2
+        x: 10808
+        y: 4339
+        width: 27
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9421cbdcd9b41a150800000000000000
+      internalID: 5882065729456181833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_68
+      rect:
+        serializedVersion: 2
+        x: 10873
+        y: 4325
+        width: 20
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e870d36fe95fdbe0800000000000000
+      internalID: -1450341670283347737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_69
+      rect:
+        serializedVersion: 2
+        x: 4072
+        y: 4271
+        width: 27
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d35517a594431e840800000000000000
+      internalID: 5251536130145342781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_70
+      rect:
+        serializedVersion: 2
+        x: 10725
+        y: 4242
+        width: 24
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a61f2de573dfdc90800000000000000
+      internalID: -7142757980542396764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_71
+      rect:
+        serializedVersion: 2
+        x: 10742
+        y: 4155
+        width: 194
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ee3b220030feca60800000000000000
+      internalID: 7696352902208241383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_72
+      rect:
+        serializedVersion: 2
+        x: 10933
+        y: 4237
+        width: 20
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fd1ef140029ab030800000000000000
+      internalID: 3511279389293551093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_73
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 3047
+        width: 1656
+        height: 1192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac2459656165dd9f0800000000000000
+      internalID: -442102534470548790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv2bgwtext-25_74
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 2691
+        width: 911
+        height: 1570
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5154b9ad58278b80800000000000000
+      internalID: -8392694997837393574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      lv2bgwtext-25_0: 2102333429701817563
+      lv2bgwtext-25_1: 4745478805508234227
+      lv2bgwtext-25_10: 8991427784622483361
+      lv2bgwtext-25_11: 2930808712212517547
+      lv2bgwtext-25_12: -2976662588426088313
+      lv2bgwtext-25_13: -4164040344459510640
+      lv2bgwtext-25_14: -8295031687193684611
+      lv2bgwtext-25_15: 8524499130477653484
+      lv2bgwtext-25_16: -5366742145016968287
+      lv2bgwtext-25_17: -7130436432053186522
+      lv2bgwtext-25_18: -6601061707291513537
+      lv2bgwtext-25_19: -7201535547393705018
+      lv2bgwtext-25_2: 114149803308141945
+      lv2bgwtext-25_20: -8464986746318621752
+      lv2bgwtext-25_21: -477381654382431463
+      lv2bgwtext-25_22: 2467896776283349690
+      lv2bgwtext-25_23: -1616305133627670343
+      lv2bgwtext-25_24: -8483746522254153180
+      lv2bgwtext-25_25: -3515172419221338934
+      lv2bgwtext-25_26: 9164351011715576766
+      lv2bgwtext-25_27: -6954823598046685964
+      lv2bgwtext-25_28: 2044331355190935020
+      lv2bgwtext-25_29: 4000774846762294929
+      lv2bgwtext-25_3: -8834083077394797845
+      lv2bgwtext-25_30: -4596920731073414244
+      lv2bgwtext-25_31: -6842149119992919809
+      lv2bgwtext-25_32: -5101420627146285749
+      lv2bgwtext-25_33: -8945065234204310674
+      lv2bgwtext-25_34: -1008661017399756303
+      lv2bgwtext-25_35: -2481848563681513019
+      lv2bgwtext-25_36: 5367336364756496269
+      lv2bgwtext-25_37: 5414154024321906501
+      lv2bgwtext-25_38: -945631990751747210
+      lv2bgwtext-25_39: -7796201419293726310
+      lv2bgwtext-25_4: 9113511034417426441
+      lv2bgwtext-25_40: -6724227504405770884
+      lv2bgwtext-25_41: -1549324808430018262
+      lv2bgwtext-25_42: -5052388478750361332
+      lv2bgwtext-25_43: 1047002192272486810
+      lv2bgwtext-25_44: -1384666419525839
+      lv2bgwtext-25_45: -7792229791166306546
+      lv2bgwtext-25_46: 8795505013118944475
+      lv2bgwtext-25_47: -6108574275667259675
+      lv2bgwtext-25_48: 614878776249487157
+      lv2bgwtext-25_49: 5481003923294468423
+      lv2bgwtext-25_5: -3699158344168505514
+      lv2bgwtext-25_50: 7598856637318616882
+      lv2bgwtext-25_51: 2214452935300804509
+      lv2bgwtext-25_52: -5328877409728761337
+      lv2bgwtext-25_53: -1772817218767824902
+      lv2bgwtext-25_54: -7931210438987659284
+      lv2bgwtext-25_55: -7962605918372397546
+      lv2bgwtext-25_56: -4020548241266781333
+      lv2bgwtext-25_57: 4561274006973314758
+      lv2bgwtext-25_58: 3018954821587482862
+      lv2bgwtext-25_59: -6614319250394657073
+      lv2bgwtext-25_6: 2129640349788282381
+      lv2bgwtext-25_60: 2244080614673505760
+      lv2bgwtext-25_61: 1809246311260310488
+      lv2bgwtext-25_62: 2110870747691898741
+      lv2bgwtext-25_63: -4292872236797508876
+      lv2bgwtext-25_64: 8227776922687641968
+      lv2bgwtext-25_65: 6342691901798988597
+      lv2bgwtext-25_66: -1350134753215968061
+      lv2bgwtext-25_67: 5882065729456181833
+      lv2bgwtext-25_68: -1450341670283347737
+      lv2bgwtext-25_69: 5251536130145342781
+      lv2bgwtext-25_7: 518671055279270085
+      lv2bgwtext-25_70: -7142757980542396764
+      lv2bgwtext-25_71: 7696352902208241383
+      lv2bgwtext-25_72: 3511279389293551093
+      lv2bgwtext-25_73: -442102534470548790
+      lv2bgwtext-25_74: -8392694997837393574
+      lv2bgwtext-25_8: -4393751005121820959
+      lv2bgwtext-25_9: -4075064766204081642
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

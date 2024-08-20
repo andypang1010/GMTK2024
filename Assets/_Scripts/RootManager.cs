@@ -31,12 +31,20 @@ public class RootManager : MonoBehaviour
         SceneManager.LoadScene("MENU");
     }
 
-    public void GoOpeningCG() {
+    public void GoOpeningCG()
+    {
         Time.timeScale = 1f;
         SceneManager.LoadScene("OPENING CG");
     }
 
-    public void GoTutorial() {
+    public void GoEndingCG()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("ENDING CG");
+    }
+
+    public void GoTutorial()
+    {
         Time.timeScale = 1f;
         SceneManager.LoadScene("TUTORIAL");
     }
