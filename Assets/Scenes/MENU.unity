@@ -348,9 +348,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenuBGM: {fileID: 8300000, guid: e0656f0ae5a20e448bb0dc53d936da8f, type: 3}
-  LV1BGM: {fileID: 8300000, guid: d316907c7423da84da4d9766aeb50b6c, type: 3}
-  LV2BGM: {fileID: 8300000, guid: 66608b3eb4c8ba4428ac8c6ae63f38c4, type: 3}
-  LV3BGM: {fileID: 0}
+  LV1BGM: {fileID: 8300000, guid: e0ee141f45b0f4548925efc3cede9cca, type: 3}
+  LV2BGM: {fileID: 8300000, guid: fb88ecef200599448ab51144c4570365, type: 3}
+  LV3BGM: {fileID: 8300000, guid: e0ee141f45b0f4548925efc3cede9cca, type: 3}
   LV4BGM: {fileID: 8300000, guid: fbf9c86795c4f064a9de80af20466a1b, type: 3}
   fadeSpeed: 0.1
 --- !u!82 &269201392
