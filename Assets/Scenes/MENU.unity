@@ -349,14 +349,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 462a995712a14c342ad5ca6790ef34f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgmSource: {fileID: 0}
-  walkClip: {fileID: 0}
-  jumpClip: {fileID: 0}
-  landClip: {fileID: 0}
-  deathClip: {fileID: 0}
-  scaleObjectClip: {fileID: 0}
-  tagObjectClip: {fileID: 0}
-  respawnClip: {fileID: 0}
   mainMenuBGM: {fileID: 8300000, guid: e0656f0ae5a20e448bb0dc53d936da8f, type: 3}
   LV1BGM: {fileID: 8300000, guid: d316907c7423da84da4d9766aeb50b6c, type: 3}
   LV2BGM: {fileID: 8300000, guid: 66608b3eb4c8ba4428ac8c6ae63f38c4, type: 3}
@@ -665,7 +657,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -3777727708163004019, guid: 96d728969bd506145aaba3236fc5775d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6cd212b68754683459545e639021c458, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
