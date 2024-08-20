@@ -36,14 +36,20 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        foreach (GameObject level in allLevels) {
-            if (level == currentLevel) {
-                foreach (Transform element in level.transform) {
+        foreach (GameObject level in allLevels)
+        {
+            if (level == currentLevel)
+            {
+                Debug.Log("Current level is " + level.name);
+                foreach (Transform element in level.transform)
+                {
                     element.gameObject.SetActive(true);
                 }
             }
-            else {
-                foreach (Transform element in level.transform) {
+            else
+            {
+                foreach (Transform element in level.transform)
+                {
                     element.gameObject.SetActive(false);
                 }
             }
@@ -70,25 +76,31 @@ public class GameManager : MonoBehaviour
         player.transform.localScale = Vector3.one * defaultLevelScales[levelIndex];
     }
 
-    public void ResetLevel() {
+    public void ResetLevel()
+    {
         Time.timeScale = 1f;
 
         print("Level reset");
-        if (currentLevel == null) {
+        if (currentLevel == null)
+        {
             print("Currently at lobby");
             return;
         }
 
-        foreach (Transform element in currentLevel.transform) {
-            if (element.TryGetComponent(out Scalable scalable)) {
+        foreach (Transform element in currentLevel.transform)
+        {
+            if (element.TryGetComponent(out Scalable scalable))
+            {
                 scalable.ResetScale();
             }
 
-            if (element.TryGetComponent(out NPCMovement npcMovement)) {
+            if (element.TryGetComponent(out NPCMovement npcMovement))
+            {
                 npcMovement.ResetPosition();
             }
-            
-            if (element.TryGetComponent(out Elevator elevator)) {
+
+            if (element.TryGetComponent(out Elevator elevator))
+            {
                 elevator.ResetElevator();
             }
         }
@@ -103,7 +115,8 @@ public class GameManager : MonoBehaviour
         GameObject.Find("AUDIO MANAGER").GetComponent<BGMManager>().ResetAudio();
     }
 
-    public void DrainTea() {
+    public void DrainTea()
+    {
         teaLake.SetActive(false);
     }
 }
