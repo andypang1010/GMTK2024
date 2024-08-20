@@ -344,6 +344,11 @@ public class PlayerScale : MonoBehaviour
             DeselectObject();
         }
 
+        if(clickedObject == gameObject)
+        {
+            return;
+        }
+
         GameObject realScalableObj = clickedObject.GetComponent<Scalable>().realScalableObj;
         if (realScalableObj != null)
         {
