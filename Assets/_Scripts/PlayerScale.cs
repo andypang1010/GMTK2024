@@ -269,8 +269,6 @@ public class PlayerScale : MonoBehaviour
         }
         RaycastHit2D hit = Physics2D.Raycast(playerEyes.transform.position, clickedObject.transform.position - playerEyes.transform.position, Mathf.Infinity, ~combineMask);
 
-        Debug.Log("Hit: " + hit.collider.name);
-
         if (hit.collider != null)
         {
             if (hit.collider.gameObject == clickedObject)
@@ -344,7 +342,7 @@ public class PlayerScale : MonoBehaviour
             DeselectObject();
         }
 
-        if(clickedObject == gameObject)
+        if (clickedObject == gameObject)
         {
             return;
         }
