@@ -62,6 +62,135 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1482163726134479851}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5953237338311605573
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7964395359015083552}
+  - component: {fileID: 3673316169810405808}
+  m_Layer: 3
+  m_Name: Scaling SFX Source
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7964395359015083552
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5953237338311605573}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1482163726134479851}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &3673316169810405808
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5953237338311605573}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.467
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &6325308549931987923
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,6 +383,7 @@ Transform:
   - {fileID: 5860788446478585975}
   - {fileID: 7638576859474432859}
   - {fileID: 1647491666356666696}
+  - {fileID: 7964395359015083552}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &2131766766421009613
@@ -371,6 +501,7 @@ MonoBehaviour:
   playerScaleSpeed: 0.1
   maxPlayerScale: 3
   minPlayerScale: 0.5
+  playerIsScaling: 0
   defaultOrthoScale: 5
   camHeightAtMinScale: 3.5
   camHeightAtMaxScale: 8.5
@@ -384,6 +515,15 @@ MonoBehaviour:
   canSeeThroughWhenTagged:
     serializedVersion: 2
     m_Bits: 1024
+  taggingSFXs:
+  - {fileID: 8300000, guid: 6a8dcff5c329ff54a90badcab292524b, type: 3}
+  - {fileID: 8300000, guid: 9056dc2d21458ae4c891b2dc48d63cd4, type: 3}
+  - {fileID: 8300000, guid: 77219dd3a2c468249961f5fd861f6dc8, type: 3}
+  scaleUpSFX: {fileID: 8300000, guid: bf4f7905843c7f843989f7078ce862f6, type: 3}
+  scaleDownSFX: {fileID: 8300000, guid: d7561ca3be1036947a62db5932771349, type: 3}
+  scaleSFXSource: {fileID: 3673316169810405808}
+  scaleSFXVolume: 0.3
+  taggingSFXVolume: 1
   calculatedPlayerMaxScale: {x: 0, y: 0, z: 0}
   calculatedPlayerMinScale: {x: 0, y: 0, z: 0}
 --- !u!95 &4193798364589494787

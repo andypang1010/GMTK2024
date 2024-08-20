@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 52c0fea3b16c6424b97c43a8be3a936e
+guid: a6dc58b5d583e5740a49d223d59d9df2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1181633165295965472
-    second: lv3_terrain_texture_8_0
+      213: -1338489445826154722
+    second: lv3_terrain_texture_6_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 2000
+  spritePixelsToUnits: 500
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: lv3_terrain_texture_8_0
+      name: lv3_terrain_texture_6_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 977
-        height: 305
+        width: 1595
+        height: 799
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,8 +127,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0eaa6bf85eef99fe0800000000000000
-      internalID: -1181633165295965472
+      spriteID: e1f2cedc0fabc6de0800000000000000
+      internalID: -1338489445826154722
       vertices: []
       indices: 
       edges: []
@@ -144,7 +144,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      lv3_terrain_texture_8_0: -1181633165295965472
+      lv3_terrain_texture_6_0: -1338489445826154722
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
