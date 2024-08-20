@@ -1,0 +1,314 @@
+fileFormatVersion: 2
+guid: 54d6582d320f32746bf43fa55a084ab5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6861074364887244074
+    second: lv1_terrain90_0
+  - first:
+      213: -6476583669811831914
+    second: lv1_terrain90_1
+  - first:
+      213: 3421356993406237962
+    second: lv1_terrain90_2
+  - first:
+      213: -3081064133597539910
+    second: lv1_terrain90_3
+  - first:
+      213: 7845047742657899441
+    second: lv1_terrain90_4
+  - first:
+      213: -5265552896696384269
+    second: lv1_terrain90_5
+  - first:
+      213: -326070124735531275
+    second: lv1_terrain90_6
+  - first:
+      213: -5842929258987338316
+    second: lv1_terrain90_7
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: lv1_terrain90_0
+      rect:
+        serializedVersion: 2
+        x: 988
+        y: 1737
+        width: 307
+        height: 8264
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cfcde40bca7d4f47b1707bf7130cfdf
+      internalID: -1096213992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv1_terrain90_1
+      rect:
+        serializedVersion: 2
+        x: 1885
+        y: 1684
+        width: 206
+        height: 8340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9902236cd5af0ce448a3756d10405ea3
+      internalID: 258679181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv1_terrain90_2
+      rect:
+        serializedVersion: 2
+        x: 3023
+        y: 1708
+        width: 590
+        height: 8281
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0baff777ce69954cbc25a62bafd2e46
+      internalID: -791643197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv1_terrain90_3
+      rect:
+        serializedVersion: 2
+        x: 4433
+        y: 1672
+        width: 596
+        height: 8305
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6679ea4ddfa59d14a9f3ff3f1a4326da
+      internalID: -1582191128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv1_terrain90_4
+      rect:
+        serializedVersion: 2
+        x: 6504
+        y: 6161
+        width: 2519
+        height: 4648
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ef6e7b8c8540df499ef0a0f3a106bec
+      internalID: -204336114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv1_terrain90_5
+      rect:
+        serializedVersion: 2
+        x: 9867
+        y: 5949
+        width: 1156
+        height: 3651
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d32a1701edba0346b23944039ae7745
+      internalID: -932450478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv1_terrain90_6
+      rect:
+        serializedVersion: 2
+        x: 6469
+        y: 552
+        width: 2489
+        height: 4901
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86bbb228749c32343b36dd12e5a342c8
+      internalID: 1962413422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv1_terrain90_7
+      rect:
+        serializedVersion: 2
+        x: 9867
+        y: 2168
+        width: 1132
+        height: 3338
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c618090febf0b18498958224f2d353ef
+      internalID: -333547624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 159d372b5fe24644cbe4e86240116532
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      lv1_terrain90_0: -1096213992
+      lv1_terrain90_1: 258679181
+      lv1_terrain90_2: -791643197
+      lv1_terrain90_3: -1582191128
+      lv1_terrain90_4: -204336114
+      lv1_terrain90_5: -932450478
+      lv1_terrain90_6: 1962413422
+      lv1_terrain90_7: -333547624
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
