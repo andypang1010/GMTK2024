@@ -183,6 +183,12 @@ public class PlayerMovement : MonoBehaviour
             // Reset position and scale
             transform.position = other.transform.GetChild(0).transform.position;
             playerScale.ResetPlayerScale();
+
+            if (GameObject.Find("AUDIO MANAGER") != null)
+            {
+                GameObject.Find("AUDIO MANAGER").GetComponent<BGMManager>().ResetAudio();
+            }
+
         }
     }
 
