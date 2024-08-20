@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3533621039391261183}
   m_Layer: 0
-  m_Name: Button 1
+  m_Name: Button 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -142,7 +142,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3286163911610860551, guid: 5acb2fe27adb17c438e4c478f08b27a2, type: 3}
+  m_Sprite: {fileID: 3286163911610860551, guid: 5d8f68dac1d9099468632d131f37fd7b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -336,7 +336,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3286163911610860551, guid: 5786f7f9920ecf741a61649f22336d58, type: 3}
+  m_Sprite: {fileID: 3286163911610860551, guid: c72880e3eb4e7bd4bbe54abb8db30b1e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
