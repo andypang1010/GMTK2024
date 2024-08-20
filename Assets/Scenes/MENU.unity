@@ -131,6 +131,18 @@ PrefabInstance:
       propertyPath: currentState
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1569711681746402402, guid: 9571d30fe6a159e418ea7083584d5a06, type: 3}
+      propertyPath: cursorTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: fcd3ceb53469f9249a03ba23ed61a7e1, type: 3}
+    - target: {fileID: 1569711681746402402, guid: 9571d30fe6a159e418ea7083584d5a06, type: 3}
+      propertyPath: cursorOffset.x
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1569711681746402402, guid: 9571d30fe6a159e418ea7083584d5a06, type: 3}
+      propertyPath: cursorOffset.y
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 1669993914893586685, guid: 9571d30fe6a159e418ea7083584d5a06, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

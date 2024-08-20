@@ -342,7 +342,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a16b58eb37fc81344a009adf954414f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedColor: {r: 0.60275006, g: 0.990566, b: 0.6074629, a: 0}
+  selectedStartColor: {r: 0.23529413, g: 0.64705884, b: 1, a: 0}
+  selectedEndColor: {r: 0.23529413, g: 0.64705884, b: 1, a: 0}
+  unselectedStartColor: {r: 1, g: 1, b: 1, a: 0}
+  unselectedEndColor: {r: 1, g: 1, b: 1, a: 0}
+  startAlpha: 0.7
+  endAlpha: 1
 --- !u!1 &6769881054352486467
 GameObject:
   m_ObjectHideFlags: 0

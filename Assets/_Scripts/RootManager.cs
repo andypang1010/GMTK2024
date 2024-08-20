@@ -7,6 +7,8 @@ public class RootManager : MonoBehaviour
 {
     public static RootManager Instance;
     public int frameRate = 60;
+    public Texture2D cursorTexture;
+    public Vector2 cursorOffset;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -18,6 +20,11 @@ public class RootManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
+    }
+
+    private void Start()
+    {
+        Cursor.SetCursor(cursorTexture, cursorOffset, CursorMode.Auto);
     }
 
     private void Update()
