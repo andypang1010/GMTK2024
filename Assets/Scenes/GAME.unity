@@ -55852,6 +55852,85 @@ PrefabInstance:
     - target: {fileID: 3385966251725009276, guid: 0a8c9b55891fd214896db3e67327f61d, type: 3}
       propertyPath: m_LocalRotation.w
       value: -0.0000026914977
+    - target: {fileID: 4091814307847152614, guid: 0a8c9b55891fd214896db3e67327f61d, type: 3}
+      propertyPath: endAlpha
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091814307847152614, guid: 0a8c9b55891fd214896db3e67327f61d, type: 3}
+      propertyPath: startAlpha
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091814307847152614, guid: 0a8c9b55891fd214896db3e67327f61d, type: 3}
+      propertyPath: selectedColor.b
+      value: 0.6039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091814307847152614, guid: 0a8c9b55891fd214896db3e67327f61d, type: 3}
+      propertyPath: selectedColor.g
+      value: 0.7832587
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091814307847152614, guid: 0a8c9b55891fd214896db3e67327f61d, type: 3}
+      propertyPath: selectedColor.r
+      value: 0.99215686
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091814307847152614, guid: 0a8c9b55891fd214896db3e67327f61d, type: 3}
+      propertyPath: unselectedColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091814307847152614, guid: 0a8c9b55891fd214896db3e67327f61d, type: 3}
+      propertyPath: unselectedColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091814307847152614, guid: 0a8c9b55891fd214896db3e67327f61d, type: 3}
+      propertyPath: unselectedColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091814307847152614, guid: 0a8c9b55891fd214896db3e67327f61d, type: 3}
+      propertyPath: selectedEndColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091814307847152614, guid: 0a8c9b55891fd214896db3e67327f61d, type: 3}
+      propertyPath: selectedEndColor.g
+      value: 0.64705884
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091814307847152614, guid: 0a8c9b55891fd214896db3e67327f61d, type: 3}
+      propertyPath: selectedEndColor.r
+      value: 0.23529413
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091814307847152614, guid: 0a8c9b55891fd214896db3e67327f61d, type: 3}
+      propertyPath: selectedStartColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091814307847152614, guid: 0a8c9b55891fd214896db3e67327f61d, type: 3}
+      propertyPath: selectedStartColor.g
+      value: 0.64705884
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091814307847152614, guid: 0a8c9b55891fd214896db3e67327f61d, type: 3}
+      propertyPath: selectedStartColor.r
+      value: 0.23529413
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091814307847152614, guid: 0a8c9b55891fd214896db3e67327f61d, type: 3}
+      propertyPath: unselectedEndColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091814307847152614, guid: 0a8c9b55891fd214896db3e67327f61d, type: 3}
+      propertyPath: unselectedEndColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091814307847152614, guid: 0a8c9b55891fd214896db3e67327f61d, type: 3}
+      propertyPath: unselectedEndColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091814307847152614, guid: 0a8c9b55891fd214896db3e67327f61d, type: 3}
+      propertyPath: unselectedStartColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091814307847152614, guid: 0a8c9b55891fd214896db3e67327f61d, type: 3}
+      propertyPath: unselectedStartColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091814307847152614, guid: 0a8c9b55891fd214896db3e67327f61d, type: 3}
+      propertyPath: unselectedStartColor.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4660575765280824667, guid: 0a8c9b55891fd214896db3e67327f61d, type: 3}
       propertyPath: m_LocalRotation.w

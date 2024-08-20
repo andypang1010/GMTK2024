@@ -6,7 +6,13 @@ using UnityEngine;
 
 public class EyeTracer : MonoBehaviour
 {
-    public Color selectedColor;
+    public Color selectedStartColor;
+    public Color selectedEndColor;
+    public Color unselectedStartColor;
+    public Color unselectedEndColor;
+
+    public float startAlpha;
+    public float endAlpha;
 
     private LineRenderer lineRenderer;
 
@@ -34,21 +40,21 @@ public class EyeTracer : MonoBehaviour
         lineRenderer.SetPositions(positions);
     }
 
-    public void SetColor(Color color)
+    public void SetColor(Color startColor, Color endColor)
     {
-        lineRenderer.startColor = new Color(color.r, color.g, color.b, 1);
-        lineRenderer.endColor = new Color(color.r, color.g, color.b, 0.2f);
+        lineRenderer.startColor = new Color(startColor.r, startColor.g, startColor.b, startAlpha);
+        lineRenderer.endColor = new Color(endColor.r, endColor.g, endColor.b, endAlpha);
     }
 
     public void UpdateColor(bool isSelectable)
     {
         if(isSelectable)
         {
-            SetColor(selectedColor);
+            SetColor(selectedStartColor, selectedEndColor);
         }
         else
         {
-            SetColor(Color.white);
+            SetColor(unselectedStartColor, unselectedEndColor);
         }
     }
 }
