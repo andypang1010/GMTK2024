@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      new_poker_b_0: 1932719782379685412
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
