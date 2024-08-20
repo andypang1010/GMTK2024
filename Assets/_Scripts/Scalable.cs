@@ -115,7 +115,7 @@ public class Scalable : MonoBehaviour
     // Get box size for left and right
     private Vector2 GetVerticalBoxSize()
     {
-        return new Vector2(0.05f, 0.8f * transform.localScale.y);
+        return new Vector2(0.05f, 0.7f * transform.localScale.y);
     }
 
     // Get box size for top
