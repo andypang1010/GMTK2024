@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5961673786b67d14896643a5be8b6401
+guid: cacc5f96671f51743a574496fd373728
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6554736390298987251
-    second: cursor_0
+      213: 4853828825963647302
+    second: assets to be exported-09_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cursor_0
+      name: assets to be exported-09_0
       rect:
         serializedVersion: 2
-        x: 88
-        y: 38
-        width: 150
-        height: 219
+        x: 62
+        y: 94
+        width: 2530
+        height: 1772
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,8 +127,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3fae81cb40a17fa50800000000000000
-      internalID: 6554736390298987251
+      spriteID: 6415d1cb9934c5340800000000000000
+      internalID: 4853828825963647302
       vertices: []
       indices: 
       edges: []
@@ -144,7 +144,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      cursor_0: 6554736390298987251
+      assets to be exported-09_0: 4853828825963647302
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

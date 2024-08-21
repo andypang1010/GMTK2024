@@ -100,7 +100,7 @@ public class Scalable : MonoBehaviour
         bool topFree = !topCol;
 
         bool canScale;
-        if(scaleOption == ScaleOption.PROPORTIONAL)
+        if (scaleOption == ScaleOption.PROPORTIONAL)
         {
             canScale = leftFree && rightFree && topFree;
         }
@@ -134,7 +134,7 @@ public class Scalable : MonoBehaviour
     {
         Vector3 dir = new Vector3(xDir, yDir, 0);
         float posOffset = 0;
-        if(xDir != 0)
+        if (xDir != 0)
         {
             posOffset = Math.Abs(transform.localScale.x) / 2;
         }
