@@ -102,7 +102,7 @@ public class Scalable : MonoBehaviour
         bool canScale;
         if (scaleOption == ScaleOption.PROPORTIONAL)
         {
-            canScale = leftFree && rightFree && topFree;
+            canScale = (leftFree || rightFree) && topFree;
         }
         else
         {

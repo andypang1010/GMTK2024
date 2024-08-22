@@ -365,30 +365,40 @@ public class PlayerScale : MonoBehaviour
 
     public bool IsCollisionFree()
     {
-        bool leftFree = !Physics2D.OverlapBox(transform.position + Vector3.left * (Math.Abs(transform.localScale.x) / 2), new Vector2(0.05f, 0.9f * transform.localScale.y), 0, ~LayerMask.GetMask("Player", "UI"));
+        bool leftFree = !Physics2D.OverlapBox(transform.position + Vector3.left * (Math.Abs(transform.localScale.x) / 2), GetVerticalBoxSize(), 0, ~LayerMask.GetMask("Player", "UI"));
         // print("Left: " + Physics2D.OverlapBox(transform.position + Vector3.left * (Math.Abs(transform.localScale.x) / 2), new Vector2(0.05f, 0.9f * transform.localScale.y), 0, ~LayerMask.GetMask("Player", "UI")).gameObject.name);
 
-        bool rightFree = !Physics2D.OverlapBox(transform.position + Vector3.right * (Math.Abs(transform.localScale.x) / 2), new Vector2(0.05f, 0.9f * transform.localScale.y), 0, ~LayerMask.GetMask("Player", "UI"));
+        bool rightFree = !Physics2D.OverlapBox(transform.position + Vector3.right * (Math.Abs(transform.localScale.x) / 2), GetVerticalBoxSize(), 0, ~LayerMask.GetMask("Player", "UI"));
         // print("Right: " + Physics2D.OverlapBox(transform.position + Vector3.right * (Math.Abs(transform.localScale.x) / 2), new Vector2(0.05f, 0.9f * transform.localScale.y), 0, ~LayerMask.GetMask("Player", "UI")).gameObject.name);
 
-        bool topFree = !Physics2D.OverlapBox(transform.position + Vector3.up * (transform.localScale.y / 2), new Vector2(0.9f * Math.Abs(transform.localScale.x), 0.05f), 0, ~LayerMask.GetMask("Player", "UI"));
+        bool topFree = !Physics2D.OverlapBox(transform.position + Vector3.up * (transform.localScale.y / 2), GetHorizontalBoxSize(), 0, ~LayerMask.GetMask("Player", "UI"));
         // print("Top: " + Physics2D.OverlapBox(transform.position + Vector3.up * (transform.localScale.y / 2), new Vector2(0.9f * Math.Abs(transform.localScale.x), 0.05f), 0, ~LayerMask.GetMask("Player", "UI")).gameObject.name);
 
 
-        return leftFree && rightFree && topFree;
+        return (leftFree || rightFree) && topFree;
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.white;
-        Gizmos.DrawCube(transform.position + Vector3.left * (Mathf.Abs(transform.localScale.x) / 2), new Vector2(0.05f, 0.9f * transform.localScale.y));
-        Gizmos.DrawCube(transform.position + Vector3.right * (Mathf.Abs(transform.localScale.x) / 2), new Vector2(0.05f, 0.9f * transform.localScale.y));
-        Gizmos.DrawCube(transform.position + Vector3.up * (transform.localScale.y / 2), new Vector2(0.9f * Mathf.Abs(transform.localScale.x), 0.05f));
+        Gizmos.DrawCube(transform.position + Vector3.left * (Mathf.Abs(transform.localScale.x) / 2), GetVerticalBoxSize());
+        Gizmos.DrawCube(transform.position + Vector3.right * (Mathf.Abs(transform.localScale.x) / 2), GetVerticalBoxSize());
+        Gizmos.DrawCube(transform.position + Vector3.up * (transform.localScale.y / 2), GetHorizontalBoxSize());
 
         Vector2 playerFrontNormal = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
         // gizmo draw player front normal
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position, transform.position + (Vector3)playerFrontNormal);
+    }
+
+    private Vector2 GetVerticalBoxSize()
+    {
+        return new Vector2(0.05f, 0.7f * transform.localScale.y);
+    }
+
+    private Vector2 GetHorizontalBoxSize()
+    {
+        return new Vector2(0.7f * Mathf.Abs(transform.localScale.x), 0.05f);
     }
 
     public void ResetPlayerScale()
