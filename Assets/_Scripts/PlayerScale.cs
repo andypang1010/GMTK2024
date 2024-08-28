@@ -15,7 +15,10 @@ public class PlayerScale : MonoBehaviour
 
     [Header("Player Scale")]
     public float defaultPlayerScale;
-    public float playerScaleSpeed;
+    private float masterScalingSpeed = 1;
+    public float scrollScaleSpeed;
+    public float keyboardScaleSpeed;
+    public float mouseScaleSpeed;
     [SerializeField] private float maxPlayerScale, minPlayerScale;
     public bool playerIsScaling;
 
@@ -43,7 +46,6 @@ public class PlayerScale : MonoBehaviour
     [HideInInspector] private Vector3 originalPlayerScale;
     [HideInInspector] public Vector3 calculatedPlayerMaxScale;
     [HideInInspector] public Vector3 calculatedPlayerMinScale;
-
 
     void Start()
     {
@@ -111,18 +113,18 @@ public class PlayerScale : MonoBehaviour
         #endregion
 
         // Can scale freely if no collision, can only scale down if has collision
-        if (IsCollisionFree() || (!IsCollisionFree() && Input.mouseScrollDelta.y < 0f))
+        if (IsCollisionFree() || (!IsCollisionFree() && GetScaleAxis() < 0f))
         {
             #region SCALE SELF
 
             Vector3 normalizedPlayerScale = new Vector3(Math.Abs(originalPlayerScale.x), originalPlayerScale.y, originalPlayerScale.z).normalized;
-            transform.localScale += Vector3.Scale(new Vector3(Mathf.Sign(transform.localScale.x), 1, 1), normalizedPlayerScale) * Input.mouseScrollDelta.y * playerScaleSpeed;
+            transform.localScale += Vector3.Scale(new Vector3(Mathf.Sign(transform.localScale.x), 1, 1), normalizedPlayerScale) * GetScaleAxis();
 
             // push player down when scaling up
             // GetComponent<Rigidbody2D>().AddForce(Vector2.down * 10f, ForceMode2D.Impulse);
 
             // update playerIsScaling
-            playerIsScaling = Input.mouseScrollDelta.y != 0;
+            playerIsScaling = GetScaleAxis() != 0;
 
             // Clamp player scale
             if (Math.Abs(transform.localScale.x) > calculatedPlayerMaxScale.x)
@@ -144,7 +146,7 @@ public class PlayerScale : MonoBehaviour
         {
             Scalable scalableObject = activeTaggedObject.GetComponent<Scalable>();
 
-            if (scalableObject.isScalable() || (Input.mouseScrollDelta.y < 0f))
+            if (scalableObject.isScalable() || (GetScaleAxis() < 0f))
             {
 
                 // Scale Proportionally
@@ -157,11 +159,11 @@ public class PlayerScale : MonoBehaviour
                         Vector3 normalizedOriginalScale = new Vector3(Math.Abs(objectOriginalScale.x), objectOriginalScale.y, objectOriginalScale.z).normalized;
 
                         // scale the active object
-                        activeTaggedObject.transform.localScale += Vector3.Scale(new Vector3(Mathf.Sign(activeTaggedObject.transform.localScale.x), 1, 1), normalizedOriginalScale) * Input.mouseScrollDelta.y * playerScaleSpeed;
+                        activeTaggedObject.transform.localScale += Vector3.Scale(new Vector3(Mathf.Sign(activeTaggedObject.transform.localScale.x), 1, 1), normalizedOriginalScale) * GetScaleAxis();
 
-                        if (Vector3.Scale(new Vector3(Mathf.Sign(activeTaggedObject.transform.localScale.x), 1, 1), normalizedOriginalScale) * Input.mouseScrollDelta.y * playerScaleSpeed != Vector3.zero)
+                        if (Vector3.Scale(new Vector3(Mathf.Sign(activeTaggedObject.transform.localScale.x), 1, 1), normalizedOriginalScale) * GetScaleAxis() != Vector3.zero)
                         {
-                            Debug.Log("Scaling " + activeTaggedObject.name + " proportionally: " + Vector3.Scale(new Vector3(Mathf.Sign(activeTaggedObject.transform.localScale.x), 1, 1), normalizedOriginalScale) * Input.mouseScrollDelta.y * playerScaleSpeed);
+                            Debug.Log("Scaling " + activeTaggedObject.name + " proportionally: " + Vector3.Scale(new Vector3(Mathf.Sign(activeTaggedObject.transform.localScale.x), 1, 1), normalizedOriginalScale) * GetScaleAxis());
                         }
 
                         // clamp active object scale
@@ -179,7 +181,7 @@ public class PlayerScale : MonoBehaviour
 
                         break;
                     case ScaleOption.VERTICAL:
-                        activeTaggedObject.transform.localScale += Vector3.up * Input.mouseScrollDelta.y * playerScaleSpeed;
+                        activeTaggedObject.transform.localScale += Vector3.up * GetScaleAxis();
 
                         // clamp active object scale
                         if (scalableObject.calculatedMaxScale.y < Mathf.Abs(activeTaggedObject.transform.localScale.y))
@@ -203,18 +205,27 @@ public class PlayerScale : MonoBehaviour
         #endregion
 
         #region Play Scaling SFX
-        if (Input.mouseScrollDelta.y > 0f)
+        if (GetScaleAxis() > 0f)
         {
             scaleSFXSource.clip = scaleUpSFX;
             scaleSFXSource.PlayOneShot(scaleSFXSource.clip, scaleSFXVolume);
         }
-        else if (Input.mouseScrollDelta.y < 0f)
+        else if (GetScaleAxis() < 0f)
         {
             scaleSFXSource.clip = scaleDownSFX;
             scaleSFXSource.PlayOneShot(scaleSFXSource.clip, scaleSFXVolume);
         }
 
         #endregion
+
+        if(Input.GetMouseButtonDown(1))
+        {
+            EditorGUIUtility.SetWantsMouseJumping(1);
+        }
+        if(Input.GetMouseButtonUp(1))
+        {
+            EditorGUIUtility.SetWantsMouseJumping(0);
+        }
     }
 
     private void FixedUpdate()
@@ -416,5 +427,29 @@ public class PlayerScale : MonoBehaviour
     {
         scaleSFXSource.clip = taggingSFXs[UnityEngine.Random.Range(0, taggingSFXs.Length)];
         scaleSFXSource.PlayOneShot(scaleSFXSource.clip, taggingSFXVolume);
+    }
+
+    private float GetScaleAxis()
+    {
+        float axis = 0;
+        if(Input.mouseScrollDelta.y != 0)
+        {
+            axis = Input.mouseScrollDelta.y * scrollScaleSpeed;
+        }
+        if(Input.GetAxisRaw("Vertical") != 0)
+        {
+            axis = Input.GetAxisRaw("Vertical") * keyboardScaleSpeed;
+        }
+        if (Input.GetMouseButton(1))
+        {
+            axis = Input.mousePositionDelta.y * mouseScaleSpeed;
+            
+        }
+        return axis * masterScalingSpeed;
+    }
+
+    public void SetMasterScaleingSpeed(float scalingSpeed)
+    {
+        masterScalingSpeed = scalingSpeed;
     }
 }

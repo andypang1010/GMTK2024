@@ -503,7 +503,9 @@ MonoBehaviour:
   virtualCamera: {fileID: 0}
   eyeTracer: {fileID: 4091814307847152614}
   defaultPlayerScale: 1
-  playerScaleSpeed: 0.1
+  scrollScaleSpeed: 0.5
+  keyboardScaleSpeed: 0.1
+  mouseScaleSpeed: 0.01
   maxPlayerScale: 3
   minPlayerScale: 0.5
   playerIsScaling: 0
