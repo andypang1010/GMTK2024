@@ -60,6 +60,37 @@ public class PlayerScale : MonoBehaviour
 
     void Update()
     {
+        UpdateSelectedObject();
+        UpdateScaling();
+
+        UpdateEyeTracer();
+
+        #region Play Scaling SFX
+        if (GetScalingAxis() > 0f)
+        {
+            scaleSFXSource.clip = scaleUpSFX;
+            scaleSFXSource.PlayOneShot(scaleSFXSource.clip, scaleSFXVolume);
+        }
+        else if (GetScalingAxis() < 0f)
+        {
+            scaleSFXSource.clip = scaleDownSFX;
+            scaleSFXSource.PlayOneShot(scaleSFXSource.clip, scaleSFXVolume);
+        }
+        #endregion
+#if UNITY_EDITOR
+        if (Input.GetMouseButtonDown(1))
+        {
+            EditorGUIUtility.SetWantsMouseJumping(1);
+        }
+        if (Input.GetMouseButtonUp(1))
+        {
+            EditorGUIUtility.SetWantsMouseJumping(0);
+        }
+#endif
+    }
+
+    private void UpdateSelectedObject()
+    {
         if (activeTaggedObject)
         {
             if (!IsObjectAvailable(activeTaggedObject, true))
@@ -97,9 +128,10 @@ public class PlayerScale : MonoBehaviour
                 DeselectObject();
             }
         }
+    }
 
-        UpdateEyeTracer();
-
+    private void UpdateScaling()
+    {
         #region CHECK SCALE CONDITION
 
         if (!playerMovement.IsGrounded() || Mathf.Abs(playerMovement.horizontal) > 0) return;
@@ -113,28 +145,29 @@ public class PlayerScale : MonoBehaviour
         #endregion
 
         // Can scale freely if no collision, can only scale down if has collision
-        if (IsCollisionFree() || (!IsCollisionFree() && GetScaleAxis() < 0f))
+        if (GetScalingAxis() != 0f && (IsCollisionFree() || GetScalingAxis() < 0f))
         {
             #region SCALE SELF
 
             Vector3 normalizedPlayerScale = new Vector3(Math.Abs(originalPlayerScale.x), originalPlayerScale.y, originalPlayerScale.z).normalized;
-            transform.localScale += Vector3.Scale(new Vector3(Mathf.Sign(transform.localScale.x), 1, 1), normalizedPlayerScale) * GetScaleAxis();
+            normalizedPlayerScale.x *= Mathf.Sign(transform.localScale.x);
+            transform.localScale += normalizedPlayerScale * GetScalingAxis();
 
             // push player down when scaling up
             // GetComponent<Rigidbody2D>().AddForce(Vector2.down * 10f, ForceMode2D.Impulse);
 
             // update playerIsScaling
-            playerIsScaling = GetScaleAxis() != 0;
+            playerIsScaling = GetScalingAxis() != 0;
 
             // Clamp player scale
             if (Math.Abs(transform.localScale.x) > calculatedPlayerMaxScale.x)
             {
-                transform.localScale = Vector3.Scale(calculatedPlayerMaxScale, new Vector3(Mathf.Sign(transform.localScale.x), 1, 1));
+                transform.localScale = VecToPlayerFacingDir(calculatedPlayerMaxScale);
             }
 
             else if (Math.Abs(transform.localScale.x) < calculatedPlayerMinScale.x)
             {
-                transform.localScale = Vector3.Scale(calculatedPlayerMinScale, new Vector3(Mathf.Sign(transform.localScale.x), 1, 1));
+                transform.localScale = VecToPlayerFacingDir(calculatedPlayerMinScale);
             }
 
             UpdateCamera();
@@ -146,7 +179,7 @@ public class PlayerScale : MonoBehaviour
         {
             Scalable scalableObject = activeTaggedObject.GetComponent<Scalable>();
 
-            if (scalableObject.isScalable() || (GetScaleAxis() < 0f))
+            if (scalableObject.isScalable() || GetScalingAxis() < 0f)
             {
 
                 // Scale Proportionally
@@ -159,83 +192,48 @@ public class PlayerScale : MonoBehaviour
                         Vector3 normalizedOriginalScale = new Vector3(Math.Abs(objectOriginalScale.x), objectOriginalScale.y, objectOriginalScale.z).normalized;
 
                         // scale the active object
-                        activeTaggedObject.transform.localScale += Vector3.Scale(new Vector3(Mathf.Sign(activeTaggedObject.transform.localScale.x), 1, 1), normalizedOriginalScale) * GetScaleAxis();
+                        activeTaggedObject.transform.localScale += VecToActiveObjFacingDir(normalizedOriginalScale) * GetScalingAxis();
 
-                        if (Vector3.Scale(new Vector3(Mathf.Sign(activeTaggedObject.transform.localScale.x), 1, 1), normalizedOriginalScale) * GetScaleAxis() != Vector3.zero)
+                        if (VecToActiveObjFacingDir(normalizedOriginalScale) * GetScalingAxis() != Vector3.zero)
                         {
-                            Debug.Log("Scaling " + activeTaggedObject.name + " proportionally: " + Vector3.Scale(new Vector3(Mathf.Sign(activeTaggedObject.transform.localScale.x), 1, 1), normalizedOriginalScale) * GetScaleAxis());
+                            Debug.Log("Scaling " + activeTaggedObject.name + " proportionally: " + VecToActiveObjFacingDir(normalizedOriginalScale) * GetScalingAxis());
                         }
 
                         // clamp active object scale
                         if (scalableObject.calculatedMaxScale.x < Mathf.Abs(activeTaggedObject.transform.localScale.x))
                         {
                             Debug.Log("Clamping object scale - max");
-                            activeTaggedObject.transform.localScale = Vector3.Scale(activeTaggedObject.transform.localScale.x > 0 ? Vector3.one : new Vector3(-1, 1, 1), scalableObject.calculatedMaxScale);
+                            activeTaggedObject.transform.localScale = VecToActiveObjFacingDir(scalableObject.calculatedMaxScale);
                         }
 
                         if (scalableObject.calculatedMinScale.x > Mathf.Abs(activeTaggedObject.transform.localScale.x))
                         {
                             Debug.Log("Clamping object scale - min");
-                            activeTaggedObject.transform.localScale = Vector3.Scale(activeTaggedObject.transform.localScale.x > 0 ? Vector3.one : new Vector3(-1, 1, 1), scalableObject.calculatedMinScale);
+                            activeTaggedObject.transform.localScale = VecToActiveObjFacingDir(scalableObject.calculatedMinScale);
                         }
 
                         break;
                     case ScaleOption.VERTICAL:
-                        activeTaggedObject.transform.localScale += Vector3.up * GetScaleAxis();
+                        activeTaggedObject.transform.localScale += Vector3.up * GetScalingAxis();
 
                         // clamp active object scale
                         if (scalableObject.calculatedMaxScale.y < Mathf.Abs(activeTaggedObject.transform.localScale.y))
                         {
                             Debug.Log("Clamping object scale - max");
-                            activeTaggedObject.transform.localScale = Vector3.Scale(activeTaggedObject.transform.localScale.y > 0 ? Vector3.one : new Vector3(-1, 1, 1), scalableObject.calculatedMaxScale);
+                            activeTaggedObject.transform.localScale = VecToActiveObjFacingDir(scalableObject.calculatedMaxScale);
                         }
 
                         if (scalableObject.calculatedMinScale.y > Mathf.Abs(activeTaggedObject.transform.localScale.y))
                         {
                             Debug.Log("Clamping object scale - min");
-                            activeTaggedObject.transform.localScale = Vector3.Scale(activeTaggedObject.transform.localScale.y > 0 ? Vector3.one : new Vector3(-1, 1, 1), scalableObject.calculatedMinScale);
+                            activeTaggedObject.transform.localScale = VecToActiveObjFacingDir(scalableObject.calculatedMinScale);
                         }
 
                         break;
                 }
-
             }
         }
-
         #endregion
-
-        #region Play Scaling SFX
-        if (GetScaleAxis() > 0f)
-        {
-            scaleSFXSource.clip = scaleUpSFX;
-            scaleSFXSource.PlayOneShot(scaleSFXSource.clip, scaleSFXVolume);
-        }
-        else if (GetScaleAxis() < 0f)
-        {
-            scaleSFXSource.clip = scaleDownSFX;
-            scaleSFXSource.PlayOneShot(scaleSFXSource.clip, scaleSFXVolume);
-        }
-
-        #endregion
-
-        if(Input.GetMouseButtonDown(1))
-        {
-            EditorGUIUtility.SetWantsMouseJumping(1);
-        }
-        if(Input.GetMouseButtonUp(1))
-        {
-            EditorGUIUtility.SetWantsMouseJumping(0);
-        }
-    }
-
-    private void FixedUpdate()
-    {
-        //UpdateCamera();
-    }
-
-    private void LateUpdate()
-    {
-        //UpdateCamera();
     }
 
     private GameObject GetClickedObject()
@@ -376,15 +374,10 @@ public class PlayerScale : MonoBehaviour
 
     public bool IsCollisionFree()
     {
-        bool leftFree = !Physics2D.OverlapBox(transform.position + Vector3.left * (Math.Abs(transform.localScale.x) / 2), GetVerticalBoxSize(), 0, ~LayerMask.GetMask("Player", "UI"));
-        // print("Left: " + Physics2D.OverlapBox(transform.position + Vector3.left * (Math.Abs(transform.localScale.x) / 2), new Vector2(0.05f, 0.9f * transform.localScale.y), 0, ~LayerMask.GetMask("Player", "UI")).gameObject.name);
+        bool leftFree = !Physics2D.OverlapBox(GetObjEdgePos(-1, 0), GetVerticalBoxSize(), 0, ~LayerMask.GetMask("Player", "UI"));
+        bool rightFree = !Physics2D.OverlapBox(GetObjEdgePos(1, 0), GetVerticalBoxSize(), 0, ~LayerMask.GetMask("Player", "UI"));
 
-        bool rightFree = !Physics2D.OverlapBox(transform.position + Vector3.right * (Math.Abs(transform.localScale.x) / 2), GetVerticalBoxSize(), 0, ~LayerMask.GetMask("Player", "UI"));
-        // print("Right: " + Physics2D.OverlapBox(transform.position + Vector3.right * (Math.Abs(transform.localScale.x) / 2), new Vector2(0.05f, 0.9f * transform.localScale.y), 0, ~LayerMask.GetMask("Player", "UI")).gameObject.name);
-
-        bool topFree = !Physics2D.OverlapBox(transform.position + Vector3.up * (transform.localScale.y / 2), GetHorizontalBoxSize(), 0, ~LayerMask.GetMask("Player", "UI"));
-        // print("Top: " + Physics2D.OverlapBox(transform.position + Vector3.up * (transform.localScale.y / 2), new Vector2(0.9f * Math.Abs(transform.localScale.x), 0.05f), 0, ~LayerMask.GetMask("Player", "UI")).gameObject.name);
-
+        bool topFree = !Physics2D.OverlapBox(GetObjEdgePos(0, 1), GetHorizontalBoxSize(), 0, ~LayerMask.GetMask("Player", "UI"));
 
         return (leftFree || rightFree) && topFree;
     }
@@ -392,9 +385,9 @@ public class PlayerScale : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.white;
-        Gizmos.DrawCube(transform.position + Vector3.left * (Mathf.Abs(transform.localScale.x) / 2), GetVerticalBoxSize());
-        Gizmos.DrawCube(transform.position + Vector3.right * (Mathf.Abs(transform.localScale.x) / 2), GetVerticalBoxSize());
-        Gizmos.DrawCube(transform.position + Vector3.up * (transform.localScale.y / 2), GetHorizontalBoxSize());
+        Gizmos.DrawCube(GetObjEdgePos(-1, 0), GetVerticalBoxSize());
+        Gizmos.DrawCube(GetObjEdgePos(1, 0), GetVerticalBoxSize());
+        Gizmos.DrawCube(GetObjEdgePos(0, 1), GetHorizontalBoxSize());
 
         Vector2 playerFrontNormal = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
         // gizmo draw player front normal
@@ -410,6 +403,27 @@ public class PlayerScale : MonoBehaviour
     private Vector2 GetHorizontalBoxSize()
     {
         return new Vector2(0.7f * Mathf.Abs(transform.localScale.x), 0.05f);
+    }
+
+    /// <summary>
+    /// Get the position of a given edge's center. One of xDir and yDir should always be 0.
+    /// </summary>
+    /// <param name="xDir">xDir = 1 for pos X, -1 for neg X</param>
+    /// <param name="yDir">yDir = 1 for pos Y, -1 for neg Y</param>
+    /// <returns>The box position</returns>
+    private Vector2 GetObjEdgePos(int xDir, int yDir)
+    {
+        Vector3 dir = new Vector3(xDir, yDir, 0);
+        float posOffset = 0;
+        if (xDir != 0)
+        {
+            posOffset = Math.Abs(transform.localScale.x) / 2;
+        }
+        else if (yDir != 0)
+        {
+            posOffset = Math.Abs(transform.localScale.y) / 2;
+        }
+        return transform.position + dir * posOffset;
     }
 
     public void ResetPlayerScale()
@@ -429,21 +443,43 @@ public class PlayerScale : MonoBehaviour
         scaleSFXSource.PlayOneShot(scaleSFXSource.clip, taggingSFXVolume);
     }
 
-    private float GetScaleAxis()
+    /// <summary>
+    /// Modify the given vector so the x component is congruent with the player's facing direction
+    /// </summary>
+    /// <param name="vector"></param>
+    /// <returns></returns>
+    private Vector3 VecToPlayerFacingDir(Vector3 vector)
+    {
+        vector.x = Mathf.Sign(transform.localScale.x) * Mathf.Abs(vector.x);
+        return vector;
+    }
+
+    /// <summary>
+    /// Modify the given vector so the x component is congruent with the active object's facing direction
+    /// </summary>
+    /// <param name="vector"></param>
+    /// <returns></returns>
+    private Vector3 VecToActiveObjFacingDir(Vector3 vector)
+    {
+        vector.x = Mathf.Sign(activeTaggedObject.transform.localScale.x) * Mathf.Abs(vector.x);
+        return vector;
+    }
+
+    private float GetScalingAxis()
     {
         float axis = 0;
-        if(Input.mouseScrollDelta.y != 0)
+        if (Input.mouseScrollDelta.y != 0)
         {
             axis = Input.mouseScrollDelta.y * scrollScaleSpeed;
         }
-        if(Input.GetAxisRaw("Vertical") != 0)
+        if (Input.GetAxisRaw("Vertical") != 0)
         {
             axis = Input.GetAxisRaw("Vertical") * keyboardScaleSpeed;
         }
         if (Input.GetMouseButton(1))
         {
             axis = Input.mousePositionDelta.y * mouseScaleSpeed;
-            
+
         }
         return axis * masterScalingSpeed;
     }

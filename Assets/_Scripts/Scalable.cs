@@ -87,9 +87,9 @@ public class Scalable : MonoBehaviour
 
     public bool IsCollisionFree()
     {
-        Collider2D leftCol = Physics2D.OverlapBox(GetBoxPos(-1, 0), GetVerticalBoxSize(), 0, ~whatToIgnore);
-        Collider2D rightCol = Physics2D.OverlapBox(GetBoxPos(1, 0), GetVerticalBoxSize(), 0, ~whatToIgnore);
-        Collider2D topCol = Physics2D.OverlapBox(GetBoxPos(0, 1), GetHorizontalBoxSize(), 0, ~whatToIgnore);
+        Collider2D leftCol = Physics2D.OverlapBox(GetObjEdgePos(-1, 0), GetVerticalBoxSize(), 0, ~whatToIgnore);
+        Collider2D rightCol = Physics2D.OverlapBox(GetObjEdgePos(1, 0), GetVerticalBoxSize(), 0, ~whatToIgnore);
+        Collider2D topCol = Physics2D.OverlapBox(GetObjEdgePos(0, 1), GetHorizontalBoxSize(), 0, ~whatToIgnore);
 
         //Debug.Log(gameObject.name + " left collider: " + leftCol?.name);
         //Debug.Log(gameObject.name + " right collider: " + rightCol?.name);
@@ -125,12 +125,12 @@ public class Scalable : MonoBehaviour
     }
 
     /// <summary>
-    /// One of xDir and yDir should be 0
+    /// Get the position of a given edge's center. One of xDir and yDir should always be 0.
     /// </summary>
     /// <param name="xDir">xDir = 1 for pos X, -1 for neg X</param>
     /// <param name="yDir">yDir = 1 for pos Y, -1 for neg Y</param>
     /// <returns>The box position</returns>
-    private Vector2 GetBoxPos(int xDir, int yDir)
+    private Vector2 GetObjEdgePos(int xDir, int yDir)
     {
         Vector3 dir = new Vector3(xDir, yDir, 0);
         float posOffset = 0;
@@ -152,9 +152,9 @@ public class Scalable : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawCube(GetBoxPos(-1, 0), GetVerticalBoxSize());
-        Gizmos.DrawCube(GetBoxPos(1, 0), GetVerticalBoxSize());
-        Gizmos.DrawCube(GetBoxPos(0, 1), GetHorizontalBoxSize());
+        Gizmos.DrawCube(GetObjEdgePos(-1, 0), GetVerticalBoxSize());
+        Gizmos.DrawCube(GetObjEdgePos(1, 0), GetVerticalBoxSize());
+        Gizmos.DrawCube(GetObjEdgePos(0, 1), GetHorizontalBoxSize());
     }
 }
 
