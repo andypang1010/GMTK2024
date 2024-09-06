@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -40,7 +41,7 @@ public class GameManager : MonoBehaviour
         {
             if (level == currentLevel)
             {
-                Debug.Log("Current level is " + level.name);
+                // Debug.Log("Current level is " + level.name);
                 foreach (Transform element in level.transform)
                 {
                     element.gameObject.SetActive(true);
@@ -90,12 +91,13 @@ public class GameManager : MonoBehaviour
 
     public void ResetLevel()
     {
+        Instance.currentGameState = GameState.GAME;
         Time.timeScale = 1f;
 
-        print("Level reset");
+        // print("Level reset");
         if (currentLevel == null)
         {
-            print("Currently at lobby");
+            // print("Currently at lobby");
             return;
         }
 
@@ -107,30 +109,42 @@ public class GameManager : MonoBehaviour
 
         foreach (Transform element in currentLevel.transform)
         {
-            Debug.Log("Resetting " + element.name + "! It's transform is " + element.transform.position);
+
+            // RESET SCALING
             if (element.TryGetComponent(out Scalable scalable))
             {
-                scalable.ResetScale();
+                scalable.ResetScalable();
             }
 
-            if (element.TryGetComponent(out NPCMovement npcMovement))
-            {
-                if (npcMovement.enabled)
-                {
-                    npcMovement.ResetPosition();
+            
+            if (element.childCount > 0) {
+                foreach (Transform child in element) {
+                    if (child.TryGetComponent(out Scalable childScalable)) {
+                        childScalable.ResetScalable();
+                    }
                 }
             }
 
+            // RESET OTHER COMPONENTS
             if (element.TryGetComponent(out Elevator elevator))
             {
                 elevator.ResetElevator();
             }
+
+            if (element.TryGetComponent(out Door door)) {
+                door.Close();
+            }
+
+            if (element.childCount > 0 && element.GetChild(0).TryGetComponent(out PhysicsButton button)) {
+                button.ResetButton();
+            }
         }
 
+        GameObject audioManager = GameObject.Find("AUDIO MANAGER");
 
-        currentGameState = GameState.GAME;
-
-        GameObject.Find("AUDIO MANAGER").GetComponent<BGMManager>().ResetAudio();
+        if (audioManager != null) {
+            audioManager.GetComponent<BGMManager>().ResetAudio();
+        }
     }
 
     public void DrainTea()

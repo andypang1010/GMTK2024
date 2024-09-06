@@ -65,7 +65,7 @@ public class NPCMovement : MonoBehaviour
         foreach (Collider2D collider in colliders)
         {
             if (collider.gameObject == gameObject || ignoreColliders.Contains(collider)) continue;
-            Debug.Log(gameObject.name + " colliding with: " + collider.gameObject.name);
+            // Debug.Log(gameObject.name + " colliding with: " + collider.gameObject.name);
             return true;
         }
 

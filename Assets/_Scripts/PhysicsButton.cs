@@ -20,10 +20,16 @@ public class PhysicsButton : MonoBehaviour
     public UnityEvent onPressed;
     public UnityEvent onReleased;
 
+    Vector3 defaultButtonPosition;
+    bool resetting;
     // Start is called before the first frame update
     void Start()
     {
         Collider2D localCollider = GetComponent<Collider2D>();
+        defaultButtonPosition = buttonTop.position;
+
+        // print("Default " + gameObject.name + " buttonTop pos: " + defaultButtonPosition);
+
         if (localCollider != null)
         {
             Physics2D.IgnoreCollision(localCollider, buttonTop.GetComponentInChildren<Collider2D>());
@@ -49,7 +55,10 @@ public class PhysicsButton : MonoBehaviour
             transform.eulerAngles = savedAngle;
         }
         else
+        {
             upperLowerDiff = buttonUpperLimit.position.y - buttonLowerLimit.position.y;
+        }
+
     }
 
     // Update is called once per frame
@@ -74,6 +83,8 @@ public class PhysicsButton : MonoBehaviour
         else
             isPressed = false;
 
+        // print(gameObject.transform.parent.name + " isPressed: " + isPressed);
+        // print(gameObject.transform.parent.name + " Check pressed logic: " + ((isPressed && prevPressedState) != isPressed));
         if (isPressed && prevPressedState != isPressed)
             Pressed();
         if (!isPressed && prevPressedState != isPressed)
@@ -90,6 +101,7 @@ public class PhysicsButton : MonoBehaviour
 
     void Pressed()
     {
+        // print("Pressed Called");
         prevPressedState = isPressed;
         if (pressedSound)
         {
@@ -108,5 +120,16 @@ public class PhysicsButton : MonoBehaviour
             releasedSound.Play();
         }
         onReleased.Invoke();
+    }
+
+    public void ResetButton() {
+        resetting = true;
+
+        // print(gameObject.transform.parent.name + ": Reset Button ran");
+        buttonTopRigid.bodyType = RigidbodyType2D.Dynamic;
+        buttonTop.position = defaultButtonPosition;
+
+        isPressed = false;
+        prevPressedState = false;
     }
 }

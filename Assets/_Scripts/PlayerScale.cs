@@ -196,19 +196,19 @@ public class PlayerScale : MonoBehaviour
 
                         if (VecToActiveObjFacingDir(normalizedOriginalScale) * GetScalingAxis() != Vector3.zero)
                         {
-                            Debug.Log("Scaling " + activeTaggedObject.name + " proportionally: " + VecToActiveObjFacingDir(normalizedOriginalScale) * GetScalingAxis());
+                            // Debug.Log("Scaling " + activeTaggedObject.name + " proportionally: " + VecToActiveObjFacingDir(normalizedOriginalScale) * GetScalingAxis());
                         }
 
                         // clamp active object scale
                         if (scalableObject.calculatedMaxScale.x < Mathf.Abs(activeTaggedObject.transform.localScale.x))
                         {
-                            Debug.Log("Clamping object scale - max");
+                            // Debug.Log("Clamping object scale - max");
                             activeTaggedObject.transform.localScale = VecToActiveObjFacingDir(scalableObject.calculatedMaxScale);
                         }
 
                         if (scalableObject.calculatedMinScale.x > Mathf.Abs(activeTaggedObject.transform.localScale.x))
                         {
-                            Debug.Log("Clamping object scale - min");
+                            // Debug.Log("Clamping object scale - min");
                             activeTaggedObject.transform.localScale = VecToActiveObjFacingDir(scalableObject.calculatedMinScale);
                         }
 

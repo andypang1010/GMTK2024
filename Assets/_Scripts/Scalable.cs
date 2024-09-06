@@ -12,9 +12,12 @@ public class Scalable : MonoBehaviour
     [HideInInspector] public Vector3 calculatedMinScale;
     [HideInInspector] public Vector3 calculatedMaxScale;
 
+    Vector3 originalPosition;
+
     void Start()
     {
         originalScale = transform.localScale;
+        originalPosition = transform.position;
 
         switch (scaleOption)
         {
@@ -145,9 +148,10 @@ public class Scalable : MonoBehaviour
         return transform.position + dir * posOffset;
     }
 
-    public void ResetScale()
+    public void ResetScalable()
     {
         transform.localScale = originalScale;
+        transform.position = originalPosition;
     }
 
     private void OnDrawGizmos()

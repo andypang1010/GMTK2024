@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Door : MonoBehaviour
@@ -24,6 +25,7 @@ public class Door : MonoBehaviour
 
     public void Open()
     {
+        // print(gameObject.name + ": Called Open()");
         transform.position = moveToPos;
     }
 
