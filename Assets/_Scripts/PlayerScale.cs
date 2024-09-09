@@ -156,9 +156,6 @@ public class PlayerScale : MonoBehaviour
             // push player down when scaling up
             // GetComponent<Rigidbody2D>().AddForce(Vector2.down * 10f, ForceMode2D.Impulse);
 
-            // update playerIsScaling
-            playerIsScaling = GetScalingAxis() != 0;
-
             // Clamp player scale
             if (Math.Abs(transform.localScale.x) > calculatedPlayerMaxScale.x)
             {
@@ -173,6 +170,9 @@ public class PlayerScale : MonoBehaviour
             UpdateCamera();
             #endregion
         }
+
+        // update playerIsScaling
+        playerIsScaling = GetScalingAxis() != 0;
 
         #region SCALE TAGGED OBJECT
         if (activeTaggedObject)

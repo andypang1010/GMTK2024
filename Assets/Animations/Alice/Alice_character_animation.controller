@@ -75,7 +75,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: New State
+  m_Name: Alice_Jump_Stay
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -664,7 +664,7 @@ AnimatorStateMachine:
     m_Position: {x: 910, y: 310, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 66601501628585246}
-    m_Position: {x: 680, y: -10, z: 0}
+    m_Position: {x: 640, y: 0, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1201403770190907431}
     m_Position: {x: 570, y: -90, z: 0}
@@ -702,7 +702,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.24999997
+  m_TransitionDuration: 0.07277068
   m_TransitionOffset: 0
   m_ExitTime: 0
   m_HasExitTime: 0
@@ -802,9 +802,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.093314834
-  m_TransitionOffset: 0.12464608
-  m_ExitTime: 0.12831225
+  m_TransitionDuration: 0.05271061
+  m_TransitionOffset: 0.012852708
+  m_ExitTime: 0.013230789
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -827,9 +827,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.24999991
+  m_TransitionDuration: 0.10871268
   m_TransitionOffset: 0
-  m_ExitTime: 0.018580822
+  m_ExitTime: 0.018580824
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
