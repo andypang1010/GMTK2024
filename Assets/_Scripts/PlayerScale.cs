@@ -43,7 +43,7 @@ public class PlayerScale : MonoBehaviour
     public float scaleSFXVolume = 0.3f;
     public float taggingSFXVolume = 0.6f;
 
-    [HideInInspector] private Vector3 originalPlayerScale;
+    [HideInInspector] public Vector3 originalPlayerScale;
     [HideInInspector] public Vector3 calculatedPlayerMaxScale;
     [HideInInspector] public Vector3 calculatedPlayerMinScale;
 

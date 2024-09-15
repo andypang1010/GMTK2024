@@ -138,9 +138,11 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        float scaleMultiplier = Mathf.Abs(transform.localScale.x / playerScale.originalPlayerScale.x);
+
         if (IsGrounded())
         {
-            rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);
+            rb.velocity = new Vector2(horizontal * moveSpeed * scaleMultiplier, rb.velocity.y);
 
             if (Mathf.Abs(horizontal) > 0)
             {
@@ -155,7 +157,7 @@ public class PlayerMovement : MonoBehaviour
         // Damping in air
         else
         {
-            rb.velocity = new Vector2(horizontal * moveSpeed * 0.7f, rb.velocity.y);
+            rb.velocity = new Vector2(horizontal * moveSpeed * scaleMultiplier * 0.7f, rb.velocity.y);
         }
     }
 
